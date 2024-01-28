@@ -7,8 +7,20 @@ import { useUser } from './usercontext.js';
 import { db } from '../../services/FirebaseConfig.js';
 import {createUserWithEmailAndPassword} from "firebase/auth";
 import {collection , addDoc} from "firebase/firestore";
+import Ionicons from "react-native-vector-icons/Ionicons";
 import "firebase/firestore";
 import {authState} from '../../services/FirebaseConfig.js';
+import RNDateTimePicker from '@react-native-community/datetimepicker';
+
+/*<SelectList 
+                        setSelected={(val) => setSelected(val)} 
+                        data={data} 
+                        save="value"
+                        placeholder='Selecione seu ano de nascimento'
+                        search={false}
+                        boxStyles={{width:"95%",alignSelf:"center"}}
+                    /> */
+
 
 const Cadastro = ({ navigation }) => {
     const imagesData = [
@@ -24,6 +36,7 @@ const Cadastro = ({ navigation }) => {
       "Zing.rust": require("../../assets/fonts/zing.rust-demo-base.otf"),
     });
   
+    const [isDatePickerVisible, setDatePickerVisible] = useState(false);
     const [selected, setSelected] = useState("");
     const data = [];
     const [Nome , SetarNome] = useState("");
@@ -31,8 +44,30 @@ const Cadastro = ({ navigation }) => {
     const [Senha , SetarSenha] = useState("");
     const [KeyboardVisible , setKeyboardVisible] = useState(false);
     const {setIdutilizador} = useUser();
+    const [Idade , setIdade] = useState(null);
+    const now = new Date();
+    const CurrentYear = now.getFullYear();
+    const [Year , setYear] = useState(null);
 
 
+    useEffect(() => {
+        if (Year !== null) {
+            const idade = CurrentYear - Year;
+            setIdade(idade);
+        }
+    }, [Year]);
+    
+    useEffect(() => {
+        console.log(isDatePickerVisible);
+    }, [isDatePickerVisible]);
+    
+
+
+    const OpenDatetimePicker = () => {
+        setDatePickerVisible(true);
+    };
+
+      
 
     useEffect(() => {
         const KeyBoardShowListener = Keyboard.addListener("keyboardDidShow" , () =>{
@@ -57,12 +92,10 @@ const Cadastro = ({ navigation }) => {
 
     const HandleCadastro = () =>{
         try{
-            if (Email === "" || Senha === "" || Nome === "" || selected === "") {
+            if (Email === "" || Senha === "" || Nome === "" || Idade === null) {
                 alert("Os campos não podem estar vazios");
             }
             else{
-                let Idade = new Date().getFullYear() - selected;
-                    console.log(selected);
                     console.log(Idade);
                     createUserWithEmailAndPassword(authState, Email, Senha).then(async (userCredential) => {
                             const user = userCredential.user;
@@ -72,7 +105,7 @@ const Cadastro = ({ navigation }) => {
                             Nome : Nome,
                             Id : user.uid,
                             Idade : Idade
-                        }).then(navigation.navigate("Home"));
+                        }).then(navigation.replace("Perguntas"));
 
                     }).catch((error) => {
                         alert("Erro ao criar utilizador: " + error.message);
@@ -86,22 +119,11 @@ const Cadastro = ({ navigation }) => {
 
     return(
         <KeyboardAwareScrollView  style={{flex:1 , backgroundColor:"#323232"}} enableOnAndroid={true} extraScrollHeight={KeyboardVisible ? 150 : 0}>
+            <Image style={{width:"100%",height:"100%",zIndex:0,position:"absolute",}} source={require("../imgs/background.png")}></Image>
             <TouchableOpacity onPress={() => navigation.navigate("Login")}>
                 <Image style={{width:40,marginLeft:10}} source={require("../imgs/back.png")} resizeMode='contain'/>
             </TouchableOpacity>
-            {imagesData.map((image, index) => (
-                <Image
-                    key={index}
-                    style={{
-                        position: "absolute",
-                        marginLeft: image.marginLeft,
-                        marginTop: image.marginTop,
-                        transform: [{ rotate: `${image.rotate}deg` }],
-                        zIndex:-1
-                    }}
-                    source={require("../imgs/dumbell.png")}
-                />
-            ))}
+
             <View style={styles.div}>
 
                 <Text style={{...styles.fonttexto,textAlign:"center" , fontSize:45, marginTop:40,}}>Cadastro</Text>
@@ -112,14 +134,26 @@ const Cadastro = ({ navigation }) => {
                     <TextInput value={Nome} onChangeText={(text) => SetarNome(text.trim())} style={styles.input} placeholder='Insira seu nome'></TextInput>
 
                     <Text style={{...styles.fonttexto,color:"gray",marginBottom:10,marginLeft:10}}>Ano de nascimento</Text>
-                    <SelectList 
-                        setSelected={(val) => setSelected(val)} 
-                        data={data} 
-                        save="value"
-                        placeholder='Selecione seu ano de nascimento'
-                        search={false}
-                        boxStyles={{width:"95%",alignSelf:"center"}}
-                    />
+                    <TouchableOpacity onPress={() => OpenDatetimePicker()} style={{ alignSelf:"center", marginTop: 15, width: "100%", height: 50, padding: 10, borderWidth: 1, borderRadius: 20 }}>
+                        {
+                            (Idade == null)
+                            ?(
+                                <Text>Insira sua data de nascimento</Text>
+                            ):
+                            (
+                                (Idade <=14)
+                                ?
+                                (
+                                    <Text>Idade inferior a 15 anos</Text>
+                                )
+                                :
+                                (
+                                    <Text>{Idade}</Text>
+                                )
+                            )
+                        }
+                        <Ionicons style={{marginLeft:"90%",marginTop:-17}} name='chevron-down-outline' size={15} color={"black"}/>
+                    </TouchableOpacity>
 
                     <Text style={{...styles.fonttexto,color:"gray",marginBottom:10,marginLeft:10,marginTop:20}}>Email</Text>
                     <TextInput value={Email} onChangeText={(text) => SetarEmail(text.trim())} style={styles.input} placeholder='Insira seu E-mail'></TextInput>
@@ -138,6 +172,24 @@ const Cadastro = ({ navigation }) => {
                         </View>
                     </TouchableOpacity>
 
+                    {
+                        isDatePickerVisible && (
+                            <RNDateTimePicker 
+                                display="calendar"
+                                themeVariant="dark"
+                                value={new Date()}
+                                onChange={(event, selectedDate) => {
+                                    setDatePickerVisible(false);
+                                    if(selectedDate){
+                                        const selectedYear = selectedDate.getFullYear();
+                                        setYear(selectedYear);
+                                        setIdade(CurrentYear - selectedYear);
+                                    }
+                                }}
+                            />
+                        )
+                    }
+
                 </View>
             </View>
         </KeyboardAwareScrollView>
@@ -147,19 +199,18 @@ const Cadastro = ({ navigation }) => {
 const styles = StyleSheet.create({
     content:{
         width:"100%",
-        backgroundColor:"#323232"
+        backgroundColor:"#323232",
+        zIndex:2
     },
     div:{
         width:"100%",
         height:"85%",
         backgroundColor:"#ffffff",
         marginTop:"auto",
-        borderTopRightRadius:120
+        borderTopRightRadius:120,
+        zIndex:2
     },
-    img:{
-        flex:1,
-        alignSelf:"center"
-    },
+
     form:{
         flex:1,
         alignSelf:"center",
@@ -184,13 +235,7 @@ const styles = StyleSheet.create({
         marginBottom:20,
         backgroundColor:"black",
     },
-    backimgs:{
-        position:"absolute",
-        width:"30%",
-        marginLeft:10,
-        marginTop:10,
-        transform:[{rotate:"-45deg"}]
-    },
+
     fonttexto:{
         fontFamily:"Zing.rust"
     },

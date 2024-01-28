@@ -1,26 +1,39 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState , useEffect , memo } from 'react';
-import { StyleSheet, Text, View , Image,TextInput , TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View , Image,TextInput , TouchableOpacity,Keyboard } from 'react-native';
 import {useFonts} from "expo-font";
 import {signInWithEmailAndPassword, onAuthStateChanged} from "@firebase/auth";
 import "firebase/firestore";
 import {authState} from '../../services/FirebaseConfig.js';
 import { useUser } from './usercontext.js';
 
+/*{imagesData.map((image, index) => (
+                <Image
+                    key={index}
+                    style={{
+                        position: "absolute",
+                        marginLeft: image.marginLeft,
+                        marginTop: image.marginTop,
+                        transform: [{ rotate: `${image.rotate}deg` }],
+                        zIndex:-1
+                    }}
+                    source={require("../imgs/dumbell.png")}
+                />
+            ))} */
+
 
 const Login =({navigation}) => {
 
-    const imagesData = [
-        { marginLeft: 0, marginTop: 2, rotate: -40 },
-        { marginLeft: 100, marginTop: 2, rotate: -40 },
-        { marginLeft: -50, marginTop: 150, rotate: 40 },
-        { marginLeft: 20, marginTop: 80, rotate: -40 },
-        { marginLeft: 90, marginTop: 180, rotate: 40 },
-        { marginLeft: 240, marginTop: 180, rotate: -40 },
-        { marginLeft: 270, marginTop: 10, rotate: 60 },
-        { marginLeft: 270, marginTop: 95, rotate: 10 },
-        { marginLeft: 300, marginTop: 250, rotate: 60 },
-      ];
+      const [TecladoVisivel,setTecladoVisivel] = useState(false);
+
+      useEffect(() => {
+        const KeyBoardShowListener = Keyboard.addListener("keyboardDidShow" , () =>{
+            setTecladoVisivel(true);
+        });
+        const KeyBoardHideListener = Keyboard.addListener("keyboardDidHide" , () =>{
+            setTecladoVisivel(false);
+        })
+      });
       
     const [Email , SetarEmail] = useState("");
     const [Senha , SetarSenha] = useState("");
@@ -46,7 +59,7 @@ const Login =({navigation}) => {
             }
             else{
                 if(Email == AdminEmail && Senha == AdminPass){
-                    navigation.navigate("Home");
+                    navigation.replace("FirstShown");
                     setIdutilizador("Admin");
                 }
                 else{
@@ -62,7 +75,7 @@ const Login =({navigation}) => {
                         }
                     });
                     alert("Utilizador logado");
-                    navigation.navigate("Home");
+                    navigation.replace("Home");
                 }
             }
         }catch(error){
@@ -73,33 +86,23 @@ const Login =({navigation}) => {
 
     return(
         <View style={styles.content}>
+            <Image style={{width:"100%",height:"100%",zIndex:0,position:"absolute",}} source={require("../imgs/background.png")}></Image>
             <Image style={styles.img} source={require("../imgs/GymPro_sem_fundo.png")} resizeMode='contain'></Image>
-            {imagesData.map((image, index) => (
-                <Image
-                    key={index}
-                    style={{
-                        position: "absolute",
-                        marginLeft: image.marginLeft,
-                        marginTop: image.marginTop,
-                        transform: [{ rotate: `${image.rotate}deg` }],
-                        zIndex:-1
-                    }}
-                    source={require("../imgs/dumbell.png")}
-                />
-            ))}
             <View style={styles.div}>
 
                 <Text style={{...styles.fonttexto,textAlign:"center" , fontSize:45, marginTop:20,}}>Login</Text>
+                <TouchableOpacity style={{marginLeft:20,padding:10,borderWidth:1,borderColor:"red",width:100,position:"absolute"}} onPress={() => navigation.replace("Perguntas")}>
+                    <Text>Press-me</Text>
+                </TouchableOpacity>
                 <View id='Formulario' style={styles.form}>
 
                     <Text style={{...styles.fonttexto,color:"gray",marginBottom:10,marginLeft:10}}>Email</Text>
-                    <TextInput onChangeText={(text) => SetarEmail(text)} style={styles.input} placeholder='Insira seu E-mail'></TextInput>
-
+                    <TextInput onChangeText={(text) => SetarEmail(text)} style={styles.input} placeholder="Insira seu E-mail"/>
                     <Text style={{...styles.fonttexto,color:"gray",marginBottom:10,marginLeft:10}}>Senha</Text>
                     <TextInput onChangeText={(text) => SetarSenha(text)} style={styles.input} placeholder='Insira sua senha'></TextInput>
 
                     <TouchableOpacity onPress={() => HandleLogin()} style={styles.botoes}>
-                        <Text style={{...styles.fonttexto,textAlign:"center", color:"white"}}>Login</Text>
+                        <Text style={{...styles.fonttexto,textAlign:"center", color:"white",marginTop:3}}>Login</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.botoes}>
@@ -111,7 +114,7 @@ const Login =({navigation}) => {
 
                     <Text style={{...styles.fonttexto,textAlign:"center",marginBottom:5}}>Não tem uma conta?</Text>
                     <TouchableOpacity style={{...styles.botoes,width:"30%",marginBottom:5}} onPress={() => navigation.navigate("Cadastro")}>
-                        <Text style={{...styles.fonttexto,textAlign:"center",textDecorationLine:"underline",color:"white"}}>Crie uma</Text>
+                        <Text style={{...styles.fonttexto,textAlign:"center",textDecorationLine:"underline",color:"white",marginTop:3}}>Crie uma</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity>
@@ -128,7 +131,7 @@ const styles = StyleSheet.create({
     content:{
         width:"100%",
         height:"100%",
-        backgroundColor:"#323232"
+        zIndex:2,
     },
     div:{
         width:"100%",
@@ -139,7 +142,8 @@ const styles = StyleSheet.create({
     },
     img:{
         flex:1,
-        alignSelf:"center"
+        alignSelf:"center",
+        zIndex:2
     },
     form:{
         flex:1,
@@ -149,13 +153,13 @@ const styles = StyleSheet.create({
         padding:10
     },
     input:{
-        padding:15,
+        padding:10,
         borderWidth:1,
         borderRadius:20,
         width:"95%",
         marginBottom:20,
-        flex:1,
         alignSelf:"center",
+        color:"black"
     },
     botoes:{
         padding:10,
@@ -165,7 +169,7 @@ const styles = StyleSheet.create({
         marginBottom:20,
         backgroundColor:"black",
         flex:1,
-        alignSelf:"center"
+        alignSelf:"center",
     },
     backimgs:{
         position:"absolute",
