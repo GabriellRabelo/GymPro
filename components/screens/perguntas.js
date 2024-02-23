@@ -5,6 +5,8 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { SelectList } from 'react-native-dropdown-select-list';
 import { useUser } from './usercontext';
 import { TextInput } from 'react-native-gesture-handler';
+import {useFonts} from "expo-font";
+
 
 
 const Perguntas = ({ navigation }) => {
@@ -12,10 +14,20 @@ const Perguntas = ({ navigation }) => {
   const [barWidth, setBarWidth] = useState(0);
   const [divVisible, setDivVisible] = useState(false);
   const [KeyboardVisible , setKeyboardVisible] = useState(false);
-  const data = ["Masculino","Feminino"];
-  const [selected, setSelected] = useState("");
+  const dataSexo = ["Masculino","Feminino"];
+  const dataAtividade = ["Sedentario","Levemente Ativo","Moderadamente Ativo","Muito Ativo","Extremamente Ativo"];
+  const dataObj = ["Perda de gordura","Manter Peso","Ganho de massa muscular"];
   const {idutilizador} = useUser();
-
+  const [Sexo,setSexo] = useState(null);
+  const [selected,setSelected] = useState(null);
+  const [Peso,setPeso] = useState(null);
+  const [Altura,setAltura] = useState(null);
+  const [Atvfisica,setAtvfisica] = useState(null);
+  const [Objetivo,setObjetivo] = useState(null);
+  
+  const [fontsLoaded] = useFonts({
+    "Zing.rust": require("../../assets/fonts/zing.rust-demo-base.otf"),
+  });
 
 
   useEffect(() => {
@@ -30,7 +42,6 @@ const Perguntas = ({ navigation }) => {
   useEffect(() => {
     // Iniciar a animação de fade in quando o componente é montado
     fadeAnim.current.fadeIn(800).then(() => {
-      console.log('Apareceu!');
     });
 
     // Configurar a animação de carregamento da barra
@@ -43,8 +54,6 @@ const Perguntas = ({ navigation }) => {
     const timeout = setTimeout(() => {
       clearInterval(interval);
       fadeAnim.current.fadeOut(800).then(() => {
-        console.log('Desapareceu!');
-        console.log(idutilizador)
         // Tornar a View com estilo styles.div visível após a animação de fade-out
         setDivVisible(true);
       });
@@ -56,6 +65,45 @@ const Perguntas = ({ navigation }) => {
       clearTimeout(timeout);
     };
   }, []);
+
+  const HandleSubmit = async() =>{
+      if(Sexo == null || Peso == null || Altura == null || Atvfisica == null || Objetivo == null){
+        alert("Todos os dados devem ser devidamente preenchidos");
+      }
+      else{
+        try{
+          alert("Entrei")
+          const response = await fetch("http://192.168.0.18/api/calculo-dados-nutricionais",{
+            method:"POST",
+            headers:{
+              "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
+              Sexo,
+              Altura,
+              Peso,
+              Atvfisica,
+              Objetivo,
+            }),
+            timeout:10000
+          });
+
+          if(!response.ok){
+            console.error("Resposta não Ok: ",response.status + " -E mais isso: " + response.statusText);
+            const errortext = await response.text();
+            console.error("Detalhes do erro: ",errortext);
+            throw new Error("Falha na solicitação do servidor");
+          }
+          const data = await response.json();
+          console.log("Dados enviados com sucesso");
+          alert("Indo para tela Home...");
+
+        }catch(error){
+            console.error("Erro durante a solicitação: ",error.message);
+            alert("Algo deu errado, tente novamente mais tarde!");
+        }
+      }
+  }
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -84,11 +132,11 @@ const Perguntas = ({ navigation }) => {
         <Animatable.View animation="fadeIn" style={styles.div}>
           <KeyboardAwareScrollView style={{flex:1}} enableOnAndroid={true} extraScrollHeight={KeyboardVisible ? 150 : 0}>
             <View style={styles.container}>
-                <Text style={{textAlign:"center",fontSize:25}}>Preencha as informações abaixo:</Text>
+                <Text style={{textAlign:"center",fontSize:30,fontFamily:"Zing.rust"}}>Preencha as informações abaixo:</Text>
                 <Text style={styles.txt}>Sexo:</Text>
                 <SelectList
-                    setSelected={(val) => setSelected(val)}
-                    data={data}
+                    setSelected={(val) => setSexo(val)}
+                    data={dataSexo}
                     save='value'
                     placeholder='Selecione seu Sexo'
                     search={false}
@@ -96,8 +144,30 @@ const Perguntas = ({ navigation }) => {
                 />
 
                 <Text style={styles.txt}>Peso:</Text>
-                <TextInput style={{width:"95%",height:"5%",borderWidth:1,borderColor:"black",borderRadius:5,alignSelf:"center"}} placeholder='Insira seu peso'/>
-
+                <TextInput onChangeText={(value) => setPeso(value)} keyboardType='numeric' style={{marginTop:10,width:"95%",height:"5%",borderWidth:0.7,borderColor:"black",borderRadius:5,alignSelf:"center",padding:10}} placeholder='Insira seu peso'/>
+                <Text style={styles.txt}>Altura:</Text>
+                <TextInput onChangeText={(value) => setAltura(value)} keyboardType='numeric' style={{marginTop:10,width:"95%",height:"5%",borderWidth:0.7,borderColor:"black",borderRadius:5,alignSelf:"center",padding:5}} placeholder='Insira sua altura'/>
+                <Text style={styles.txt}>Atividade Fisica:</Text>
+                <SelectList
+                    setSelected={(val) => setAtvfisica(val)}
+                    data={dataAtividade}
+                    save='value'
+                    placeholder='Selecione sua atividade fisica'
+                    search={false}
+                    boxStyles={{width:"95%",alignSelf:"center",marginTop:10}}
+                />
+                <Text style={styles.txt}>Objetivo:</Text>
+                <SelectList
+                    setSelected={(val) => setObjetivo(val)}
+                    data={dataObj}
+                    save='value'
+                    placeholder='Selecione seu objetivo'
+                    search={false}
+                    boxStyles={{width:"95%",alignSelf:"center",marginTop:10}}
+                />
+                <TouchableOpacity onPress={() => HandleSubmit()} style={styles.button}>
+                  <Text style={{textAlign:"center",fontFamily:"Zing.rust",fontSize:17}}>Enviar</Text>
+                </TouchableOpacity>
             </View>
           </KeyboardAwareScrollView>
         </Animatable.View>
@@ -142,7 +212,6 @@ const styles = StyleSheet.create({
   container:{
     flex:1,
     alignSelf:"center",
-    backgroundColor:"red",
     width:"90%",
     marginTop:"10%",
     height:800
@@ -151,7 +220,16 @@ const styles = StyleSheet.create({
   txt:{
     marginLeft:10,
     marginTop:20,
-    fontSize:20
+    fontSize:20,
+    fontFamily:"Zing.rust"
+  },
+  button:{
+    alignSelf:"center",
+    marginTop:30,
+    padding:10,
+    borderWidth:1,
+    borderRadius:15,
+    width:"50%",
   }
 });
 
