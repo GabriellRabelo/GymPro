@@ -73,7 +73,7 @@ const Perguntas = ({ navigation }) => {
       else{
         try{
           alert("Entrei")
-          const response = await fetch("http://192.168.0.18/api/calculo-dados-nutricionais",{
+          const response = await fetch("http://192.168.1.138/api/calculo-dados-nutricionais",{
             method:"POST",
             headers:{
               "Content-Type":"application/json"
@@ -95,7 +95,7 @@ const Perguntas = ({ navigation }) => {
             throw new Error("Falha na solicitação do servidor");
           }
           const data = await response.json();
-          console.log("Dados enviados com sucesso");
+          console.log("Dados enviados com sucesso: ",data);
           alert("Indo para tela Home...");
 
         }catch(error){

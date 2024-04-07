@@ -6,6 +6,7 @@ import {signInWithEmailAndPassword, onAuthStateChanged} from "@firebase/auth";
 import "firebase/firestore";
 import {authState} from '../../services/FirebaseConfig.js';
 import { useUser } from './usercontext.js';
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 /*{imagesData.map((image, index) => (
                 <Image
@@ -37,6 +38,8 @@ const Login =({navigation}) => {
       
     const [Email , SetarEmail] = useState("");
     const [Senha , SetarSenha] = useState("");
+    const [HidePass , setHidePass] = useState(true);
+    const EyeIcon = HidePass ? require("../icons/view.png") : require("../icons/hide.png");
     const {setIdutilizador} = useUser();
     const AdminEmail = "Admin";
     const AdminPass ="Admin123";
@@ -99,9 +102,15 @@ const Login =({navigation}) => {
                     <Text style={{...styles.fonttexto,color:"gray",marginBottom:10,marginLeft:10}}>Email</Text>
                     <TextInput onChangeText={(text) => SetarEmail(text)} style={styles.input} placeholder="Insira seu E-mail"/>
                     <Text style={{...styles.fonttexto,color:"gray",marginBottom:10,marginLeft:10}}>Senha</Text>
-                    <TextInput onChangeText={(text) => SetarSenha(text)} style={styles.input} placeholder='Insira sua senha'></TextInput>
+                    
+                    <View>
+                        <TextInput secureTextEntry={HidePass} onChangeText={(text) => SetarSenha(text)} style={styles.input} placeholder='Insira sua senha'/>
+                        <TouchableOpacity onPress={() => setHidePass(!HidePass)} style={styles.eye}>
+                            <Image style={{ width: 30, height: 30 }} source={EyeIcon} />
+                         </TouchableOpacity>
+                    </View>
 
-                    <TouchableOpacity onPress={() => HandleLogin()} style={styles.botoes}>
+                    <TouchableOpacity onPress={() => HandleLogin()} style={TecladoVisivel ? {...styles.botoes,marginTop:30} : styles.botoes}>
                         <Text style={{...styles.fonttexto,textAlign:"center", color:"white",marginTop:3}}>Login</Text>
                     </TouchableOpacity>
 
@@ -148,7 +157,7 @@ const styles = StyleSheet.create({
     form:{
         flex:1,
         alignSelf:"center",
-        marginTop:10,
+        marginTop:5,
         width:"70%",
         padding:10
     },
@@ -171,15 +180,13 @@ const styles = StyleSheet.create({
         flex:1,
         alignSelf:"center",
     },
-    backimgs:{
-        position:"absolute",
-        width:"30%",
-        marginLeft:10,
-        marginTop:10,
-        transform:[{rotate:"-45deg"}]
-    },
     fonttexto:{
         fontFamily:"Zing.rust"
+    },
+    eye:{
+        position:"absolute",
+        marginLeft:"80%",
+        marginTop:10
     }
 })
 

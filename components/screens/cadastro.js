@@ -38,6 +38,8 @@ const Cadastro = ({ navigation }) => {
   
     const [isDatePickerVisible, setDatePickerVisible] = useState(false);
     const [selected, setSelected] = useState("");
+    const [HidePass , setHidePass] = useState(true);
+    const EyeIcon = HidePass ? require("../icons/view.png") : require("../icons/hide.png");
     const data = [];
     const [Nome , SetarNome] = useState("");
     const [Email , SetarEmail] = useState("");
@@ -118,7 +120,7 @@ const Cadastro = ({ navigation }) => {
     };
 
     return(
-        <KeyboardAwareScrollView  style={{flex:1 , backgroundColor:"#323232"}} enableOnAndroid={true} extraScrollHeight={KeyboardVisible ? 150 : 0}>
+        <KeyboardAwareScrollView  style={{flex:1 , backgroundColor:"#ffffff"}} enableOnAndroid={true} extraScrollHeight={KeyboardVisible ? 10 : 0}>
             <Image style={{width:"100%",height:"100%",zIndex:0,position:"absolute",}} source={require("../imgs/background.png")}></Image>
             <TouchableOpacity onPress={() => navigation.navigate("Login")}>
                 <Image style={{width:40,marginLeft:10}} source={require("../imgs/back.png")} resizeMode='contain'/>
@@ -159,7 +161,13 @@ const Cadastro = ({ navigation }) => {
                     <TextInput value={Email} onChangeText={(text) => SetarEmail(text.trim())} style={styles.input} placeholder='Insira seu E-mail'></TextInput>
 
                     <Text style={{...styles.fonttexto,color:"gray",marginBottom:10,marginLeft:10}}>Senha</Text>
-                    <TextInput value={Senha} onChangeText={(text) => SetarSenha(text.trim())} style={styles.input} placeholder='Insira sua senha'></TextInput>
+
+                    <View>
+                        <TextInput secureTextEntry={HidePass} value={Senha} onChangeText={(text) => SetarSenha(text.trim())} style={styles.input} placeholder='Insira sua senha'></TextInput>
+                        <TouchableOpacity onPress={() => setHidePass(!HidePass)} style={styles.eye}>
+                            <Image style={{ width: 30, height: 30 }} source={EyeIcon} />
+                         </TouchableOpacity>
+                    </View>
 
                     <TouchableOpacity onPress={() => HandleCadastro()} style={{...styles.botoes,marginTop:20}}>
                         <Text style={{...styles.fonttexto,textAlign:"center", color:"white"}}>Criar conta</Text>
@@ -197,11 +205,6 @@ const Cadastro = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-    content:{
-        width:"100%",
-        backgroundColor:"#323232",
-        zIndex:2
-    },
     div:{
         width:"100%",
         height:"85%",
@@ -239,6 +242,11 @@ const styles = StyleSheet.create({
     fonttexto:{
         fontFamily:"Zing.rust"
     },
+    eye:{
+        position:"absolute",
+        marginLeft:"80%",
+        marginTop:10
+    }
     
 })
 
