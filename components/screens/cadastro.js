@@ -1,7 +1,6 @@
 import { useState , useEffect , memo } from 'react';
 import { StyleSheet, Text, View , Image,TextInput , TouchableOpacity, Keyboard } from 'react-native';
 import {useFonts} from "expo-font";
-import { SelectList } from 'react-native-dropdown-select-list';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { useUser } from './usercontext.js';
 import { db } from '../../services/FirebaseConfig.js';
@@ -23,14 +22,6 @@ import RNDateTimePicker from '@react-native-community/datetimepicker';
 
 
 const Cadastro = ({ navigation }) => {
-    const imagesData = [
-      { marginLeft: 0, marginTop: 2, rotate: -40 },
-      { marginLeft: 140, marginTop: 2, rotate: -40 },
-      { marginLeft: 20, marginTop: 80, rotate: -40 },
-      { marginLeft: 140, marginTop: 100, rotate: -30 },
-      { marginLeft: 270, marginTop: 10, rotate: 60 },
-      { marginLeft: 270, marginTop: 95, rotate: 10 },
-    ];
   
     const [fontsLoaded] = useFonts({
       "Zing.rust": require("../../assets/fonts/zing.rust-demo-base.otf"),
@@ -97,6 +88,9 @@ const Cadastro = ({ navigation }) => {
             if (Email === "" || Senha === "" || Nome === "" || Idade === null) {
                 alert("Os campos não podem estar vazios");
             }
+            else if (/\d/.test(Nome)) {
+                alert("O campo ´Nome´ não pode conter numeros");
+            }
             else{
                     console.log(Idade);
                     createUserWithEmailAndPassword(authState, Email, Senha).then(async (userCredential) => {
@@ -128,7 +122,7 @@ const Cadastro = ({ navigation }) => {
 
             <View style={styles.div}>
 
-                <Text style={{...styles.fonttexto,textAlign:"center" , fontSize:45, marginTop:40,}}>Cadastro</Text>
+                <Text style={{...styles.fonttexto,textAlign:"center" , fontSize:45, marginTop:"5%",}}>Cadastro</Text>
                 <Text style={{...styles.fonttexto,textAlign:"center" , color:"gray"}}>Faça login para continuar</Text>
                 <View id='Formulario' style={styles.form}>
 
@@ -157,7 +151,7 @@ const Cadastro = ({ navigation }) => {
                         <Ionicons style={{marginLeft:"90%",marginTop:-17}} name='chevron-down-outline' size={15} color={"black"}/>
                     </TouchableOpacity>
 
-                    <Text style={{...styles.fonttexto,color:"gray",marginBottom:10,marginLeft:10,marginTop:20}}>Email</Text>
+                    <Text style={{...styles.fonttexto,color:"gray",marginBottom:10,marginLeft:10,marginTop:"5%"}}>Email</Text>
                     <TextInput value={Email} onChangeText={(text) => SetarEmail(text.trim())} style={styles.input} placeholder='Insira seu E-mail'></TextInput>
 
                     <Text style={{...styles.fonttexto,color:"gray",marginBottom:10,marginLeft:10}}>Senha</Text>
@@ -175,8 +169,8 @@ const Cadastro = ({ navigation }) => {
 
                     <TouchableOpacity style={styles.botoes}>
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                            <Image style={{ width: 20, height: 20, marginRight: 10 , marginLeft:20 }} source={require("../imgs/Google.png")} resizeMode='contain' />
-                            <Text style={{ ...styles.fonttexto,marginLeft:10, color: "white" }}>Criar com o Google</Text>
+                            <Image style={{ width: 20, height: 20, marginRight: 10 , marginLeft:"10%" }} source={require("../imgs/Google.png")} resizeMode='contain' />
+                            <Text style={{ ...styles.fonttexto,marginLeft:"4%", color: "white" }}>Criar com o Google</Text>
                         </View>
                     </TouchableOpacity>
 
@@ -217,26 +211,27 @@ const styles = StyleSheet.create({
     form:{
         flex:1,
         alignSelf:"center",
-        marginTop:10,
+        marginTop:"2%",
         width:"70%",
-        padding:10
+        padding:"3%"
     },
     input:{
-        padding:10,
+        padding:"4%",
         borderWidth:1,
         borderRadius:20,
         width:"95%",
-        marginBottom:20,
+        marginBottom:"10%",
         flex:1,
         alignSelf:"center"
     },
     botoes:{
-        padding:10,
+        padding:"4%",
         borderWidth:1,
         borderRadius:10,
         width:"95%",
-        marginBottom:20,
+        marginBottom:"5%",
         backgroundColor:"black",
+        alignSelf:"center"
     },
 
     fonttexto:{

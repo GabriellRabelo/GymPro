@@ -8,21 +8,6 @@ import {authState} from '../../services/FirebaseConfig.js';
 import { useUser } from './usercontext.js';
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-/*{imagesData.map((image, index) => (
-                <Image
-                    key={index}
-                    style={{
-                        position: "absolute",
-                        marginLeft: image.marginLeft,
-                        marginTop: image.marginTop,
-                        transform: [{ rotate: `${image.rotate}deg` }],
-                        zIndex:-1
-                    }}
-                    source={require("../imgs/dumbell.png")}
-                />
-            ))} */
-
-
 const Login =({navigation}) => {
 
       const [TecladoVisivel,setTecladoVisivel] = useState(false);
@@ -94,36 +79,36 @@ const Login =({navigation}) => {
             <View style={styles.div}>
 
                 <Text style={{...styles.fonttexto,textAlign:"center" , fontSize:45, marginTop:20,}}>Login</Text>
-                <TouchableOpacity style={{marginLeft:20,padding:10,borderWidth:1,borderColor:"red",width:100,position:"absolute"}} onPress={() => navigation.replace("Perguntas")}>
+                <TouchableOpacity style={{marginLeft:20,padding:10,borderWidth:1,borderColor:"red",width:100,position:"absolute"}} onPress={() => navigation.replace("Home")}>
                     <Text>Press-me</Text>
                 </TouchableOpacity>
                 <View id='Formulario' style={styles.form}>
 
-                    <Text style={{...styles.fonttexto,color:"gray",marginBottom:10,marginLeft:10}}>Email</Text>
+                    <Text style={{...styles.fonttexto,color:"gray",marginBottom:"4%",marginLeft:"4%"}}>Email</Text>
                     <TextInput onChangeText={(text) => SetarEmail(text)} style={styles.input} placeholder="Insira seu E-mail"/>
-                    <Text style={{...styles.fonttexto,color:"gray",marginBottom:10,marginLeft:10}}>Senha</Text>
+                    <Text style={{...styles.fonttexto,color:"gray",marginBottom:"4%",marginLeft:"4%"}}>Senha</Text>
                     
-                    <View>
+                    <View style={styles.inputContainer}>
                         <TextInput secureTextEntry={HidePass} onChangeText={(text) => SetarSenha(text)} style={styles.input} placeholder='Insira sua senha'/>
                         <TouchableOpacity onPress={() => setHidePass(!HidePass)} style={styles.eye}>
                             <Image style={{ width: 30, height: 30 }} source={EyeIcon} />
                          </TouchableOpacity>
                     </View>
 
-                    <TouchableOpacity onPress={() => HandleLogin()} style={TecladoVisivel ? {...styles.botoes,marginTop:30} : styles.botoes}>
-                        <Text style={{...styles.fonttexto,textAlign:"center", color:"white",marginTop:3}}>Login</Text>
+                    <TouchableOpacity onPress={() => HandleLogin()} style={TecladoVisivel ? {...styles.botoes,marginTop:"5%"} : styles.botoes}>
+                        <Text style={{...styles.fonttexto,textAlign:"center", color:"white",marginTop:"1%"}}>Login</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.botoes}>
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                        <Image style={{ width: 20, height: 20, marginRight: 10 , marginLeft:20 }} source={require("../imgs/Google.png")} resizeMode='contain' />
-                        <Text style={{ ...styles.fonttexto,marginLeft:10, color: "white" }}>Login com o Google</Text>
+                        <Image style={{ width: "8%", height: 20, marginRight: "1%" , marginLeft:"20%" }} source={require("../imgs/Google.png")} resizeMode='contain' />
+                        <Text style={{ ...styles.fonttexto,marginLeft:"5%", color: "white" }}>Login com o Google</Text>
                         </View>
                     </TouchableOpacity>
 
-                    <Text style={{...styles.fonttexto,textAlign:"center",marginBottom:5}}>Não tem uma conta?</Text>
-                    <TouchableOpacity style={{...styles.botoes,width:"30%",marginBottom:5}} onPress={() => navigation.navigate("Cadastro")}>
-                        <Text style={{...styles.fonttexto,textAlign:"center",textDecorationLine:"underline",color:"white",marginTop:3}}>Crie uma</Text>
+                    <Text style={{...styles.fonttexto,textAlign:"center",marginBottom:"2%"}}>Não tem uma conta?</Text>
+                    <TouchableOpacity style={{...styles.botoes,width:"30%",marginBottom:"2%"}} onPress={() => navigation.navigate("Cadastro")}>
+                        <Text style={{...styles.fonttexto,textAlign:"center",textDecorationLine:"underline",color:"white",marginTop:"1%"}}>Crie uma</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity>
@@ -157,27 +142,26 @@ const styles = StyleSheet.create({
     form:{
         flex:1,
         alignSelf:"center",
-        marginTop:5,
+        marginTop:"1%",
         width:"70%",
-        padding:10
+        padding:"1%"
     },
     input:{
-        padding:10,
+        padding:"4%",
         borderWidth:1,
         borderRadius:20,
         width:"95%",
-        marginBottom:20,
+        marginBottom:"7%",
         alignSelf:"center",
         color:"black"
     },
     botoes:{
-        padding:10,
+        padding:"5%",
         borderWidth:1,
         borderRadius:10,
         width:"95%",
-        marginBottom:20,
+        marginBottom:"7%",
         backgroundColor:"black",
-        flex:1,
         alignSelf:"center",
     },
     fonttexto:{
@@ -186,7 +170,7 @@ const styles = StyleSheet.create({
     eye:{
         position:"absolute",
         marginLeft:"80%",
-        marginTop:10
+        marginTop:"4%"
     }
 })
 

@@ -1,7 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View,Image } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import Login from "./components/screens/login.js";
 import Cadastro from "./components/screens/cadastro.js"
@@ -13,6 +12,7 @@ import Calendario from './components/screens/calendario.js';
 import Treinos from './components/screens/treinos.js';
 import Progresso from './components/screens/progresso.js';
 import Perguntas from './components/screens/perguntas.js';
+import Exercicio_Selecionado from './components/screens/exercicio_selecionado.js';
 export default function App() {
 
   const Stack = createStackNavigator();
@@ -32,12 +32,12 @@ export default function App() {
           <Stack.Screen options={{headerShown:false}} name='Login' component={Login}/>
           <Stack.Screen options={{headerShown:false}} name='Cadastro' component={Cadastro}/>
           <Stack.Screen options={{headerShown:false}} name='Perguntas' component={Perguntas}/>
+          <Stack.Screen options={{headerShown:false}} name='Exercicio' component={Exercicio_Selecionado}/>
           <Stack.Screen options={{headerShown:false}} name="Home">
             {() => (
               <Tab.Navigator
                 screenOptions={({ route }) => ({
-                  tabBarLabel:() => null,
-                  tabBarStyle:{backgroundColor:"#808080",padding:10,borderTopWidth:0,height:55,paddingBottom:4},
+                  tabBarStyle:styles.barstyle,
                   tabBarIcon: ({ focused, color, size }) => {
                     let iconImage;
 
@@ -85,4 +85,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  barstyle:{
+    padding:10,
+    borderTopWidth:2,
+    borderColor:"rgba(0,0,0,0.5)",
+    height:55,
+    paddingBottom:4,
+  }
 });
