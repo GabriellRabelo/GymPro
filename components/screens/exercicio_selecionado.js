@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ScrollView, Text, TouchableOpacity, StyleSheet, Image, Modal, View } from 'react-native';
+import shareDatabase from "../../services/HandleDataBase.js"
 
 const Exercicio_Selecionado = ({ navigation, route }) => {
     const [dados, setDados] = useState(route.params.dados);
@@ -40,7 +41,7 @@ const Exercicio_Selecionado = ({ navigation, route }) => {
                             <Text style={styles.modalText}>{nome}</Text>
                             <Text> INSTRUÇÃO: {Detalhes_Exercicios[index]}</Text>
 
-                            <TouchableOpacity style={styles.botoes}>
+                            <TouchableOpacity onPress={() => shareDatabase()} style={styles.botoes}>
                                 <Text>Adicionar aos favoritos</Text>
                             </TouchableOpacity>
 

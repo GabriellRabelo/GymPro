@@ -58,7 +58,7 @@ const Exercicios = ({navigation}) =>{
 
                     {ShowBack? (
                         <View style={{position:"absolute",width:"100%",height:"100%"}}>
-                            <TouchableOpacity style={{marginLeft:"73%",marginTop:"18%",width:"15%"}} onPress={() => BuscarExercicios("chest")}>
+                            <TouchableOpacity style={{marginLeft:"73%",marginTop:"18%",width:"15%"}} onPress={() => alert("Teste")}>
                                 <Text style={{fontSize:15}}>Peito</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={{marginLeft:"75%",marginTop:"18%",width:"15%"}} onPress={() => BuscarExercicios("abdominals")}>

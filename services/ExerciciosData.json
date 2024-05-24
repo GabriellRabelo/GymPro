@@ -1,0 +1,548 @@
+[
+    {
+        "Musculo": "Peito",
+        "Descricao": "Deite-se em um banco inclinado (cerca de 30-45 graus). Segure uma barra com as mãos afastadas na largura dos ombros. Abaixe a barra até o peito e empurre-a de volta para a posição inicial. Este exercício foca a parte superior do peitoral.",
+        "Nome_Exercicio": "Supino Inclinado com Barra",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Superior",
+        "creator": "Admin"
+      },
+    {
+        "Musculo": "Peito",
+        "Descricao": "Deite-se em um banco inclinado com um haltere em cada mão. Abaixe os halteres até a altura do peito e, em seguida, empurre-os de volta para a posição inicial. Este exercício trabalha a parte superior do peitoral.",
+        "Nome_Exercicio": "Supino Inclinado com Halteres",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Superior",
+        "creator": "Admin"
+      },
+    {
+        "Musculo": "Peito",
+        "Descricao": "Deite-se em um banco inclinado segurando um haltere em cada mão. Com os braços ligeiramente flexionados, abra-os até sentir um alongamento no peito, depois volte para a posição inicial. Este exercício isola a parte superior do peitoral.",
+        "Nome_Exercicio": "Crucifixo Inclinado com Halteres",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Superior",
+        "creator": "Admin"
+      },
+    {
+        "Musculo": "Peito",
+        "Descricao": "Deite-se em um banco inclinado sob a barra da máquina Smith. Abaixe a barra até o peito e empurre-a de volta para a posição inicial. A máquina proporciona estabilidade adicional, focando mais no músculo alvo.",
+        "Nome_Exercicio": "Desenvolvimento com Barra em Máquina Smith",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Superior",
+        "creator": "Admin"
+      },
+    {
+        "Musculo": "Peito",
+        "Descricao": "Deite-se em um banco reto e segure uma barra com as mãos afastadas na largura dos ombros. Abaixe a barra até o peito e empurre-a de volta para a posição inicial. Este exercício trabalha a parte média do peitoral.",
+        "Nome_Exercicio": "Supino Reto com Barra",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Médio",
+        "creator": "Admin"
+      },
+    {
+        "Musculo": "Peito",
+        "Descricao": "Deite-se em um banco reto com um haltere em cada mão. Abaixe os halteres até a altura do peito e, em seguida, empurre-os de volta para a posição inicial. Este exercício trabalha a parte média do peitoral.",
+        "Nome_Exercicio": "Supino Reto com Halteres",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Médio",
+        "creator": "Admin"
+      },
+    {
+        "Musculo": "Peito",
+        "Descricao": "Deite-se em um banco reto segurando um haltere em cada mão. Com os braços ligeiramente flexionados, abra-os até sentir um alongamento no peito, depois volte para a posição inicial. Este exercício isola a parte média do peitoral.",
+        "Nome_Exercicio": "Crucifixo Reto com Halteres",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Médio",
+        "creator": "Admin"
+      },
+    {
+        "Musculo": "Peito",
+        "Descricao": "Deite-se no chão ou em um banco reto com as mãos afastadas na largura dos ombros. Abaixe o corpo até o peito quase tocar o chão, depois empurre-se de volta para a posição inicial. Este exercício trabalha a parte média do peitoral.",
+        "Nome_Exercicio": "Flexões",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Médio",
+        "creator": "Admin"
+      },
+    {
+        "Musculo": "Peito",
+        "Descricao": "Deite-se em um banco declinado e segure uma barra com as mãos afastadas na largura dos ombros. Abaixe a barra até o peito e empurre-a de volta para a posição inicial. Este exercício foca a parte inferior do peitoral.",
+        "Nome_Exercicio": "Supino Declinado com Barra",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Inferior",
+        "creator": "Admin"
+      },
+    {
+        "Musculo": "Peito",
+        "Descricao": "Deite-se em um banco declinado com um haltere em cada mão. Abaixe os halteres até a altura do peito e, em seguida, empurre-os de volta para a posição inicial. Este exercício trabalha a parte inferior do peitoral.",
+        "Nome_Exercicio": "Supino Declinado com Halteres",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Inferior",
+        "creator": "Admin"
+      },
+    {
+        "Musculo": "Peito",
+        "Descricao": "Deite-se em um banco declinado segurando um haltere em cada mão. Com os braços ligeiramente flexionados, abra-os até sentir um alongamento no peito, depois volte para a posição inicial. Este exercício isola a parte inferior do peitoral.",
+        "Nome_Exercicio": "Crucifixo Declinado com Halteres",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Inferior",
+        "creator": "Admin"
+      },
+    {
+        "Musculo": "Peito",
+        "Descricao": "Segure-se em barras paralelas com os braços estendidos e o corpo inclinado para frente. Abaixe-se até os cotovelos formarem um ângulo de 90 graus e depois empurre-se de volta para a posição inicial. Este exercício foca na parte inferior do peitoral e também trabalha os tríceps.",
+        "Nome_Exercicio": "Mergulho nas Paralelas (Dips)",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Inferior",
+        "creator": "Admin"
+      },
+
+
+
+
+
+      {
+        "Musculo": "Costas",
+        "Descricao": "Segure uma barra com as mãos afastadas na largura dos ombros e com as palmas voltadas para baixo. Levante o corpo até que o queixo esteja acima da barra, mantendo as costas retas. Esse exercício trabalha principalmente os dorsais.",
+        "Nome_Exercicio": "Barra Fixa Pronada",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Dorsais",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Costas",
+        "Descricao": "Sentado em uma máquina de puxada alta, segure a barra com as mãos afastadas. Puxe a barra até a parte superior do peito e depois volte à posição inicial.",
+        "Nome_Exercicio": "Puxada Alta",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Dorsais",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Costas",
+        "Descricao": "De pé, com um haltere em cada mão, incline o tronco para frente. Puxe os halteres até os lados do seu tronco e depois abaixe-os novamente.",
+        "Nome_Exercicio": "Remada Curvada com Halteres",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Dorsais",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Costas",
+        "Descricao": "De pé, segure uma barra com as mãos afastadas na largura dos ombros. Incline-se para frente e puxe a barra até a parte inferior do peito e depois abaixe lentamente.",
+        "Nome_Exercicio": "Remada Curvada com Barra",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Dorsais",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Costas",
+        "Descricao": "Deite-se de bruços em um banco hiperextensor. Flexione o tronco para baixo e depois levante o corpo até alinhar com as pernas, focando a parte inferior das costas.",
+        "Nome_Exercicio": "Hiperextensão Lombar",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Lombar",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Costas",
+        "Descricao": "De pé, segure uma barra com as mãos afastadas na largura dos ombros e com os joelhos levemente flexionados. Flexione os quadris para abaixar a barra até a altura da canela e depois levante-a novamente, mantendo as costas retas.",
+        "Nome_Exercicio": "Levantamento Terra",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Lombar",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Costas",
+        "Descricao": "Deitado de barriga para baixo em um banco plano, segure um haltere em cada mão. Levante os halteres até os braços estarem alinhados com o tronco e depois abaixe lentamente.",
+        "Nome_Exercicio": "Remada Cavalinho",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Lombar",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Costas",
+        "Descricao": "Sentado em uma máquina de remada, segure as alças com as mãos afastadas. Puxe as alças em direção ao tronco e depois volte à posição inicial.",
+        "Nome_Exercicio": "Remada Sentada na Máquina",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Médio",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Costas",
+        "Descricao": "De pé, segure um haltere em cada mão com os braços estendidos à frente do corpo. Levante os halteres lateralmente até a altura dos ombros e depois abaixe-os lentamente.",
+        "Nome_Exercicio": "Elevação Lateral Curvada com Halteres",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Médio",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Costas",
+        "Descricao": "De pé, segure uma barra com as mãos afastadas na largura dos ombros e puxe a barra até a parte inferior do peito e depois abaixe lentamente.",
+        "Nome_Exercicio": "Remada Curvada com Pegada Supinada",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Médio",
+        "creator": "Admin"
+      },
+
+
+
+
+
+      {
+        "Musculo": "Biceps",
+        "Descricao": "Segure uma barra com as palmas voltadas para cima e as mãos afastadas na largura dos ombros. Levante a barra até a altura dos ombros e depois abaixe lentamente.",
+        "Nome_Exercicio": "Rosca Direta com Barra",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Biceps",
+        "Descricao": "Segure um haltere em cada mão com os braços ao lado do corpo e as palmas voltadas para frente. Flexione os cotovelos para levantar os halteres até os ombros e depois abaixe-os lentamente.",
+        "Nome_Exercicio": "Rosca Alternada com Halteres",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Biceps",
+        "Descricao": "Segure um haltere com ambas as mãos e sente-se em um banco com os pés firmes no chão. Flexione os cotovelos para levantar o haltere até o peito e depois abaixe lentamente.",
+        "Nome_Exercicio": "Rosca Concentrada",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Biceps",
+        "Descricao": "Segure um haltere em cada mão com os braços ao lado do corpo e as palmas voltadas para o corpo. Levante os halteres para os ombros e depois abaixe lentamente.",
+        "Nome_Exercicio": "Martelo com Halteres",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Biceps",
+        "Descricao": "Segure um haltere em cada mão com os braços estendidos ao lado do corpo. Levante os halteres até a altura dos ombros e depois abaixe-os lentamente.",
+        "Nome_Exercicio": "Rosca Simultânea com Halteres",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Biceps",
+        "Descricao": "Sentado em um banco inclinado, segure um haltere em cada mão com os braços estendidos para baixo. Flexione os cotovelos para levantar os halteres até os ombros e depois abaixe lentamente.",
+        "Nome_Exercicio": "Rosca Scott com Halteres",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "",
+        "creator": "Admin"
+      },
+
+
+
+
+
+      {
+        "Musculo": "Triceps",
+        "Descricao": "Deite-se em um banco reto com uma barra EZ. Com os cotovelos fixos, abaixe a barra até a testa e depois estenda os braços para cima.",
+        "Nome_Exercicio": "Tríceps Francês com Barra EZ",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Longa",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Triceps",
+        "Descricao": "De pé, segure uma corda presa a uma polia alta. Puxe a corda para baixo até os braços estarem estendidos e depois volte à posição inicial.",
+        "Nome_Exercicio": "Tríceps na Polia com Corda",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Longa",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Triceps",
+        "Descricao": "Segure um haltere com ambas as mãos acima da cabeça. Abaixe o haltere atrás da cabeça, flexionando os cotovelos, e depois estenda os braços para cima.",
+        "Nome_Exercicio": "Tríceps Testa com Halteres",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Lateral",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Triceps",
+        "Descricao": "De pé, com um haltere em cada mão, incline o tronco para frente. Estenda os braços para trás até estarem paralelos ao chão e depois retorne à posição inicial.",
+        "Nome_Exercicio": "Kickback com Halteres",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Medial",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Triceps",
+        "Descricao": "Sentado em um banco com as costas retas, segure uma barra com as mãos afastadas na largura dos ombros. Abaixe a barra até a testa, flexionando os cotovelos, e depois estenda os braços para cima.",
+        "Nome_Exercicio": "Extensão de Tríceps Sentado com Barra",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Medial",
+        "creator": "Admin"
+      },
+
+
+
+
+
+      {
+        "Musculo": "Ombros",
+        "Descricao": "De pé, segure um haltere em cada mão com os braços ao lado do corpo. Levante os halteres lateralmente até a altura dos ombros e depois abaixe-os lentamente.",
+        "Nome_Exercicio": "Elevação Lateral com Halteres",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Anterior",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Ombros",
+        "Descricao": "De pé, segure um haltere em cada mão com os braços estendidos à frente do corpo. Levante os halteres até a altura dos ombros e depois abaixe-os lentamente.",
+        "Nome_Exercicio": "Elevação Frontal com Halteres",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Posterior",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Ombros",
+        "Descricao": "Deite-se em um banco inclinado com um haltere em cada mão. Com os braços ligeiramente flexionados, abra-os até sentir um alongamento nos ombros e depois volte para a posição inicial.",
+        "Nome_Exercicio": "Crucifixo Invertido com Halteres",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Completo",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Ombros",
+        "Descricao": "De pé ou sentado, segure um haltere em cada mão ao nível dos ombros. Empurre os halteres para cima até os braços estarem completamente estendidos e depois abaixe lentamente.",
+        "Nome_Exercicio": "Desenvolvimento com Halteres",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Posterior",
+        "creator": "Admin"
+      },
+
+
+
+
+      {
+        "Musculo": "Pernas",
+        "Descricao": "De pé, com os pés afastados na largura dos ombros, segure uma barra atrás do pescoço. Flexione os joelhos e quadris até as coxas ficarem paralelas ao chão e depois volte à posição inicial.",
+        "Nome_Exercicio": "Agachamento Livre com Barra",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Quadríceps",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Pernas",
+        "Descricao": "De pé, segure dois halteres ao lado do corpo com os pés juntos. Dê um passo à frente e flexione o joelho da frente até formar um ângulo de 90 graus, mantendo o joelho de trás quase tocando o chão. Retorne à posição inicial e repita com a outra perna.",
+        "Nome_Exercicio": "Avanço com Halteres",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Quadríceps",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Pernas",
+        "Descricao": "Sente-se em uma máquina de extensão de pernas. Levante o peso até as pernas estarem completamente estendidas e depois abaixe lentamente.",
+        "Nome_Exercicio": "Extensão de Pernas na Máquina",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Quadríceps",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Pernas",
+        "Descricao": "De pé, com os pés afastados na largura dos ombros, segure um haltere em cada mão. Flexione os joelhos e quadris até as coxas ficarem paralelas ao chão e depois volte à posição inicial.",
+        "Nome_Exercicio": "Agachamento com Halteres",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Quadríceps",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Pernas",
+        "Descricao": "Deite-se de barriga para baixo em uma máquina de flexão de perna. Flexione os joelhos para levantar o peso até os calcanhares quase tocarem os glúteos e depois abaixe lentamente.",
+        "Nome_Exercicio": "Flexão de Perna na Máquina",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Posterior de Coxa",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Pernas",
+        "Descricao": "De pé, com uma barra sobre os ombros, flexione os quadris para abaixar o corpo até os joelhos formarem um ângulo de 90 graus e depois volte à posição inicial.",
+        "Nome_Exercicio": "Agachamento Romeno",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Posterior de Coxa",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Pernas",
+        "Descricao": "De pé, segure um haltere em cada mão com os pés afastados na largura dos ombros. Flexione os quadris para abaixar os halteres até a altura dos joelhos e depois volte à posição inicial.",
+        "Nome_Exercicio": "Peso Morto Romeno com Halteres",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Posterior de Coxa",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Pernas",
+        "Descricao": "De pé, segure uma barra com os pés afastados na largura dos ombros. Flexione os quadris para abaixar a barra até a altura dos joelhos e depois levante-a novamente.",
+        "Nome_Exercicio": "Levantamento Terra com Barra",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Posterior de Coxa",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Pernas",
+        "Descricao": "De pé, com as mãos apoiadas em uma parede ou em um equipamento de ginástica, levante os calcanhares até ficar na ponta dos pés e depois abaixe lentamente.",
+        "Nome_Exercicio": "Elevação de Panturrilha em Pé",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Panturrilha",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Pernas",
+        "Descricao": "Sentado em uma máquina de elevação de panturrilha, levante os calcanhares até ficar na ponta dos pés e depois abaixe lentamente.",
+        "Nome_Exercicio": "Elevação de Panturrilha Sentado",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Panturrilha",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Pernas",
+        "Descricao": "De pé, segure um haltere em cada mão com os pés afastados na largura dos ombros. Levante os calcanhares até ficar na ponta dos pés e depois abaixe lentamente.",
+        "Nome_Exercicio": "Elevação de Panturrilha com Halteres",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Panturrilha",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Pernas",
+        "Descricao": "De pé, em um degrau ou plataforma, deixe os calcanhares suspensos fora da borda. Levante os calcanhares até ficar na ponta dos pés e depois abaixe-os lentamente.",
+        "Nome_Exercicio": "Elevação de Panturrilha em Degrau",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "Panturrilha",
+        "creator": "Admin"
+      },
+
+
+
+
+
+      {
+        "Musculo": "Trapézio",
+        "Descricao": "De pé, com um haltere em cada mão e os braços ao lado do corpo, eleve os ombros até as orelhas e depois abaixe-os lentamente.",
+        "Nome_Exercicio": "Encolhimento de Ombros com Halteres",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Trapézio",
+        "Descricao": "De pé, segure uma barra com as mãos afastadas na largura dos ombros. Puxe a barra até a altura do peito e depois abaixe lentamente.",
+        "Nome_Exercicio": "Remada Alta com Barra",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Trapézio",
+        "Descricao": "De pé, com uma barra atrás do corpo, eleve os ombros até as orelhas e depois abaixe-os lentamente.",
+        "Nome_Exercicio": "Encolhimento de Ombros com Barra Atrás",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Trapézio",
+        "Descricao": "De pé, com os pés afastados na largura dos ombros, segure um haltere em uma mão ao lado do corpo. Incline o tronco para o lado oposto ao haltere e depois volte à posição inicial.",
+        "Nome_Exercicio": "Encolhimento Unilateral com Haltere",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "",
+        "creator": "Admin"
+      },
+
+
+
+
+      {
+        "Musculo": "Antebraço",
+        "Descricao": "De pé, segure um haltere em cada mão com as palmas voltadas para cima. Flexione os pulsos para levantar os halteres e depois abaixe-os lentamente.",
+        "Nome_Exercicio": "Rosca de Punho com Halteres",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Antebraço",
+        "Descricao": "De pé, segure uma barra com as palmas voltadas para baixo. Flexione os pulsos para levantar a barra e depois abaixe lentamente.",
+        "Nome_Exercicio": "Rosca Inversa com Barra",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Antebraço",
+        "Descricao": "Sente-se em um banco com os antebraços apoiados nas coxas e segure um haltere em cada mão com as palmas voltadas para baixo. Flexione os pulsos para levantar os halteres e depois abaixe-os lentamente.",
+        "Nome_Exercicio": "Rosca de Punho Sentado com Halteres",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "",
+        "creator": "Admin"
+      },
+      {
+        "Musculo": "Antebraço",
+        "Descricao": "De pé, segure um haltere em cada mão com as palmas voltadas para dentro. Flexione os pulsos para levantar os halteres e depois abaixe-os lentamente.",
+        "Nome_Exercicio": "Rosca de Punho com Halteres em Martelo",
+        "Series": "3 a 4",
+        "Repeticoes": "8 a 15",
+        "Foco_Muscular": "",
+        "creator": "Admin"
+      }
+]

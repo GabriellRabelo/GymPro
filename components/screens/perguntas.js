@@ -7,16 +7,16 @@ import { useUser } from './usercontext';
 import { TextInput } from 'react-native-gesture-handler';
 import {useFonts} from "expo-font";
 
-
-
-const Perguntas = ({ navigation }) => {
+const Perguntas = ({ navigation, route }) => {
   const fadeAnim = useRef(null);
+  const Idade = route.params.Idade;
+  const Nome = route.params.Nome;
   const [barWidth, setBarWidth] = useState(0);
   const [divVisible, setDivVisible] = useState(false);
   const [KeyboardVisible , setKeyboardVisible] = useState(false);
   const dataSexo = ["Masculino","Feminino"];
   const dataAtividade = ["Sedentario","Levemente Ativo","Moderadamente Ativo","Muito Ativo","Extremamente Ativo"];
-  const dataObj = ["Perda de gordura","Manter Peso","Ganho de massa muscular"];
+  const dataObj = ["Perda de Peso","Definição Muscular","Ganho de massa muscular"];
   const {idutilizador} = useUser();
   const [Sexo,setSexo] = useState(null);
   const [selected,setSelected] = useState(null);
@@ -24,6 +24,12 @@ const Perguntas = ({ navigation }) => {
   const [Altura,setAltura] = useState(null);
   const [Atvfisica,setAtvfisica] = useState(null);
   const [Objetivo,setObjetivo] = useState(null);
+
+  const [Calorias,setCalorias] = useState(null);
+  const [Proteinas,setProteinas] = useState(null);
+  const [Carboidratos,setCarboidratos] = useState(null);
+  const [Gorduras,setGorduras] = useState(null);
+  const Consumo_Agua = 3;
   
   const [fontsLoaded] = useFonts({
     "Zing.rust": require("../../assets/fonts/zing.rust-demo-base.otf"),
@@ -66,7 +72,71 @@ const Perguntas = ({ navigation }) => {
     };
   }, []);
 
-  const HandleSubmit = async() =>{
+  const InserirBaseDeDados = () => {
+    // Lógica para inserir dados na base de dados
+  }
+  
+  const CalcularDadosNutricionais = () =>{
+    setGorduras(0.8 * Peso);
+    setProteinas(2 * Peso);
+    setCarboidratos(4 * Peso);
+    switch(Objetivo){
+      case "Perda de Peso":
+        setCalorias(TMB - 750);
+        break;
+      case "Definição Muscular":
+        setCalorias(TMB);
+        break;
+      case "Ganho de massa muscular":
+        setCalorias(TMB - 500);
+        setProteinas(2.2 * Peso);
+        setCarboidratos(7 * Peso);
+        break;
+    }
+    InserirBaseDeDados();
+  }
+  
+  const HandleSubmit = () => {
+    if(!Sexo || !Peso || !Altura || !Atvfisica || !Objetivo){
+      alert("Todos os dados devem ser devidamente preenchidos");
+    }
+    else{
+      try{
+        let tempTMB;
+        if(Sexo === "Feminino"){
+          tempTMB = 447.6 + (9.2 * Peso) + (3.1 * Altura) - (4.3 * Idade);
+        }
+        else{
+          tempTMB = 88.36 + (13.4 * Peso) + (4.8 * Altura) - (5.7 * Idade);
+        }
+        switch(Atvfisica){
+          case "Sedentario":
+            setTMB(tempTMB * 1.2);
+            break;
+          case "Levemente Ativo":
+            setTMB(tempTMB * 1.375);
+            break;
+          case "Moderadamente Ativo":
+            setTMB(tempTMB * 1.55);
+            break;
+          case "Muito Ativo":
+            setTMB(tempTMB * 1.725);
+            break;
+          case "Extremamente Ativo":
+            setTMB(tempTMB * 1.9);
+            break;
+        };
+        CalcularDadosNutricionais();
+      }
+      catch(error){
+        console.error("Ocorreu um erro:", error.message);
+        alert("Algo deu errado, tente novamente mais tarde!!!");
+      }
+    }
+  }
+  
+
+  /*const HandleSubmit = async() =>{
       if(Sexo == null || Peso == null || Altura == null || Atvfisica == null || Objetivo == null){
         alert("Todos os dados devem ser devidamente preenchidos");
       }
@@ -103,7 +173,7 @@ const Perguntas = ({ navigation }) => {
             alert("Algo deu errado, tente novamente mais tarde!");
         }
       }
-  }
+  }*/
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>

@@ -7,6 +7,7 @@ import "firebase/firestore";
 import {authState} from '../../services/FirebaseConfig.js';
 import { useUser } from './usercontext.js';
 import Ionicons from "react-native-vector-icons/Ionicons";
+import { shareDatabase } from '../../services/HandleDataBase.js';
 
 const Login =({navigation}) => {
 
@@ -79,7 +80,7 @@ const Login =({navigation}) => {
             <View style={styles.div}>
 
                 <Text style={{...styles.fonttexto,textAlign:"center" , fontSize:45, marginTop:20,}}>Login</Text>
-                <TouchableOpacity style={{marginLeft:20,padding:10,borderWidth:1,borderColor:"red",width:100,position:"absolute"}} onPress={() => navigation.replace("Home")}>
+                <TouchableOpacity style={{marginLeft:20,padding:10,borderWidth:1,borderColor:"red",width:100,position:"absolute"}} onPress={() => shareDatabase() /*navigation.replace("Home")*/}>
                     <Text>Press-me</Text>
                 </TouchableOpacity>
                 <View id='Formulario' style={styles.form}>

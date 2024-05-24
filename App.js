@@ -1,4 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
+import { useEffect } from 'react';
 import { StyleSheet, Text, View,Image } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -13,7 +14,18 @@ import Treinos from './components/screens/treinos.js';
 import Progresso from './components/screens/progresso.js';
 import Perguntas from './components/screens/perguntas.js';
 import Exercicio_Selecionado from './components/screens/exercicio_selecionado.js';
+import { CreateTables, InsertDataExercicios } from './services/HandleDataBase.js';
+
+
 export default function App() {
+
+  useEffect(() => {
+    const initializeDatabase = async () => {
+      await CreateTables();
+      await InsertDataExercicios();
+    };
+    initializeDatabase();
+  }, []);
 
   const Stack = createStackNavigator();
   const Tab = createBottomTabNavigator();

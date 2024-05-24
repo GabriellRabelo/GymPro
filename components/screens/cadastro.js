@@ -101,7 +101,7 @@ const Cadastro = ({ navigation }) => {
                             Nome : Nome,
                             Id : user.uid,
                             Idade : Idade
-                        }).then(navigation.replace("Perguntas"));
+                        }).then(navigation.replace("Perguntas", {Idade: Idade, Nome:Nome}));
 
                     }).catch((error) => {
                         alert("Erro ao criar utilizador: " + error.message);
