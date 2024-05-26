@@ -68,7 +68,8 @@ const Login =({navigation}) => {
                 }
             }
         }catch(error){
-            console.log("Aconteceu o seguinte erro --> : " + error.message)
+            console.log("Aconteceu o seguinte erro --> : " + error.message);
+            alert("Algo deu errado, tente novamente mais tarde")
         }
         return () => unsubscribe();
     }
@@ -80,7 +81,7 @@ const Login =({navigation}) => {
             <View style={styles.div}>
 
                 <Text style={{...styles.fonttexto,textAlign:"center" , fontSize:45, marginTop:20,}}>Login</Text>
-                <TouchableOpacity style={{marginLeft:20,padding:10,borderWidth:1,borderColor:"red",width:100,position:"absolute"}} onPress={() => shareDatabase() /*navigation.replace("Home")*/}>
+                <TouchableOpacity style={{marginLeft:20,padding:10,borderWidth:1,borderColor:"red",width:100,position:"absolute"}} onPress={() =>navigation.replace("Home")}>
                     <Text>Press-me</Text>
                 </TouchableOpacity>
                 <View id='Formulario' style={styles.form}>
@@ -108,7 +109,7 @@ const Login =({navigation}) => {
                     </TouchableOpacity>
 
                     <Text style={{...styles.fonttexto,textAlign:"center",marginBottom:"2%"}}>Não tem uma conta?</Text>
-                    <TouchableOpacity style={{...styles.botoes,width:"30%",marginBottom:"2%"}} onPress={() => navigation.navigate("Cadastro")}>
+                    <TouchableOpacity style={{...styles.botoes,width:"30%",marginBottom:"2%"}} onPress={() => navigation.replace("Cadastro")}>
                         <Text style={{...styles.fonttexto,textAlign:"center",textDecorationLine:"underline",color:"white",marginTop:"1%"}}>Crie uma</Text>
                     </TouchableOpacity>
 

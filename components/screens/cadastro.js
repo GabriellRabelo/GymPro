@@ -11,16 +11,6 @@ import "firebase/firestore";
 import {authState} from '../../services/FirebaseConfig.js';
 import RNDateTimePicker from '@react-native-community/datetimepicker';
 
-/*<SelectList 
-                        setSelected={(val) => setSelected(val)} 
-                        data={data} 
-                        save="value"
-                        placeholder='Selecione seu ano de nascimento'
-                        search={false}
-                        boxStyles={{width:"95%",alignSelf:"center"}}
-                    /> */
-
-
 const Cadastro = ({ navigation }) => {
   
     const [fontsLoaded] = useFonts({
@@ -116,7 +106,7 @@ const Cadastro = ({ navigation }) => {
     return(
         <KeyboardAwareScrollView  style={{flex:1 , backgroundColor:"#ffffff"}} enableOnAndroid={true} extraScrollHeight={KeyboardVisible ? 10 : 0}>
             <Image style={{width:"100%",height:"100%",zIndex:0,position:"absolute",}} source={require("../imgs/background.png")}></Image>
-            <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+            <TouchableOpacity onPress={() => navigation.replace("Login")}>
                 <Image style={{width:40,marginLeft:10}} source={require("../imgs/back.png")} resizeMode='contain'/>
             </TouchableOpacity>
 

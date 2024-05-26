@@ -3,9 +3,10 @@ import { useState , useEffect , memo } from 'react';
 import { StyleSheet, Text, View , Image,TextInput , TouchableOpacity, ImageBackground } from 'react-native';
 import {useFonts} from "expo-font";
 import { useUser } from './usercontext.js';
+import { shareDatabase } from '../../services/HandleDataBase.js';
 
 
-const Home = () => {
+const Home = ({navigation}) => {
     const { idutilizador } = useUser();
     const NomeUtilizador = "Gabriel";
 
@@ -23,6 +24,30 @@ const Home = () => {
                     <ImageBackground style={styles.backgroundimg} source={require("../imgs/div_semfundo.png")}>
                         <View>
                             <Text style={{marginTop:"7%",marginLeft:"7%",fontSize:23}}>Treino de Peito</Text>
+                            <Text style={{marginLeft:"8%",fontSize:20}}>Hipertrofia</Text>
+                        </View>
+                    </ImageBackground>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate("Favoritos")} style={styles.treino}>
+                    <ImageBackground style={styles.backgroundimg} source={require("../imgs/div_semfundo_favoritos.png")}>
+                        <View>
+                            <Text style={{marginTop:"7%",marginLeft:"5%",fontSize:23}}>Favoritos</Text>
+                            <Text style={{marginLeft:"4%",fontSize:20}}>Veja seus{"\n"}Exercicios favoritos</Text>
+                        </View>
+                    </ImageBackground>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate("Dieta")} style={styles.treino}>
+                    <ImageBackground style={styles.backgroundimg} source={require("../imgs/div_semfundo_dieta.png")}>
+                        <View>
+                            <Text style={{marginTop:"7%",marginLeft:"5%",fontSize:23}}>Dieta</Text>
+                            <Text style={{marginLeft:"4%",fontSize:20}}>Acompanhe a{"\n"}Sua dieta</Text>
+                        </View>
+                    </ImageBackground>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => shareDatabase()} style={styles.treino}>
+                    <ImageBackground style={styles.backgroundimg} source={require("../imgs/div_semfundo.png")}>
+                        <View>
+                            <Text style={{marginTop:"7%",marginLeft:"7%",fontSize:23}}>SHAREDATABASE</Text>
                             <Text style={{marginLeft:"8%",fontSize:20}}>Hipertrofia</Text>
                         </View>
                     </ImageBackground>
@@ -65,7 +90,7 @@ const styles = StyleSheet.create({
         alignSelf:"center",
         borderRadius:15,
         overflow: "hidden", // Para garantir que as bordas não sejam afetadas pela imagem de fundo
-        borderWidth:1,
+        borderWidth:1.5,
         borderColor:"rgba(0,0,0,0.5)",
     },
     backgroundimg:{
