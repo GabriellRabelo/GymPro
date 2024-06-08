@@ -5,8 +5,9 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { SelectList } from 'react-native-dropdown-select-list';
 import { useUser } from './usercontext';
 import { TextInput } from 'react-native-gesture-handler';
+import { doc, setDoc } from 'firebase/firestore';
 import { useFonts } from "expo-font";
-import { InsertDataDieta, InserirDataUtilizador } from '../../services/HandleDataBase';
+import { db } from '../../services/FirebaseConfig.js';
 
 const Perguntas = ({ navigation, route }) => {
   const fadeAnim = useRef(null);
@@ -44,7 +45,12 @@ const Perguntas = ({ navigation, route }) => {
     const KeyBoardHideListener = Keyboard.addListener("keyboardDidHide", () => {
       setKeyboardVisible(false);
     });
-  });
+
+    return () => {
+      KeyBoardShowListener.remove();
+      KeyBoardHideListener.remove();
+    };
+  }, []);
 
   useEffect(() => {
     fadeAnim.current.fadeIn(800).then(() => { });
@@ -66,12 +72,12 @@ const Perguntas = ({ navigation, route }) => {
     };
   }, []);
 
-  const CalcularDadosNutricionais = (TMB) => {
+  const CalcularDadosNutricionais = async (TMB) => {
     const gorduras = Math.round(0.8 * Peso);
     let proteinas = Math.round(2 * Peso);
     let carboidratos = Math.round(4 * Peso);
     let calorias;
-
+  
     switch (Objetivo) {
       case "Perda de Peso":
         calorias = Math.round(TMB - 750);
@@ -84,29 +90,63 @@ const Perguntas = ({ navigation, route }) => {
         proteinas = Math.round(2.2 * Peso);
         carboidratos = Math.round(7 * Peso);
         break;
+      default:
+        console.error("Objetivo inválido:", Objetivo);
+        return;
     }
-
-    setGorduras(gorduras);
-    setProteinas(proteinas);
-    setCarboidratos(carboidratos);
-    setCalorias(calorias);
-
-    InserirDataUtilizador(Nome, Idade, Peso, Altura, Sexo, Objetivo, Atvfisica);
-    InsertDataDieta(idutilizador,calorias, carboidratos, proteinas, Consumo_Agua, gorduras, TMB);
-    navigation.replace("Home");
-  }
+  
+    const usuarioDocRef = doc(db, 'Utilizador', idutilizador); // Definindo o caminho para o documento do usuário
+    const dietaDocRef = doc(db, 'Dieta', idutilizador); // Definindo o caminho para o documento da dieta
+  
+    const utilizadoData = {
+      Nome,
+      Idade,
+      Peso,
+      Altura,
+      Sexo,
+      Objetivo,
+      Atividade_Fisica: Atvfisica
+    };
+  
+    const dietaData = {
+      Id_Utilizador: idutilizador, // Adicionando o ID do usuário
+      Calorias: calorias,
+      Carboidrato: carboidratos,
+      Proteinas: proteinas,
+      Consumo_Agua: Consumo_Agua,
+      Gorduras: gorduras,
+      TMB: TMB
+    };
+  
+    try {
+      console.log("Tentando adicionar dados ao documento Utilizador...");
+      console.log("Dados:", utilizadoData);
+      await setDoc(usuarioDocRef, utilizadoData, { merge: true }); // Usando setDoc para atualizar ou criar o documento
+  
+      console.log("Tentando adicionar dados ao documento Dieta...");
+      console.log("Dados:", dietaData);
+      await setDoc(dietaDocRef, dietaData, { merge: true }); // Usando setDoc para atualizar ou criar o documento
+  
+      console.log("Dados adicionados com sucesso aos documentos Utilizador e Dieta");
+  
+      navigation.replace("Home");
+    } catch (error) {
+      console.error("Erro ao adicionar dados no Firebase:", error);
+    }
+  };
+  
+  
 
   const HandleSubmit = () => {
     if (!Sexo || !Peso || !Altura || !Atvfisica || !Objetivo) {
       alert("Todos os dados devem ser devidamente preenchidos");
-    }
-    else {
+    } else {
       try {
+        console.log("Iniciando cálculo de TMB...");
         let tempTMB;
         if (Sexo === "Feminino") {
           tempTMB = 447.6 + (9.2 * Peso) + (3.1 * Altura) - (4.3 * Idade);
-        }
-        else {
+        } else {
           tempTMB = 88.36 + (13.4 * Peso) + (4.8 * Altura) - (5.7 * Idade);
         }
         switch (Atvfisica) {
@@ -125,17 +165,17 @@ const Perguntas = ({ navigation, route }) => {
           case "Extremamente Ativo":
             tempTMB *= 1.9;
             break;
-        };
+        }
         tempTMB = Math.round(tempTMB);
+        console.log("TMB calculado:", tempTMB);
         setTMB(tempTMB);
         CalcularDadosNutricionais(tempTMB);
-      }
-      catch (error) {
+      } catch (error) {
         console.error("Ocorreu um erro:", error.message);
         alert("Algo deu errado, tente novamente mais tarde!!!");
       }
     }
-  }
+  };
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -197,7 +237,7 @@ const Perguntas = ({ navigation, route }) => {
                 search={false}
                 boxStyles={{ width: "95%", alignSelf: "center", marginTop: 10 }}
               />
-              <TouchableOpacity onPress={() => HandleSubmit()} style={styles.button}>
+              <TouchableOpacity onPress={HandleSubmit} style={styles.button}>
                 <Text style={{ textAlign: "center", fontFamily: "Zing.rust", fontSize: 17 }}>Enviar</Text>
               </TouchableOpacity>
             </View>
@@ -247,7 +287,6 @@ const styles = StyleSheet.create({
     width: "90%",
     marginTop: "10%",
     height: 800
-
   },
   txt: {
     marginLeft: 10,

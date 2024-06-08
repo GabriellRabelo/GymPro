@@ -17,17 +17,18 @@ import Exercicio_Selecionado from './components/screens/exercicio_selecionado.js
 import { CreateTables, InsertDataExercicios } from './services/HandleDataBase.js';
 import Favoritos from './components/screens/favoritos.js';
 import Dieta from './components/screens/dieta.js';
+import BuscarAlimentos from './components/screens/buscaralimentos.js';
 
 
 export default function App() {
 
-  useEffect(() => {
+  /*useEffect(() => {
     const initializeDatabase = async () => {
       await CreateTables();
       await InsertDataExercicios();
     };
     initializeDatabase();
-  }, []);
+  }, []);*/
 
   const Stack = createStackNavigator();
   const Tab = createBottomTabNavigator();
@@ -49,6 +50,7 @@ export default function App() {
           <Stack.Screen options={{headerShown:false}} name='Exercicio' component={Exercicio_Selecionado}/>
           <Stack.Screen options={{headerShown:false}} name='Dieta' component={Dieta}/>
           <Stack.Screen options={{headerShown:false}} name='Favoritos' component={Favoritos}/>
+          <Stack.Screen options={{headerShown:false}} name='BuscarAlimentos' component={BuscarAlimentos}/>
           <Stack.Screen options={{headerShown:false}} name="Home">
             {() => (
               <Tab.Navigator

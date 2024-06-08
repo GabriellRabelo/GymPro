@@ -1,149 +1,173 @@
-import { StatusBar } from 'expo-status-bar';
-import { useState , useEffect , memo } from 'react';
-import { StyleSheet, Text, View , Image,TextInput , TouchableOpacity } from 'react-native';
-import {useFonts} from "expo-font";
-import {signInWithEmailAndPassword, onAuthStateChanged} from "@firebase/auth";
+import { useState } from 'react';
+import { StyleSheet, Text, View, Image,TouchableOpacity, Dimensions, Platform } from 'react-native';
+import { useFonts } from "expo-font";
 import "firebase/firestore";
-import {authState} from '../../services/FirebaseConfig.js';
-import { useUser } from './usercontext.js';
-import { BuscarExercicios } from '../../services/HandleDataBase.js';
 
-const Exercicios = ({navigation}) => {
-    const [ShowBack, setShowBack] = useState(true);
 
-    const [fontsloaded] = useFonts({
-      "Zing.rust":require("../../assets/fonts/zing.rust-demo-base.otf")
-    });
+const { width, height } = Dimensions.get('window');
 
-    if(!fontsloaded){
-      return undefined;
+const Exercicios = ({ navigation }) => {
+  const [ShowBack, setShowBack] = useState(true);
+
+  const [fontsLoaded] = useFonts({
+    "Zing.rust": require("../../assets/fonts/zing.rust-demo-base.otf")
+  });
+
+  if (!fontsLoaded) {
+    return undefined;
   }
-  
-    const ToogleImg = () => {
-      setShowBack(!ShowBack);
-    }
-  
-    const handleBuscarExercicios = (musculo) => {
-      BuscarExercicios(musculo, navigation)
-        .catch(error => {
-          console.error("Algo deu errado ao buscar exercícios:", error);
-        });
-    }
-  
-    return (
-      <View style={{flex:1}}>
-        <View style={{height:"20%",width:"100%"}}>
-          <Text style={{marginTop:"9%",marginLeft:"7%",fontSize:30,fontFamily:"Zing.rust"}}>Exercícios</Text>
-          <TextInput style={styles.pesquisa} placeholder='Pesquisar' paddingLeft={"10%"}/>
-          <Image style={styles.img} source={require("../icons/search.png")}/>
-        </View>
-        <View>
+
+  const ToggleImg = () => {
+    setShowBack(!ShowBack);
+  }
+
+  const handleBuscarExercicios = (musculo) => {
+    navigation.navigate("Exercicio", { musculo: musculo });
+  }
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.headerText}>Exercícios</Text>
+      </View>
+      <View style={styles.bodyContainer}>
+        <Image style={styles.bodyImg} source={ShowBack ? require("../imgs/Body_Front.png") : require("../imgs/Body_Back.png")}/>
+        <View style={styles.overlay}>
           {ShowBack ? (
-            <Image style={styles.bodyimg} source={require("../imgs/Body_Front.png")}></Image>
+            <View style={styles.musclesContainer}>
+              {musclesFront.map((muscle, index) => (
+                <TouchableOpacity
+                  key={index}
+                  style={[styles.muscleButton, muscle.style]}
+                  onPress={() => handleBuscarExercicios(muscle.name)}
+                >
+                  <Text style={styles.txt}>{muscle.label}</Text>
+                </TouchableOpacity>
+              ))}
+            </View>
           ) : (
-            <Image style={styles.bodyimg} source={require("../imgs/Body_Back.png")}></Image>
+            <View style={styles.musclesContainer}>
+              {musclesBack.map((muscle, index) => (
+                <TouchableOpacity
+                  key={index}
+                  style={[styles.muscleButton, muscle.style]}
+                  onPress={() => handleBuscarExercicios(muscle.name)}
+                >
+                  <Text style={styles.txt}>{muscle.label}</Text>
+                </TouchableOpacity>
+              ))}
+            </View>
           )}
-          <View style={{position:"absolute",width:"100%",height:"100%"}}>
-            {ShowBack? (
-              <View style={{position:"absolute",width:"100%",height:"100%"}}>
-                <TouchableOpacity style={{marginLeft:"73%",marginTop:"18%",width:"15%"}} onPress={() => handleBuscarExercicios("Peito")}>
-                  <Text style={styles.txt}>Peito</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{marginLeft:"75%",marginTop:"18%",width:"15%"}} onPress={() => handleBuscarExercicios("Abdomen")}>
-                  <Text style={styles.txt}>Abdômen</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{marginLeft:"74%",marginTop:"5%",width:"15%"}} onPress={() => handleBuscarExercicios("Antebraço")}>
-                  <Text style={styles.txt}>Antebraço</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{marginLeft:"75%",marginTop:"16%",width:"15%"}} onPress={() => handleBuscarExercicios("Adutores")}>
-                  <Text style={styles.txt}>Adutores</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{marginLeft:"75%",marginTop:"7%",width:"13%"}} onPress={() => handleBuscarExercicios("Cardio")}>
-                  <Text style={styles.txt}>Cardio</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{marginLeft:"11%",marginTop:"-25%",width:"20%"}} onPress={() => handleBuscarExercicios("Abdutores")}>
-                  <Text style={styles.txt}>Abdutores</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{marginLeft:"17%",marginTop:"10%",width:"20%"}} onPress={() => handleBuscarExercicios("Quadríceps")}>
-                  <Text style={styles.txt}>Quadríceps</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{marginLeft:"15%",marginTop:"-30%",width:"15%"}} onPress={() => handleBuscarExercicios("Abdomen")}>
-                  <Text style={styles.txt}>Oblíquos</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{marginLeft:"17%",marginTop:"-20%",width:"15%"}} onPress={() => handleBuscarExercicios("Bíceps")}>
-                  <Text style={styles.txt}>Biceps</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{marginLeft:"17%",marginTop:"-23%",width:"15%"}} onPress={() => handleBuscarExercicios("Ombros")}>
-                  <Text style={styles.txt}>Ombro</Text>
-                </TouchableOpacity>
-              </View>
-            ) : (
-              <View>
-                <TouchableOpacity style={{marginLeft:"70%",marginTop:"32%",width:"20%",height:"10%"}} onPress={() => handleBuscarExercicios("Trapezio")}>
-                  <Text style={styles.txt}>Trapézio</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{marginLeft:"75%",marginTop:"10%",width:"15%"}} onPress={() => handleBuscarExercicios("Costas")}>
-                  <Text style={styles.txt}>Costas</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{marginLeft:"68%",marginTop:"30%",width:"18%"}} onPress={() => handleBuscarExercicios("Isquiotibiais")}>
-                  <Text style={styles.txt}>Isquiotibiais</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{marginLeft:"75%",marginTop:"6%",width:"13%"}} onPress={() => handleBuscarExercicios("cardio")}>
-                  <Text style={styles.txt}>Cardio</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{marginLeft:"20%",marginTop:"-14%",width:"15%"}} onPress={() => handleBuscarExercicios("Gemeos")}>
-                  <Text style={styles.txt}>Gemeos</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{marginLeft:"15%",marginTop:"-15%",width:"20%"}} onPress={() => handleBuscarExercicios("Gluteos")}>
-                  <Text style={styles.txt}>Glúteos</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{marginLeft:"17%",marginTop:"-28%",width:"15%"}} onPress={() => handleBuscarExercicios("Lombar")}>
-                  <Text style={styles.txt}>Lombar</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{marginLeft:"17%",marginTop:"-23%",width:"15%"}} onPress={() => handleBuscarExercicios("Triceps")}>
-                  <Text style={styles.txt}>Tríceps</Text>
-                </TouchableOpacity>
-              </View>
-            )}
-  
-            <TouchableOpacity style={{width:"20%",height:"5%",marginLeft:"74%",marginTop:ShowBack ? "120%" : "75%"}} onPress={() => ToogleImg()}>
-              <Image style={{position:"absolute",width:30,height:30}} source={require("../icons/Girar.png")}></Image>
-              <Text style={{fontSize:15,marginLeft:"35%",marginTop:4,fontFamily:"Zing.rust"}}>Girar</Text>
-            </TouchableOpacity>
-          </View>
+          <TouchableOpacity style={styles.toggleButton} onPress={ToggleImg}>
+            <Image style={styles.toggleImage} source={require("../icons/Girar.png")} />
+            <Text style={styles.toggleText}>Girar</Text>
+          </TouchableOpacity>
         </View>
       </View>
-    );
-  };
-  
-  const styles = StyleSheet.create({
-    pesquisa: {
-      borderWidth: 1,
-      width: "80%",
-      borderRadius: 15,
-      marginLeft: "8%",
-      padding: "1%",
-      fontSize: 16,
-      alignSelf: 'center',
-      marginTop: "5%"
-    },
-    img: {
-      width: 25,
-      height: 25,
-      position: "absolute",
-      left: "16%",
-      top: '76%',
-      marginTop: -12.5
-    },
-    bodyimg: {
-      width: "95%",
-      height: "90%",
-      marginLeft: "3%"
-    },
-    txt:{
-      fontFamily:"Zing.rust",
-      fontSize:15
-    }
-  });
-  
-  export default Exercicios;
+    </View>
+  );
+};
+
+const musclesFront = [
+  { name: 'Peito', label: 'Peito', style: { top: '14%', left: '66%' } },
+  { name: 'Abdomen', label: 'Abdômen', style: { top: '27%', left: '68%' } },
+  { name: 'Antebraço', label: 'Antebraço', style: { top: '33%', left: '68%',width:"18%" } },
+  { name: 'Adutores', label: 'Adutores', style: { top: '45%', left: '72%' } },
+  { name: 'Cardio', label: 'Cardio', style: { top: '60%', left: '75%' } },
+  { name: 'Abdutores', label: 'Abdutores', style: { top: '40%', left: '13%',width:"17%" } },
+  { name: 'Quadríceps', label: 'Quadríceps', style: { top: '48%', left: '15%',width:"18%" } },
+  { name: 'Oblíquos', label: 'Oblíquos', style: { top: '33%', left: '15%' } },
+  { name: 'Bíceps', label: 'Bíceps', style: { top: '24%', left: '17%' } },
+  { name: 'Ombros', label: 'Ombros', style: { top: '12%', left: '17%' } },
+];
+
+const musclesBack = [
+  { name: 'Trapezio', label: 'Trapézio', style: { top: '22.5%', left: '68%' } },
+  { name: 'Costas', label: 'Costas', style: { top: '31%', left: '70%' } },
+  { name: 'Isquiotibiais', label: 'Isquiotibiais', style: { top: '51%', left: '65%', width:"21%" } },
+  { name: 'Cardio', label: 'Cardio', style: { top: '57%', left: '70%' } },
+  { name: 'Gemeos', label: 'Gêmeos', style: { top: '53%', left: '20%' } },
+  { name: 'Gluteos', label: 'Glúteos', style: { top: '45%', left: '8%' } },
+  { name: 'Lombar', label: 'Lombar', style: { top: '32%', left: '15%' } },
+  { name: 'Triceps', label: 'Tríceps', style: { top: '21%', left: '17%' } },
+];
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  header: {
+    height: '20%',
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  headerText: {
+    marginTop: '9%',
+    marginLeft: '7%',
+    fontSize: 30,
+    fontFamily: 'Zing.rust',
+  },
+  searchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: '5%',
+  },
+  img: {
+    width: 30,
+    height: 30,
+    position: 'absolute',
+    right: '10%',
+  },
+  bodyContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  bodyImg: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'contain',
+    marginBottom:"20%"
+  },
+  overlay: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+  },
+  musclesContainer: {
+    flex: 1,
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+  },
+  muscleButton: {
+    position: 'absolute',
+    width: '15%',
+  },
+  txt: {
+    fontFamily: "Zing.rust",
+    fontSize: 15,
+    textAlign: 'center',
+  },
+  toggleButton: {
+    position: 'absolute',
+    width: '20%',
+    height: '5%',
+    bottom: Platform.OS === 'ios' ? '5%' : '10%',
+    left: '40%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  toggleImage: {
+    width: 30,
+    height: 30,
+  },
+  toggleText: {
+    fontSize: 15,
+    fontFamily: "Zing.rust",
+    marginTop: 6,
+  },
+});
+
+export default Exercicios;

@@ -73,35 +73,31 @@ const Cadastro = ({ navigation }) => {
       return null;
     };
 
-    const HandleCadastro = () =>{
-        try{
+    const HandleCadastro = () => {
+        try {
             if (Email === "" || Senha === "" || Nome === "" || Idade === null) {
                 alert("Os campos não podem estar vazios");
-            }
-            else if (/\d/.test(Nome)) {
-                alert("O campo ´Nome´ não pode conter numeros");
-            }
-            else{
-                    console.log(Idade);
-                    createUserWithEmailAndPassword(authState, Email, Senha).then(async (userCredential) => {
-                            const user = userCredential.user;
-                            setIdutilizador(user.uid);
-                            const docRef = await addDoc(collection(db,"Utilizadores"),{
-                            Email : Email,
-                            Nome : Nome,
-                            Id : user.uid,
-                            Idade : Idade
-                        }).then(navigation.replace("Perguntas", {Idade: Idade, Nome:Nome}));
-
-                    }).catch((error) => {
+            } else if (/\d/.test(Nome)) {
+                alert("O campo 'Nome' não pode conter números");
+            } else {
+                console.log(Idade);
+                createUserWithEmailAndPassword(authState, Email, Senha)
+                    .then(async (userCredential) => {
+                        const user = userCredential.user;
+                        setIdutilizador(user.uid);
+    
+                        // Navegar para a tela "Perguntas" passando Idade e Nome
+                        navigation.replace("Perguntas", { Idade: Idade, Nome: Nome });
+                    })
+                    .catch((error) => {
                         alert("Erro ao criar utilizador: " + error.message);
                     });
             }
-
-        }catch(error){
-            console.log("Aconteceu o seguinte erro " + error.message);
+        } catch (error) {
+            console.log("Aconteceu o seguinte erro: " + error.message);
         }
     };
+    
 
     return(
         <KeyboardAwareScrollView  style={{flex:1 , backgroundColor:"#ffffff"}} enableOnAndroid={true} extraScrollHeight={KeyboardVisible ? 10 : 0}>

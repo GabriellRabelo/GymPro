@@ -1,9 +1,9 @@
-import * as FileSystem from 'expo-file-system';
+/*import * as FileSystem from 'expo-file-system';
 import * as SQLite from "expo-sqlite";
 import * as Sharing from 'expo-sharing'; // Corrigido: importação do módulo expo-sharing
 const dbName = "db.db";
 const dbPath = `${FileSystem.documentDirectory}SQLite/${dbName}`;
-const DataBase = SQLite.openDatabase(dbName);
+const db = SQLite.openDatabaseAsync(dbName);
 import exerciciosData from "./ExerciciosData.json";
 import { useState } from 'react';
 
@@ -14,9 +14,10 @@ const deleteDatabase = async () => {
   }
 };
 
+
 const CreateTables = async () => {
   //await deleteDatabase();
-  DataBase.transaction((tx) => {
+  DataBase.execAsync((tx) => {
     tx.executeSql(
       "CREATE TABLE IF NOT EXISTS Exercicios (Id_Exercicio INTEGER PRIMARY KEY AUTOINCREMENT, Musculo TEXT , Descricao TEXT , Nome_Exercicio TEXT , Series TEXT , Repeticoes TEXT , Foco_Muscular TEXT, Creator TEXT )"
     );
@@ -34,7 +35,7 @@ const CreateTables = async () => {
 
 const InsertDataExercicios = () => {
   return new Promise((resolve, reject) => {
-    DataBase.transaction((tx) => {
+    DataBase.execAsync((tx) => {
       tx.executeSql("SELECT * FROM Exercicios", [], (tx, results) => {
         const contRow = results.rows.length;
         if (contRow === 0) {
@@ -65,7 +66,7 @@ const InsertDataExercicios = () => {
 };
 
 const InsertDataDieta = (Id_Utilizador,Calorias, Carboidratos, Proteinas, Consumo_Agua, Gorduras, TMB) => {
-  DataBase.transaction((tx) => {
+  DataBase.execAsync((tx) => {
     tx.executeSql(
       "INSERT INTO Dieta (Id_Utilizador, Calorias, Carboidratos, Proteinas, Consumo_Agua, Gorduras, TMB) VALUES (?, ?, ?, ?, ?, ?, ?)",
       [Id_Utilizador, Calorias, Carboidratos, Proteinas, Consumo_Agua, Gorduras, TMB],
@@ -81,7 +82,7 @@ const InsertDataDieta = (Id_Utilizador,Calorias, Carboidratos, Proteinas, Consum
 };
 
 const InserirDataUtilizador = (Nome, Idade, Peso, Altura, Sexo, Objetivo, Atividade_Fisica) => {
-  DataBase.transaction((tx) => {
+  DataBase.execAsync((tx) => {
     tx.executeSql(
       "INSERT INTO Utilizadores (Nome, Idade, Peso, Altura, Sexo, Objetivo, Atividade_Fisica) VALUES (?, ?, ?, ?, ?, ?, ?)",
       [Nome,Idade, Peso, Altura, Sexo, Objetivo, Atividade_Fisica],
@@ -110,15 +111,14 @@ const shareDatabase = async () => {
 };
 
 const BuscarExercicios = (musculo, navigation) => {
-  console.log(musculo);
   return new Promise((resolve, reject) => {
-    DataBase.transaction((tx) => {
+    DataBase.execAsync((tx) => {
       tx.executeSql(
         'SELECT * FROM Exercicios WHERE Musculo = ?',
         [musculo],
         (_, { rows }) => {
           const exerciciosArray = rows._array;
-          resolve(exerciciosArray); // Resolve a promessa com os dados
+          resolve(exerciciosArray);
           navigation.navigate("Exercicio", { dados: exerciciosArray, musculo: musculo });
         },
         (_, error) => {
@@ -133,7 +133,7 @@ const BuscarExercicios = (musculo, navigation) => {
 const Favoritar = (Nome_Exercicio, Id_Utilizador) => {
   return new Promise((resolve, reject) => {
     let Id;
-    DataBase.transaction((tx) => {
+    DataBase.execAsync((tx) => {
       tx.executeSql(
         "SELECT Id_Exercicio FROM Exercicios WHERE Nome_Exercicio = ?",
         [Nome_Exercicio],
@@ -167,12 +167,18 @@ const Favoritar = (Nome_Exercicio, Id_Utilizador) => {
   });
 };
 
-const BuscarFavoritos = (Id_Utilizador) => {
+const BuscarFavoritos = async(Id_Utilizador) => {
+
+  const allRows = await db.getAllAsync("SELECT Id_Exercicio FROM Favoritos WHERE Id_Utilizador = ?");
+  for(const row of allRows){
+    console.log(row.id, row.Value, row.intValue)
+  };
+
   return new Promise((resolve, reject) => {
     let IDs = [];
     let dados = [];
     
-    DataBase.transaction((tx) => {
+    DataBase.execAsync((tx) => {
       tx.executeSql(
         "SELECT Id_Exercicio FROM Favoritos WHERE Id_Utilizador = ?",
         [Id_Utilizador],
@@ -211,7 +217,7 @@ const BuscarFavoritos = (Id_Utilizador) => {
 
 const RemoverFavorito = (Id_Utilizador, Id_Exercicio) => {
   return new Promise((resolve, reject) => {
-    DataBase.transaction(tx => {
+    DataBase.execAsync(tx => {
       tx.executeSql(
         "DELETE FROM Favoritos WHERE Id_Utilizador = ? AND Id_Exercicio = ?",
         [Id_Utilizador, Id_Exercicio],
@@ -227,5 +233,35 @@ const RemoverFavorito = (Id_Utilizador, Id_Exercicio) => {
   });
 };
 
+const BuscarDadosNutricionais = (Id_Utilizador) => {
+  return new Promise((resolve, reject) => {
+    DataBase.execAsync((tx) => {
+      tx.executeSql(
+        'SELECT * FROM Dieta WHERE Id_Utilizador = ?',
+        [Id_Utilizador],
+        (_, { rows }) => {
+          const DataArray = rows._array;
+          resolve(DataArray);
+        },
+        (_, error) => {
+          console.error('Erro ao buscar os dados nutricionais:', error);
+          reject(error);
+        }
+      );
+    });
+  });
+};
 
-export { CreateTables, InsertDataExercicios, shareDatabase, InsertDataDieta, InserirDataUtilizador, BuscarExercicios, Favoritar, BuscarFavoritos, RemoverFavorito};
+
+export { 
+  CreateTables, 
+  InsertDataExercicios, 
+  shareDatabase, 
+  InsertDataDieta, 
+  InserirDataUtilizador, 
+  BuscarExercicios, 
+  Favoritar, 
+  BuscarFavoritos, 
+  RemoverFavorito, 
+  BuscarDadosNutricionais
+};*/
