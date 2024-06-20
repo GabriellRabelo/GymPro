@@ -441,27 +441,27 @@
 
         
       {
-        "Musculo": "Panturrilha",
+        "Musculo": "Gemeos",
         "Descricao": "De pé, com as mãos apoiadas em uma parede ou em um equipamento de ginástica, levante os calcanhares até ficar na ponta dos pés e depois abaixe lentamente.",
-        "Nome_Exercicio": "Elevação de Panturrilha em Pé",
+        "Nome_Exercicio": "Elevação de Gemeos em Pé",
         "Series": "3 a 4",
         "Repeticoes": "8 a 15",
         "Foco_Muscular": "Musculo Isolado",
         "creator": "Admin"
       },
       {
-        "Musculo": "Panturrilha",
-        "Descricao": "Sentado em uma máquina de elevação de panturrilha, levante os calcanhares até ficar na ponta dos pés e depois abaixe lentamente.",
-        "Nome_Exercicio": "Elevação de Panturrilha Sentado",
+        "Musculo": "Gemeos",
+        "Descricao": "Sentado em uma máquina de elevação de Gemeos, levante os calcanhares até ficar na ponta dos pés e depois abaixe lentamente.",
+        "Nome_Exercicio": "Elevação de Gemeos Sentado",
         "Series": "3 a 4",
         "Repeticoes": "8 a 15",
         "Foco_Muscular": "Musculo Isolado",
         "creator": "Admin"
       },
       {
-        "Musculo": "Panturrilha",
+        "Musculo": "Gemeos",
         "Descricao": "De pé, segure um haltere em cada mão com os pés afastados na largura dos ombros. Levante os calcanhares até ficar na ponta dos pés e depois abaixe lentamente.",
-        "Nome_Exercicio": "Elevação de Panturrilha com Halteres",
+        "Nome_Exercicio": "Elevação de Gemeos com Halteres",
         "Series": "3 a 4",
         "Repeticoes": "8 a 15",
         "Foco_Muscular": "Musculo Isolado",

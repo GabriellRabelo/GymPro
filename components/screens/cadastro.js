@@ -3,9 +3,7 @@ import { StyleSheet, Text, View , Image,TextInput , TouchableOpacity, Keyboard }
 import {useFonts} from "expo-font";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { useUser } from './usercontext.js';
-import { db } from '../../services/FirebaseConfig.js';
 import {createUserWithEmailAndPassword} from "firebase/auth";
-import {collection , addDoc} from "firebase/firestore";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import "firebase/firestore";
 import {authState} from '../../services/FirebaseConfig.js';
@@ -85,8 +83,6 @@ const Cadastro = ({ navigation }) => {
                     .then(async (userCredential) => {
                         const user = userCredential.user;
                         setIdutilizador(user.uid);
-    
-                        // Navegar para a tela "Perguntas" passando Idade e Nome
                         navigation.replace("Perguntas", { Idade: Idade, Nome: Nome });
                     })
                     .catch((error) => {

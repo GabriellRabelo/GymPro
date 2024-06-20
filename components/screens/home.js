@@ -18,7 +18,7 @@ const Home = ({navigation}) => {
             </View>
 
             <View style={styles.center}>
-                <Text style={{marginTop:"6%",marginLeft:"5%",fontSize:25}}>Treino de hoje</Text>
+                <Text style={{marginTop:"6%",marginLeft:"5%",fontSize:25}}>Ainda não sei!</Text>
                 <Text style={{marginTop:"1%",marginLeft:"5%",fontSize:15}}>Texto atoa que ainda tenho que pensar</Text>
                 <TouchableOpacity onPress={() => alert("clicado")} style={styles.treino}>
                     <ImageBackground style={styles.backgroundimg} source={require("../imgs/div_semfundo.png")}>
@@ -41,14 +41,6 @@ const Home = ({navigation}) => {
                         <View>
                             <Text style={{marginTop:"7%",marginLeft:"5%",fontSize:23}}>Dieta</Text>
                             <Text style={{marginLeft:"4%",fontSize:20}}>Acompanhe a{"\n"}Sua dieta</Text>
-                        </View>
-                    </ImageBackground>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => shareDatabase()} style={styles.treino}>
-                    <ImageBackground style={styles.backgroundimg} source={require("../imgs/div_semfundo.png")}>
-                        <View>
-                            <Text style={{marginTop:"7%",marginLeft:"7%",fontSize:23}}>SHAREDATABASE</Text>
-                            <Text style={{marginLeft:"8%",fontSize:20}}>Hipertrofia</Text>
                         </View>
                     </ImageBackground>
                 </TouchableOpacity>
@@ -86,7 +78,7 @@ const styles = StyleSheet.create({
     treino:{
         height:"50%",
         width:"85%",
-        marginTop:"4%",
+        marginTop:"6%",
         alignSelf:"center",
         borderRadius:15,
         overflow: "hidden", // Para garantir que as bordas não sejam afetadas pela imagem de fundo

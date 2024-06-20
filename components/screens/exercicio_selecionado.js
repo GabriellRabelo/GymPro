@@ -59,7 +59,7 @@ const exercicioImages = {
     "Supino Declinado com Barra": require("../imgs/Exercicios/Supino Declinado com Barra.jpeg"),
     "Supino Declinado com Halteres": require("../imgs/Exercicios/Supino Declinado com Halteres.jpeg"),
     "Supino Inclinado com Barra": require("../imgs/Exercicios/Supino Inclinado com Barra.jpeg"),
-    "Supino Reto com Halteres": require("../imgs/Exercicios/Supino Inclinado com Halteres.jpeg"),
+    "Supino Reto com Halteres": require("../imgs/Exercicios/Supino Reto com Halteres.jpeg"),
     "Supino Reto com Barra": require("../imgs/Exercicios/Supino Reto com Barra.jpeg"),
     "Supino Inclinado com Halteres": require("../imgs/Exercicios/Supino Inclinado com Halteres.jpeg"),
     "Tríceps Francês com Barra EZ": require("../imgs/Exercicios/Tríceps Francês com Barra EZ.jpeg"),
@@ -101,26 +101,26 @@ const Exercicio_Selecionado = ({ navigation, route }) => {
         setDados(exerciciosFiltrados);
     }, [Musculo]); //useEffect para filtrar exercicios pelo musculo selecionado
 
-    useEffect(() => {
-        const fetchTreinos = async () => {
-            try {
-                const user = auth.currentUser;
-                if (user) {
-                    const userId = user.uid;
-                    const docRef = doc(db, 'treinos', userId);
-                    const docSnap = await getDoc(docRef);
+    const fetchTreinos = async () => {
+        try {
+            const user = auth.currentUser;
+            if (user) {
+                const userId = user.uid;
+                const docRef = doc(db, 'treinos', userId);
+                const docSnap = await getDoc(docRef);
 
-                    if (docSnap.exists()) {
-                        const data = docSnap.data();
-                        const treinoNomes = Object.keys(data);
-                        setTreinos(treinoNomes);
-                    }
+                if (docSnap.exists()) {
+                    const data = docSnap.data();
+                    const treinoNomes = Object.keys(data);
+                    setTreinos(treinoNomes);
                 }
-            } catch (error) {
-                console.error('Erro ao buscar Treinos:', error);
             }
-        };
+        } catch (error) {
+            console.error('Erro ao buscar Treinos:', error);
+        }
+    };
 
+    useEffect(() => {
         fetchTreinos();
     }, [auth]); //useEffeect para buscar os treinos
 
@@ -175,16 +175,25 @@ const Exercicio_Selecionado = ({ navigation, route }) => {
                     }
                 }
 
-                await updateDoc(docRef, {
-                    [treino]: arrayUnion(exercicio)
-                }, { merge: true });
+                const docSnap = await getDoc(docRef);
+                if (docSnap.exists()) {
+                    await updateDoc(docRef, {
+                        [treino]: arrayUnion(exercicio)
+                    });
+                } else {
+                    await setDoc(docRef, {
+                        [treino]: [exercicio]
+                    });
+                }
 
                 alert('Exercício adicionado ao treino com sucesso!');
                 setModalTreinoVisible(false);
                 setNovoTreino('');
+                fetchTreinos();
             }
         } catch (error) {
             console.error('Erro ao adicionar treino:', error);
+            alert('Erro ao adicionar treino. Por favor, tente novamente.');
         }
     };
 

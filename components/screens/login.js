@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import { useState , useEffect , memo } from 'react';
 import { StyleSheet, Text, View , Image,TextInput , TouchableOpacity,Keyboard } from 'react-native';
 import {useFonts} from "expo-font";
@@ -6,8 +5,7 @@ import {signInWithEmailAndPassword, onAuthStateChanged} from "@firebase/auth";
 import "firebase/firestore";
 import {authState} from '../../services/FirebaseConfig.js';
 import { useUser } from './usercontext.js';
-import Ionicons from "react-native-vector-icons/Ionicons";
-import { shareDatabase } from '../../services/HandleDataBase.js';
+
 
 const Login =({navigation}) => {
 
@@ -63,7 +61,6 @@ const Login =({navigation}) => {
                             setCurrentUser(false);
                         }
                     });
-                    alert("Utilizador logado");
                     navigation.replace("Home");
                 }
             }
@@ -81,9 +78,7 @@ const Login =({navigation}) => {
             <View style={styles.div}>
 
                 <Text style={{...styles.fonttexto,textAlign:"center" , fontSize:45, marginTop:20,}}>Login</Text>
-                <TouchableOpacity style={{marginLeft:20,padding:10,borderWidth:1,borderColor:"red",width:100,position:"absolute"}} onPress={() =>navigation.replace("Home")}>
-                    <Text>Press-me</Text>
-                </TouchableOpacity>
+
                 <View id='Formulario' style={styles.form}>
 
                     <Text style={{...styles.fonttexto,color:"gray",marginBottom:"4%",marginLeft:"4%"}}>Email</Text>

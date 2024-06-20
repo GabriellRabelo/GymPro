@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Modal, ScrollView, TouchableOpacity, Image, Keyboard, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Modal, ScrollView, TouchableOpacity, Image, Keyboard, TextInput} from 'react-native';
 import { useUser } from './usercontext.js';
-import { getDoc, updateDoc, arrayRemove , doc, arrayUnion } from 'firebase/firestore';
+import { getDoc, updateDoc, doc, arrayUnion } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { db } from '../../services/FirebaseConfig.js';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
@@ -78,6 +78,27 @@ const Favoritos = ({ navigation }) => {
         "V-Up": require("../imgs/Exercicios/V-Up.jpeg"),
     };
 
+    const fetchFavoritos = async () => {
+        try {
+            const user = auth.currentUser;
+            if (user) {
+                const userId = user.uid;
+                const docRef = doc(db, 'favoritos', userId);
+                const docSnap = await getDoc(docRef);
+
+                if (docSnap.exists()) {
+                    const data = docSnap.data();
+                    setFavoritos(data.favoritos || []);
+                }
+                setLoading(false);
+            } else {
+                console.error('Usuário não autenticado');
+            }
+        } catch (error) {
+            console.error('Erro ao buscar favoritos:', error);
+        }
+    };
+
     useEffect(() => {
         const KeyBoardShowListener = Keyboard.addListener("keyboardDidShow", () => {
           setKeyboardVisible(true);
@@ -116,29 +137,8 @@ const Favoritos = ({ navigation }) => {
     }, [auth]); // useEffect para buscar os treinos
 
     useEffect(() => {
-        const fetchFavoritos = async () => {
-            try {
-                const user = auth.currentUser;
-                if (user) {
-                    const userId = user.uid;
-                    const docRef = doc(db, 'favoritos', userId);
-                    const docSnap = await getDoc(docRef);
-
-                    if (docSnap.exists()) {
-                        const data = docSnap.data();
-                        setFavoritos(data.favoritos || []);
-                    }
-                    setLoading(false);
-                } else {
-                    console.error('Usuário não autenticado');
-                }
-            } catch (error) {
-                console.error('Erro ao buscar favoritos:', error);
-            }
-        };
-
         fetchFavoritos();
-    }, [auth]); // useEffect para buscar os favoritos
+    }, []); // useEffect para buscar os favoritos
 
     const OpenModal = (index) => {
         setModalExercicioIndex(index);
@@ -159,7 +159,9 @@ const Favoritos = ({ navigation }) => {
                 <Text>Carregando...</Text>
             </View>
         );
-    }
+    };
+
+    
 
     const HandleRemoverFavorito = async (exercicio) => {
         try {
@@ -167,13 +169,14 @@ const Favoritos = ({ navigation }) => {
             if (user) {
                 const userId = user.uid;
                 const docRef = doc(db, 'favoritos', userId);
-
+    
                 await updateDoc(docRef, {
-                    favoritos: arrayRemove(exercicio)
+                    favoritos: favoritos.filter(fav => fav.Nome_Exercicio !== exercicio.Nome_Exercicio)
                 });
-
-                setFavoritos(favoritos.filter(fav => fav.nomeExercicio !== exercicio.nomeExercicio));
-                console.log('Favorito removido com sucesso!');
+    
+                setFavoritos(favoritos.filter(fav => fav.Nome_Exercicio !== exercicio.Nome_Exercicio));
+                alert("Exercicio removido com sucesso");
+                CloseModal();
             }
         } catch (error) {
             console.error('Erro ao remover favorito:', error);
