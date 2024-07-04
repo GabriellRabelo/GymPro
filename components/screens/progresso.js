@@ -1,19 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { useState, useEffect, memo } from 'react';
-import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, ScrollView } from 'react-native';
-import { useFonts } from "expo-font";
-import { signInWithEmailAndPassword, onAuthStateChanged } from "@firebase/auth";
-import "firebase/firestore";
-import { authState } from '../../services/FirebaseConfig.js';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, ScrollView, Modal } from 'react-native';
+import { auth, db } from '../../services/FirebaseConfig.js'; // Assuming your Firebase configuration is in this file
 import { useUser } from './usercontext.js';
 import ExerciciosData from "../../services/ExerciciosData.json";
+import { doc, getDoc, setDoc, arrayUnion } from "firebase/firestore"; 
+import { LineChart } from 'react-native-chart-kit'; // Assuming you're using this library for charts
+import { Dimensions } from 'react-native';
+import { getAuth } from 'firebase/auth';
 
-const Progresso = () => {
+
+const Progresso = ({navigation}) => {
+
     const exercicioImages = {
         "Crucifixo Inclinado com Halteres": require("../imgs/Exercicios/Crucifixo Inclinado com Halteres.jpeg"),
         "Levantamento Terra": require("../imgs/Exercicios/Levantamento Terra.jpeg"),
         "Abdominal Crunch": require("../imgs/Exercicios/Abdominal Crunch.jpeg"),
         "Agachamento": require("../imgs/Exercicios/Agachamento.jpeg"),
+        "Afundo": require("../imgs/Exercicios/Afundo.gif"),
+        "Agachamento Afundo Apoiado": require("../imgs/Exercicios/Agachamento Afundo Apoiado.jpeg"),
+        "Agachamento Pulando": require("../imgs/Exercicios/Agachamento Pulando.jpeg"),
         "Barra Fixa Pronada": require("../imgs/Exercicios/Barra Fixa Pronada.jpeg"),
         "Búlgaro": require("../imgs/Exercicios/Búlgaro.jpeg"),
         "Cadeira Extensora": require("../imgs/Exercicios/Cadeira Extensora.gif"),
@@ -30,6 +35,8 @@ const Progresso = () => {
         "Encolhimento de Ombros com Halteres": require("../imgs/Exercicios/Encolhimento de Ombros com Halteres.gif"),
         "Extensão de Tríceps Sentado com Barra": require("../imgs/Exercicios/Extensão de Tríceps Sentado com Barra.jpeg"),
         "Flexões": require("../imgs/Exercicios/Flexões.jpeg"),
+        "Flexões Diamante": require("../imgs/Exercicios/Flexões Diamante.gif"),
+        "Flexão Inclinada": require("../imgs/Exercicios/Flexão Inclinada.jpeg"),
         "Hiperextensão Lombar": require("../imgs/Exercicios/Hiperextensão Lombar.jpeg"),
         "Kickback com Halteres": require("../imgs/Exercicios/Kickback com Halteres.jpeg"),
         "Leg Press": require("../imgs/Exercicios/Leg Press.jpeg"),
@@ -60,7 +67,7 @@ const Progresso = () => {
         "Supino Declinado com Barra": require("../imgs/Exercicios/Supino Declinado com Barra.jpeg"),
         "Supino Declinado com Halteres": require("../imgs/Exercicios/Supino Declinado com Halteres.jpeg"),
         "Supino Inclinado com Barra": require("../imgs/Exercicios/Supino Inclinado com Barra.jpeg"),
-        "Supino Reto com Halteres": require("../imgs/Exercicios/Supino Inclinado com Halteres.jpeg"),
+        "Supino Reto com Halteres": require("../imgs/Exercicios/Supino Reto com Halteres.jpeg"),
         "Supino Reto com Barra": require("../imgs/Exercicios/Supino Reto com Barra.jpeg"),
         "Supino Inclinado com Halteres": require("../imgs/Exercicios/Supino Inclinado com Halteres.jpeg"),
         "Tríceps Francês com Barra EZ": require("../imgs/Exercicios/Tríceps Francês com Barra EZ.jpeg"),
@@ -70,10 +77,27 @@ const Progresso = () => {
     };
 
     const [exercicios, setExercicios] = useState(ExerciciosData);
+    const [modalVisible, setModalVisible] = useState(false);
+    const [selectedExercicio, setSelectedExercicio] = useState(null);
+    const [initialWeight, setInitialWeight] = useState("");
+    const [newWeight, setNewWeight] = useState("");
+    const [weightData, setWeightData] = useState([]);
+    const auth = getAuth();
+
 
     const getImageSource = (nomeExercicio) => {
         return exercicioImages[nomeExercicio] || null;
     };
+
+    const handleExercicioPress = (exercicio) => {
+        if (!exercicio || !exercicio.Nome_Exercicio) {
+            alert('Dados do exercício estão incompletos');
+            return;
+        }
+        console.log('Navegando para Dados_Exercicios com:', exercicio);
+        navigation.navigate("Dados_Exercicios", { Exercicio: exercicio });
+    };
+    
 
     return (
         <View style={{ flex: 1 }}>
@@ -82,7 +106,7 @@ const Progresso = () => {
                 <View style={styles.container}>
                     {exercicios.map((exercicio, index) => {
                         return (
-                            <TouchableOpacity onPress={() => alert(exercicio.Nome_Exercicio)} style={styles.div} key={index}>
+                            <TouchableOpacity onPress={() => handleExercicioPress(exercicio)} style={styles.div} key={index}>
                                 <Image style={styles.image} source={getImageSource(exercicio.Nome_Exercicio)} />
                                 <Text style={styles.text}>{exercicio.Nome_Exercicio}</Text>
                             </TouchableOpacity>
@@ -90,6 +114,62 @@ const Progresso = () => {
                     })}
                 </View>
             </ScrollView>
+
+            <Modal animationType="slide" transparent={true} visible={modalVisible} onRequestClose={() => setModalVisible(false)}>
+                <View style={styles.modalView}>
+                    <ScrollView contentContainerStyle={{height:"100%", width:"100%"}}>
+                        {selectedExercicio && (
+                            <>
+                                <Text style={styles.modalText}>{selectedExercicio.Nome_Exercicio}</Text>
+                                <Image style={styles.modalImage} source={getImageSource(selectedExercicio.Nome_Exercicio)} />
+                                <TextInput
+                                    style={styles.input}
+                                    placeholder="Peso inicial"
+                                    keyboardType="numeric"
+                                    value={initialWeight}
+                                    onChangeText={setInitialWeight}
+                                />
+                                <TextInput
+                                    style={styles.input}
+                                    placeholder="Novo peso"
+                                    keyboardType="numeric"
+                                    value={newWeight}
+                                    onChangeText={setNewWeight}
+                                />
+                                <TouchableOpacity style={styles.botoes}>
+                                    <Text style={{ fontFamily: "Zing.rust" }}>Salvar</Text>
+                                </TouchableOpacity>
+                                {weightData.length > 0 && (
+                                    <LineChart
+                                        data={data}
+                                        width={Dimensions.get('window').width - 90}
+                                        height={230}
+                                        yAxisLabel=""
+                                        chartConfig={{
+                                            backgroundColor: '#e26a00',
+                                            backgroundGradientFrom: '#fb8c00',
+                                            backgroundGradientTo: '#ffa726',
+                                            decimalPlaces: 2,
+                                            color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                                            style: {
+                                                borderRadius: 16
+                                            }
+                                        }}
+                                        style={{
+                                            marginVertical: 8,
+                                            borderRadius: 16
+                                        }}
+                                    />
+                                )}
+                            </>
+                        )}
+
+                        <TouchableOpacity style={styles.botoes} onPress={() => setModalVisible(false)}>
+                            <Text style={{ fontFamily: "Zing.rust" }}>Fechar</Text>
+                        </TouchableOpacity>
+                    </ScrollView>
+                </View>
+            </Modal>
         </View>
     );
 };
@@ -107,6 +187,7 @@ const styles = StyleSheet.create({
         width: "45%",
         marginBottom: 10,
         alignItems: 'center',
+        backgroundColor:"white"
     },
     image: {
         width: "100%",
@@ -116,6 +197,47 @@ const styles = StyleSheet.create({
     text: {
         marginTop: 10,
         textAlign: 'center',
+    },
+    modalView: {
+        height: "95%",
+        margin: 20,
+        backgroundColor: 'white',
+        borderRadius: 20,
+        padding: 35,
+        shadowColor: '#000',
+        shadowOffset: {
+          width: 0,
+          height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
+        borderWidth: 1
+      },
+    modalText: {
+        marginBottom: 15,
+        textAlign: 'center',
+        fontSize: 20,
+        fontFamily: "Zing.rust"
+    },
+    modalImage: {
+        width: "100%",
+        height: "30%", 
+        resizeMode: "contain" 
+    },
+    input: {
+        height: 40,
+        borderColor: 'gray',
+        borderWidth: 1,
+        marginBottom: 10,
+        padding: 10
+    },
+    botoes: {
+        padding: "5%",
+        borderWidth: 1,
+        borderRadius: 20,
+        marginTop: "5%",
+        alignSelf: "center"
     },
 });
 

@@ -6,52 +6,6 @@ import { db } from '../../services/FirebaseConfig.js';
 import { getDoc, doc } from 'firebase/firestore';
 
 const Dieta = ({ navigation }) => {
-    const { idutilizador } = useUser();
-    const [DadosNutricionais, setDadosNutricionais] = useState([]);
-    const [Dieta, setDieta] = useState([]);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        const fetchUserData = async () => {
-            try {
-                // Buscar dados nutricionais do usuário
-                const nutriRef = doc(db, 'Utilizador', idutilizador);
-                const nutriSnapshot = await getDoc(nutriRef);
-
-                if (nutriSnapshot.exists()) {
-                    const dadosNutri = nutriSnapshot.data();
-                    setDadosNutricionais(dadosNutri);
-                } else {
-                    console.log("Documento de dados nutricionais não encontrado para o usuário");
-                }
-
-                // Buscar dados da dieta do usuário
-                const dietaRef = doc(db, 'Dieta', idutilizador);
-                const dietaSnapshot = await getDoc(dietaRef);
-
-                if (dietaSnapshot.exists()) {
-                    const dietaData = dietaSnapshot.data();
-                    setDieta(dietaData);
-                } else {
-                    console.log("Documento de dieta não encontrado para o usuário");
-                }
-            } catch (error) {
-                console.error("Erro ao buscar dados: ", error);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchUserData();
-    }, [idutilizador]);
-
-    if (loading) {
-        return (
-            <View style={styles.loadingContainer}>
-                <Text>Carregando...</Text>
-            </View>
-        );
-    };
 
     return (
         <ScrollView contentContainerStyle={{height:"100%"}}>

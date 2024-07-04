@@ -1,12 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState , useEffect , memo } from 'react';
-import { StyleSheet, Text, View , Image,TextInput , TouchableOpacity, ImageBackground } from 'react-native';
+import { StyleSheet, Text, View , Image,TextInput , TouchableOpacity, ImageBackground, LogBox } from 'react-native';
 import {useFonts} from "expo-font";
 import { useUser } from './usercontext.js';
 import { shareDatabase } from '../../services/HandleDataBase.js';
 
-
 const Home = ({navigation}) => {
+    LogBox.ignoreAllLogs();
     const { idutilizador } = useUser();
     const NomeUtilizador = "Gabriel";
 

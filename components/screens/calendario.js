@@ -89,6 +89,11 @@ const Calendario = () => {
     "Tríceps na Polia com Corda": require("../imgs/Exercicios/Tríceps na Polia com Corda.jpeg"),
     "Tríceps Testa com Halteres": require("../imgs/Exercicios/Tríceps Testa com Halteres.jpeg"),
     "V-Up": require("../imgs/Exercicios/V-Up.jpeg"),
+    "Agachamento Afundo Apoiado": require("../imgs/Exercicios/Agachamento Afundo Apoiado.jpeg"),
+    "Afundo": require("../imgs/Exercicios/Afundo.gif"),
+    "Agachamento Pulando": require("../imgs/Exercicios/Agachamento Pulando.jpeg"),
+    "Flexões Diamante": require("../imgs/Exercicios/Flexões Diamante.gif"),
+    "Flexão Inclinada": require("../imgs/Exercicios/Flexão Inclinada.jpeg"),
   };
 
   const getImageSource = (nomeExercicio) => {
@@ -386,7 +391,7 @@ const Calendario = () => {
           <TouchableOpacity onPress={() => copyLastWeekWorkouts()} style={{marginLeft:"90%",marginTop:"-11%",marginBottom:"3%"}}>
             <Image style={{width:30,height:30}} source={require("../icons/Copy.png")}></Image>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleOpeninfoModal()} style={{marginLeft:"75%",marginTop:"-11%",marginBottom:"3%"}}>
+          <TouchableOpacity onPress={() => handleOpeninfoModal()} style={{marginLeft:"75%",marginTop:"-11%",marginBottom:"3%",width:"10%"}}>
             <Image style={{width:30,height:30}} source={require("../icons/info.png")}></Image>
           </TouchableOpacity>
           <View style={styles.placeholder}>

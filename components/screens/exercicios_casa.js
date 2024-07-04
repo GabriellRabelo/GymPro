@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { StyleSheet, Text, View, Image,TouchableOpacity, Dimensions, Platform } from 'react-native';
 import { useFonts } from "expo-font";
 import "firebase/firestore";
+
+
 const { width, height } = Dimensions.get('window');
 
-const ExerciciosCasa = ({ navigation }) => {
+const Exercicios = ({ navigation }) => {
   const [ShowBack, setShowBack] = useState(true);
 
   const [fontsLoaded] = useFonts({
@@ -15,21 +17,17 @@ const ExerciciosCasa = ({ navigation }) => {
     return undefined;
   }
 
-  const ToggleImg = () => {
-    setShowBack(!ShowBack);
-  }
-
   const handleBuscarExercicios = (musculo) => {
-    navigation.navigate("Exercicio", { musculo: musculo });
+    navigation.navigate("Exercicio_Casa", { musculo: musculo });
   }
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerText}>Exercícios</Text>
+        <Text style={styles.headerText}>Exercícios em casa</Text>
       </View>
       <View style={styles.bodyContainer}>
-        <Image style={styles.bodyImg} source={ShowBack ? require("../imgs/Body_Front.png") : require("../imgs/Body_Back.png")}/>
+        <Image style={styles.bodyImg} source={require("../imgs/Home_Body_Front.png")}/>
         <View style={styles.overlay}>
           {ShowBack ? (
             <View style={styles.musclesContainer}>
@@ -56,13 +54,9 @@ const ExerciciosCasa = ({ navigation }) => {
               ))}
             </View>
           )}
-          <TouchableOpacity style={styles.toggleButton} onPress={ToggleImg}>
-            <Image style={styles.toggleImage} source={require("../icons/Girar.png")} />
-            <Text style={styles.toggleText}>Girar</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.toggleButtonCasa} onPress={() => navigation.navigate("ExerciciosCasa")}>
-            <Image style={{...styles.toggleImage,alignSelf:"center"}} source={require("../icons/casa_workout.png")} />
-            <Text style={styles.toggleText}>Treinos em casa</Text>
+          <TouchableOpacity style={styles.toggleButtonCasa} onPress={() => navigation.navigate("Exercicios")}>
+            <Image style={{...styles.toggleImage,alignSelf:"center"}} source={require("../icons/gym.png")} />
+            <Text style={styles.toggleText}>Exercício no ginasio</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -71,27 +65,12 @@ const ExerciciosCasa = ({ navigation }) => {
 };
 
 const musclesFront = [
-  { name: 'Peito', label: 'Peito', style: { top: '13%', left: '66%' } },
-  { name: 'Abdomen', label: 'Abdômen', style: { top: '26%', left: '68%' } },
-  { name: 'Antebraço', label: 'Antebraço', style: { top: '32%', left: '68%',width:"18%" } },
-  { name: 'Adutores', label: 'Adutores', style: { top: '44%', left: '72%' } },
-  { name: 'Cardio', label: 'Cardio', style: { top: '59%', left: '75%' } },
-  { name: 'Abdutores', label: 'Abdutores', style: { top: '39%', left: '13%',width:"17%" } },
-  { name: 'Quadríceps', label: 'Quadríceps', style: { top: '47%', left: '15%',width:"18%" } },
-  { name: 'Oblíquos', label: 'Oblíquos', style: { top: '32%', left: '15%' } },
-  { name: 'Bíceps', label: 'Bíceps', style: { top: '23%', left: '17%' } },
-  { name: 'Ombros', label: 'Ombros', style: { top: '11%', left: '17%' } },
-];
-
-const musclesBack = [
-  { name: 'Trapezio', label: 'Trapézio', style: { top: '21%', left: '64%' } },
-  { name: 'Costas', label: 'Costas', style: { top: '30%', left: '66%' } },
-  { name: 'Isquiotibiais', label: 'Isquiotibiais', style: { top: '50%', left: '65%', width:"21%" } },
-  { name: 'Cardio', label: 'Cardio', style: { top: '56%', left: '66%' } },
-  { name: 'Gemeos', label: 'Gêmeos', style: { top: '52%', left: '20%' } },
-  { name: 'Gluteos', label: 'Glúteos', style: { top: '44%', left: '19%' } },
-  { name: 'Lombar', label: 'Lombar', style: { top: '31%', left: '19%' } },
-  { name: 'Triceps', label: 'Tríceps', style: { top: '20%', left: '20%' } },
+  { name: 'Peito', label: 'Peito', style: { top: '14%', left: '66%' } },
+  { name: 'Abdomen', label: 'Abdômen', style: { top: '27%', left: '68%' } },
+  { name: 'Cardio', label: 'Cardio', style: { top: '60%', left: '75%' } },
+  { name: 'Gemeos', label: 'Gêmeos', style: { top: '63%', left: '20%',width:"17%" } },
+  { name: 'Quadríceps', label: 'Pernas', style: { top: '48%', left: '15%',width:"18%" } },
+  { name: 'Triceps', label: 'Tríceps', style: { top: '24%', left: '17%' } },
 ];
 
 const styles = StyleSheet.create({
@@ -152,21 +131,12 @@ const styles = StyleSheet.create({
     fontSize: 15,
     textAlign: 'center',
   },
-  toggleButton: {
+  toggleButtonCasa: {
     position: 'absolute',
-    width: '20%',
+    width: '25%',
     height: '5%',
     bottom: Platform.OS === 'ios' ? '5%' : '10%',
     left: '40%',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  toggleButtonCasa: {
-    position: 'absolute',
-    width: '20%',
-    height: '5%',
-    bottom: Platform.OS === 'ios' ? '5%' : '10%',
-    left: '10%',
     textAlign:"center",
     justifyContent: 'center',
   },
@@ -181,4 +151,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ExerciciosCasa;
+export default Exercicios;

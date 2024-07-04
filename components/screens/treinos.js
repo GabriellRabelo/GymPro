@@ -71,6 +71,11 @@ const Treinos = () => {
         "Tríceps na Polia com Corda": require("../imgs/Exercicios/Tríceps na Polia com Corda.jpeg"),
         "Tríceps Testa com Halteres": require("../imgs/Exercicios/Tríceps Testa com Halteres.jpeg"),
         "V-Up": require("../imgs/Exercicios/V-Up.jpeg"),
+        "Agachamento Afundo Apoiado": require("../imgs/Exercicios/Agachamento Afundo Apoiado.jpeg"),
+        "Afundo": require("../imgs/Exercicios/Afundo.gif"),
+        "Agachamento Pulando": require("../imgs/Exercicios/Agachamento Pulando.jpeg"),
+        "Flexões Diamante": require("../imgs/Exercicios/Flexões Diamante.gif"),
+        "Flexão Inclinada": require("../imgs/Exercicios/Flexão Inclinada.jpeg"),
     };
 
     const getImageSource = (nomeExercicio) => {
@@ -222,7 +227,7 @@ const Treinos = () => {
     }
 
     return (
-        <View style={{ flex: 1 }}>
+        <ScrollView style={{ flex: 1 }}>
             <TouchableOpacity style={{ position: "absolute", width: 30, height: 20, marginTop: "9%", marginLeft: "5%" }} onPress={fetchTreinos}>
                 <Image style={styles.backimg} source={require("../icons/reload.png")}></Image>
             </TouchableOpacity>
@@ -236,7 +241,7 @@ const Treinos = () => {
             ) : (
                 <Text style={{ alignSelf: "center", marginTop: "5%" }}>Nenhum treino encontrado</Text>
             )}
-        </View>
+        </ScrollView>
     );
 };
 

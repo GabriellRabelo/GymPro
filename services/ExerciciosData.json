@@ -1,795 +1,928 @@
 [
-    {
-        "Musculo": "Peito",
-        "Descricao": "Deite-se em um banco inclinado (cerca de 30-45 graus). Segure uma barra com as mãos afastadas na largura dos ombros. Abaixe a barra até o peito e empurre-a de volta para a posição inicial. Este exercício foca a parte superior do peitoral.",
-        "Nome_Exercicio": "Supino Inclinado com Barra",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Superior",
-        "creator": "Admin"
-      },
-    {
-        "Musculo": "Peito",
-        "Descricao": "Deite-se em um banco inclinado com um haltere em cada mão. Abaixe os halteres até a altura do peito e, em seguida, empurre-os de volta para a posição inicial. Este exercício trabalha a parte superior do peitoral.",
-        "Nome_Exercicio": "Supino Inclinado com Halteres",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Superior",
-        "creator": "Admin"
-      },
-    {
-        "Musculo": "Peito",
-        "Descricao": "Deite-se em um banco inclinado segurando um haltere em cada mão. Com os braços ligeiramente flexionados, abra-os até sentir um alongamento no peito, depois volte para a posição inicial. Este exercício isola a parte superior do peitoral.",
-        "Nome_Exercicio": "Crucifixo Inclinado com Halteres",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Superior",
-        "creator": "Admin"
-      },
-    {
-        "Musculo": "Peito",
-        "Descricao": "Deite-se em um banco reto e segure uma barra com as mãos afastadas na largura dos ombros. Abaixe a barra até o peito e empurre-a de volta para a posição inicial. Este exercício trabalha a parte média do peitoral.",
-        "Nome_Exercicio": "Supino Reto com Barra",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Médio",
-        "creator": "Admin"
-      },
-    {
-        "Musculo": "Peito",
-        "Descricao": "Deite-se em um banco reto com um haltere em cada mão. Abaixe os halteres até a altura do peito e, em seguida, empurre-os de volta para a posição inicial. Este exercício trabalha a parte média do peitoral.",
-        "Nome_Exercicio": "Supino Reto com Halteres",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Médio",
-        "creator": "Admin"
-      },
-    {
-        "Musculo": "Peito",
-        "Descricao": "Deite-se em um banco reto segurando um haltere em cada mão. Com os braços ligeiramente flexionados, abra-os até sentir um alongamento no peito, depois volte para a posição inicial. Este exercício isola a parte média do peitoral.",
-        "Nome_Exercicio": "Crucifixo Reto com Halteres",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Médio",
-        "creator": "Admin"
-      },
-    {
-        "Musculo": "Peito",
-        "Descricao": "Deite-se no chão ou em um banco reto com as mãos afastadas na largura dos ombros. Abaixe o corpo até o peito quase tocar o chão, depois empurre-se de volta para a posição inicial. Este exercício trabalha a parte média do peitoral.",
-        "Nome_Exercicio": "Flexões",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Médio",
-        "creator": "Admin"
-      },
-    {
-        "Musculo": "Peito",
-        "Descricao": "Deite-se em um banco declinado e segure uma barra com as mãos afastadas na largura dos ombros. Abaixe a barra até o peito e empurre-a de volta para a posição inicial. Este exercício foca a parte inferior do peitoral.",
-        "Nome_Exercicio": "Supino Declinado com Barra",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Inferior",
-        "creator": "Admin"
-      },
-    {
-        "Musculo": "Peito",
-        "Descricao": "Deite-se em um banco declinado com um haltere em cada mão. Abaixe os halteres até a altura do peito e, em seguida, empurre-os de volta para a posição inicial. Este exercício trabalha a parte inferior do peitoral.",
-        "Nome_Exercicio": "Supino Declinado com Halteres",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Inferior",
-        "creator": "Admin"
-      },
-    {
-        "Musculo": "Peito",
-        "Descricao": "Deite-se em um banco declinado segurando um haltere em cada mão. Com os braços ligeiramente flexionados, abra-os até sentir um alongamento no peito, depois volte para a posição inicial. Este exercício isola a parte inferior do peitoral.",
-        "Nome_Exercicio": "Crucifixo Declinado com Halteres",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Inferior",
-        "creator": "Admin"
-      },
-    {
-        "Musculo": "Peito",
-        "Descricao": "Segure-se em barras paralelas com os braços estendidos e o corpo inclinado para frente. Abaixe-se até os cotovelos formarem um ângulo de 90 graus e depois empurre-se de volta para a posição inicial. Este exercício foca na parte inferior do peitoral e também trabalha os tríceps.",
-        "Nome_Exercicio": "Mergulho nas Paralelas (Dips)",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Inferior",
-        "creator": "Admin"
-      },
+  {
+    "Musculo": "Peito",
+    "Descricao": "Deite-se em um banco inclinado (cerca de 30-45 graus). Segure uma barra com as mãos afastadas na largura dos ombros. Abaixe a barra até o peito e empurre-a de volta para a posição inicial. Este exercício foca a parte superior do peitoral.",
+    "Nome_Exercicio": "Supino Inclinado com Barra",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Superior",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Peito",
+    "Descricao": "Deite-se em um banco inclinado com um haltere em cada mão. Abaixe os halteres até a altura do peito e, em seguida, empurre-os de volta para a posição inicial. Este exercício trabalha a parte superior do peitoral.",
+    "Nome_Exercicio": "Supino Inclinado com Halteres",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Superior",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Peito",
+    "Descricao": "Deite-se em um banco inclinado segurando um haltere em cada mão. Com os braços ligeiramente flexionados, abra-os até sentir um alongamento no peito, depois volte para a posição inicial. Este exercício isola a parte superior do peitoral.",
+    "Nome_Exercicio": "Crucifixo Inclinado com Halteres",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Superior",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Peito",
+    "Descricao": "Deite-se em um banco reto e segure uma barra com as mãos afastadas na largura dos ombros. Abaixe a barra até o peito e empurre-a de volta para a posição inicial. Este exercício trabalha a parte média do peitoral.",
+    "Nome_Exercicio": "Supino Reto com Barra",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Médio",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Peito",
+    "Descricao": "Deite-se em um banco reto com um haltere em cada mão. Abaixe os halteres até a altura do peito e, em seguida, empurre-os de volta para a posição inicial. Este exercício trabalha a parte média do peitoral.",
+    "Nome_Exercicio": "Supino Reto com Halteres",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Médio",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Peito",
+    "Descricao": "Deite-se em um banco reto segurando um haltere em cada mão. Com os braços ligeiramente flexionados, abra-os até sentir um alongamento no peito, depois volte para a posição inicial. Este exercício isola a parte média do peitoral.",
+    "Nome_Exercicio": "Crucifixo Reto com Halteres",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Médio",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Peito",
+    "Descricao": "Deite-se no chão ou em um banco reto com as mãos afastadas na largura dos ombros. Abaixe o corpo até o peito quase tocar o chão, depois empurre-se de volta para a posição inicial. Este exercício trabalha a parte média do peitoral.",
+    "Nome_Exercicio": "Flexões",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Médio",
+    "Creator": "Admin",
+    "RealizaremCasa": true
+  },
+  {
+    "Musculo": "Peito",
+    "Descricao": "Deite-se no chão ou em um banco reto com as mãos juntas formando um diamante. Abaixe o corpo até o peito quase tocar o chão, depois empurre-se de volta para a posição inicial. Este exercício trabalha a parte média do peitoral e tríceps.",
+    "Nome_Exercicio": "Flexões Diamante",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Médio",
+    "Creator": "Admin",
+    "RealizaremCasa": true
+  },
+  {
+    "Musculo": "Peito",
+    "Descricao": "Deite-se e apoie as mãos em uma mesa ou em banco/sofá e os pés no solo. Deixe as mãos afastadas para fazer a pegada aberta. Após isso levante o peso do seu corpo até que os cotovelos estejam quase esticados, depois desça o corpo até que seu peitoral esteja a poucos centimetros do banco",
+    "Nome_Exercicio": "Flexão Inclinada",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Médio",
+    "Creator": "Admin",
+    "RealizaremCasa": true
+  },
+  {
+    "Musculo": "Peito",
+    "Descricao": "Deite-se em um banco declinado e segure uma barra com as mãos afastadas na largura dos ombros. Abaixe a barra até o peito e empurre-a de volta para a posição inicial. Este exercício foca a parte inferior do peitoral.",
+    "Nome_Exercicio": "Supino Declinado com Barra",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Inferior",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Peito",
+    "Descricao": "Deite-se em um banco declinado com um haltere em cada mão. Abaixe os halteres até a altura do peito e, em seguida, empurre-os de volta para a posição inicial. Este exercício trabalha a parte inferior do peitoral.",
+    "Nome_Exercicio": "Supino Declinado com Halteres",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Inferior",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Peito",
+    "Descricao": "Deite-se em um banco declinado segurando um haltere em cada mão. Com os braços ligeiramente flexionados, abra-os até sentir um alongamento no peito, depois volte para a posição inicial. Este exercício isola a parte inferior do peitoral.",
+    "Nome_Exercicio": "Crucifixo Declinado com Halteres",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Inferior",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Peito",
+    "Descricao": "Segure-se em barras paralelas com os braços estendidos e o corpo inclinado para frente. Abaixe-se até os cotovelos formarem um ângulo de 90 graus e depois empurre-se de volta para a posição inicial. Este exercício foca na parte inferior do peitoral e também trabalha os tríceps.",
+    "Nome_Exercicio": "Mergulho nas Paralelas (Dips)",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Inferior",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Costas",
+    "Descricao": "Segure uma barra com as mãos afastadas na largura dos ombros e com as palmas voltadas para baixo. Levante o corpo até que o queixo esteja acima da barra, mantendo as costas retas. Esse exercício trabalha principalmente os dorsais.",
+    "Nome_Exercicio": "Barra Fixa Pronada",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Dorsais",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Costas",
+    "Descricao": "Sentado em uma máquina de puxada alta, segure a barra com as mãos afastadas. Puxe a barra até a parte superior do peito e depois volte à posição inicial.",
+    "Nome_Exercicio": "Puxada Alta",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Dorsais",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Costas",
+    "Descricao": "De pé, com um haltere em cada mão, incline o tronco para frente. Puxe os halteres até os lados do seu tronco e depois abaixe-os novamente.",
+    "Nome_Exercicio": "Remada Curvada com Halteres",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Dorsais",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Costas",
+    "Descricao": "De pé, segure uma barra com as mãos afastadas na largura dos ombros. Incline-se para frente e puxe a barra até a parte inferior do peito e depois abaixe lentamente.",
+    "Nome_Exercicio": "Remada Curvada com Barra",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Dorsais",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Costas",
+    "Descricao": "Deite-se de bruços em um banco hiperextensor. Flexione o tronco para baixo e depois levante o corpo até alinhar com as pernas, focando a parte inferior das costas.",
+    "Nome_Exercicio": "Hiperextensão Lombar",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Lombar",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Costas",
+    "Descricao": "De pé, segure uma barra com as mãos afastadas na largura dos ombros e com os joelhos levemente flexionados. Flexione os quadris para abaixar a barra até a altura da canela e depois levante-a novamente, mantendo as costas retas.",
+    "Nome_Exercicio": "Levantamento Terra",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Lombar",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Costas",
+    "Descricao": "Deitado de barriga para baixo em um banco plano, segure um haltere em cada mão. Levante os halteres até os braços estarem alinhados com o tronco e depois abaixe lentamente.",
+    "Nome_Exercicio": "Remada Cavalinho",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Lombar",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Costas",
+    "Descricao": "Sentado em uma máquina de remada, segure as alças com as mãos afastadas. Puxe as alças em direção ao tronco e depois volte à posição inicial.",
+    "Nome_Exercicio": "Remada Sentada na Máquina",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Médio",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Costas",
+    "Descricao": "De pé, segure um haltere em cada mão com os braços estendidos à frente do corpo. Levante os halteres lateralmente até a altura dos ombros e depois abaixe-os lentamente.",
+    "Nome_Exercicio": "Elevação Lateral Curvada com Halteres",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Médio",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Costas",
+    "Descricao": "De pé, segure uma barra com as mãos afastadas na largura dos ombros e puxe a barra até a parte inferior do peito e depois abaixe lentamente.",
+    "Nome_Exercicio": "Remada Curvada com Pegada Supinada",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Médio",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Bíceps",
+    "Descricao": "Fique em pé com os pés afastados na largura dos ombros e segure uma barra com as palmas das mãos voltadas para cima. Flexione os cotovelos, levantando a barra em direção aos ombros, mantendo os braços próximos ao corpo.",
+    "Nome_Exercicio": "Rosca Direta com Barra",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 12",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Bíceps",
+    "Descricao": "Sente-se em um banco inclinado com um halter em cada mão, deixando os braços estendidos ao lado do corpo e as palmas das mãos voltadas para cima. Flexione os cotovelos, levando os halteres em direção aos ombros, mantendo os braços próximos ao corpo.",
+    "Nome_Exercicio": "Rosca Alternada com Halteres",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 12",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Bíceps",
+    "Descricao": "Fique em pé com os pés afastados na largura dos ombros e segure um par de halteres com as palmas das mãos voltadas para cima. Flexione os cotovelos, levando os halteres em direção aos ombros, mantendo os braços próximos ao corpo.",
+    "Nome_Exercicio": "Rosca Direta com Halteres",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 12",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Bíceps",
+    "Descricao": "Sente-se em um banco inclinado com um halter em cada mão, deixando os braços estendidos ao lado do corpo e as palmas das mãos voltadas para baixo. Flexione os cotovelos, levando os halteres em direção aos ombros, mantendo os braços próximos ao corpo.",
+    "Nome_Exercicio": "Rosca Martelo com Halteres",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 12",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Bíceps",
+    "Descricao": "Deite-se em um banco inclinado com um halter em cada mão, deixando os braços estendidos em direção ao chão e as palmas das mãos voltadas para cima. Flexione os cotovelos, levando os halteres em direção aos ombros, mantendo os braços próximos ao corpo.",
+    "Nome_Exercicio": "Rosca Inclinada com Halteres",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 12",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Bíceps",
+    "Descricao": "Sente-se em um banco com um halter em uma das mãos, deixando o braço estendido ao lado do corpo e a palma da mão voltada para cima. Flexione o cotovelo, levando o halter em direção ao ombro, mantendo o braço próximo ao corpo.",
+    "Nome_Exercicio": "Rosca Concentrada com Halter",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 12",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Bíceps",
+    "Descricao": "Deite-se em um banco com os braços estendidos ao lado do corpo e segure uma barra com as palmas das mãos voltadas para cima. Flexione os cotovelos, levando a barra em direção ao peito, mantendo os braços próximos ao corpo.",
+    "Nome_Exercicio": "Rosca Scott com Barra",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 12",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Bíceps",
+    "Descricao": "Fique em pé com os pés afastados na largura dos ombros e segure uma barra com as palmas das mãos voltadas para cima, mantendo as mãos afastadas na largura dos ombros. Flexione os cotovelos, levando a barra em direção ao peito.",
+    "Nome_Exercicio": "Rosca 21 com Barra",
+    "Series": "3 a 4",
+    "Repeticoes": "7 repetições em 3 etapas",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Bíceps",
+    "Descricao": "Fique em pé com os pés afastados na largura dos ombros e segure uma barra com as palmas das mãos voltadas para baixo, mantendo as mãos afastadas na largura dos ombros. Flexione os cotovelos, levando a barra em direção ao peito.",
+    "Nome_Exercicio": "Rosca Martelo Inversa com Barra",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 12",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Triceps",
+    "Descricao": "Deite-se em um banco reto com uma barra EZ. Com os cotovelos fixos, abaixe a barra até a testa e depois estenda os braços para cima.",
+    "Nome_Exercicio": "Tríceps Francês com Barra EZ",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Triceps",
+    "Descricao": "Deite-se no chão ou em um banco reto com as mãos afastadas na largura dos ombros. Abaixe o corpo até o peito quase tocar o chão, depois empurre-se de volta para a posição inicial. Este exercício trabalha a parte média do peitoral.",
+    "Nome_Exercicio": "Flexões",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": true
+  },
+  {
+    "Musculo": "Triceps",
+    "Descricao": "Deite-se no chão ou em um banco reto com as mãos juntas formando um diamante. Abaixe o corpo até o peito quase tocar o chão, depois empurre-se de volta para a posição inicial. Este exercício trabalha a parte média do peitoral e tríceps.",
+    "Nome_Exercicio": "Flexões Diamante",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": true
+  },
+  {
+    "Musculo": "Triceps",
+    "Descricao": "De pé, segure uma corda presa a uma polia alta. Puxe a corda para baixo até os braços estarem estendidos e depois volte à posição inicial.",
+    "Nome_Exercicio": "Tríceps na Polia com Corda",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Triceps",
+    "Descricao": "Segure um haltere com ambas as mãos acima da cabeça. Abaixe o haltere atrás da cabeça, flexionando os cotovelos, e depois estenda os braços para cima.",
+    "Nome_Exercicio": "Tríceps Testa com Halteres",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Triceps",
+    "Descricao": "De pé, com um haltere em cada mão, incline o tronco para frente. Estenda os braços para trás até estarem paralelos ao chão e depois retorne à posição inicial.",
+    "Nome_Exercicio": "Kickback com Halteres",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Triceps",
+    "Descricao": "Sentado em um banco com as costas retas, segure uma barra com as mãos afastadas na largura dos ombros. Abaixe a barra até a testa, flexionando os cotovelos, e depois estenda os braços para cima.",
+    "Nome_Exercicio": "Extensão de Tríceps Sentado com Barra",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Ombros",
+    "Descricao": "Fique em pé com os pés afastados na largura dos ombros e segure um par de halteres com os braços estendidos ao lado do corpo. Eleve os halteres até a altura dos ombros, mantendo os braços levemente flexionados.",
+    "Nome_Exercicio": "Elevação Lateral com Halteres",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 12",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Ombros",
+    "Descricao": "Fique em pé com os pés afastados na largura dos ombros e segure um par de halteres com os braços estendidos na frente do corpo. Eleve os halteres até a altura dos ombros, mantendo os braços levemente flexionados.",
+    "Nome_Exercicio": "Elevação Frontal com Halteres",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 12",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Ombros",
+    "Descricao": "Fique em pé com os pés afastados na largura dos ombros e segure uma barra com as mãos afastadas na largura dos ombros. Eleve a barra até a altura dos ombros, mantendo os braços levemente flexionados.",
+    "Nome_Exercicio": "Desenvolvimento Militar com Barra",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 12",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Ombros",
+    "Descricao": "Sente-se em um banco com encosto vertical e segure uma barra com as mãos afastadas na largura dos ombros. Eleve a barra até a altura dos ombros, mantendo os braços levemente flexionados.",
+    "Nome_Exercicio": "Desenvolvimento Militar com Barra Sentado",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 12",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Quadríceps",
+    "Descricao": "Fique em pé com os pés afastados na largura dos ombros. Agache-se até que os quadris fiquem abaixo dos joelhos, mantendo os joelhos alinhados com os dedos dos pés.",
+    "Nome_Exercicio": "Agachamento",
+    "Series": "3 a 4",
+    "Repeticoes": "10 a 12",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Quadríceps",
+    "Descricao": "Em pé , dê im passo longoa frente e firme o pé no chão. Apoie o pé de trás em uma superficie elevada, como um banco ou cadeira. Abaixe o quadril lentamente mantendo o tronco ereto. Volte a posição inicial e repita o movimento",
+    "Nome_Exercicio": "Agachamento Afundo Apoiado",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Médio",
+    "Creator": "Admin",
+    "RealizaremCasa": true
+  },
+  {
+    "Musculo": "Quadríceps",
+    "Descricao": "Fique em pé com os pés juntos. Dê um passo a frente e firme o pé no chão. Abaixe lentamente o quadril, mantendo o tronco ereto. Levante o corpo e dê outro passo a frente, repetindo o movimento",
+    "Nome_Exercicio": "Afundo",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Médio",
+    "Creator": "Admin",
+    "RealizaremCasa": true
+  },
+  {
+    "Musculo": "Quadríceps",
+    "Descricao": "Fique em pé, com afastamento do pés igual a distância do quadril. Flexione as pernas e projete o quadril para trás. Suba as pernas impulsionando o corpo para cima. Dê um salto, elevando o corpo acima do solo. Volte para a posição inicial e repita o movimento",
+    "Nome_Exercicio": "Agachamento Pulando",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Médio",
+    "Creator": "Admin",
+    "RealizaremCasa": true
+  },
+  {
+    "Musculo": "Quadríceps",
+    "Descricao": "Fique em pé com os pés afastados na largura dos ombros. Agache-se até que os quadris fiquem abaixo dos joelhos, mantendo os joelhos alinhados com os dedos dos pés.",
+    "Nome_Exercicio": "Búlgaro",
+    "Series": "3 a 4",
+    "Repeticoes": "10 a 12",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
 
+  {
+    "Musculo": "Quadríceps",
+    "Descricao": "Deite-se de costas com os joelhos dobrados e os pés no chão. Levante os quadris em direção ao teto, mantendo os ombros no chão.",
+    "Nome_Exercicio": "Leg Press",
+    "Series": "3 a 4",
+    "Repeticoes": "12 a 15",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
 
+  {
+    "Musculo": "Quadríceps",
+    "Descricao": "Sente-se em uma cadeira com os pés apoiados no chão. Levante-se lentamente até que as pernas estejam estendidas.",
+    "Nome_Exercicio": "Cadeira Extensora",
+    "Series": "3 a 4",
+    "Repeticoes": "12 a 15",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Posterior de Coxa",
+    "Descricao": "No aparelho específico para cadeira flexora, ajuste o apoio de acordo com sua altura. Sente-se e flexione as pernas contra a resistência do aparelho, controlando o movimento.",
+    "Nome_Exercicio": "Cadeira Flexora",
+    "Series": "3 a 4",
+    "Repeticoes": "10 a 12",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Posterior de Coxa",
+    "Descricao": "Fique em pé e segure um halter em cada mão, mantendo os braços estendidos ao lado do corpo. Dobre os joelhos e incline o tronco para a frente, mantendo as costas retas.",
+    "Nome_Exercicio": "Stiff com Halteres",
+    "Series": "3 a 4",
+    "Repeticoes": "10 a 12",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Posterior de Coxa",
+    "Descricao": "No aparelho de mesa flexora, ajuste o apoio de acordo com sua altura. Sente-se e flexione as pernas contra a resistência do aparelho, mantendo o tronco apoiado.",
+    "Nome_Exercicio": "Mesa Flexora",
+    "Series": "3 a 4",
+    "Repeticoes": "10 a 12",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Posterior de Coxa",
+    "Descricao": "Fique em pé e segure uma barra com peso, mantendo os braços estendidos na frente do corpo. Dobre os joelhos e incline o tronco para a frente, mantendo as costas retas.",
+    "Nome_Exercicio": "Stiff com Barra",
+    "Series": "3 a 4",
+    "Repeticoes": "10 a 12",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
 
+  {
+    "Musculo": "Gemeos",
+    "Descricao": "De pé, com as mãos apoiadas em uma parede ou em um equipamento de ginástica, levante os calcanhares até ficar na ponta dos pés e depois abaixe lentamente.",
+    "Nome_Exercicio": "Elevação de Gemeos em Pé",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": true
+  },
+  {
+    "Musculo": "Gemeos",
+    "Descricao": "Sentado em uma máquina de elevação de Gemeos, levante os calcanhares até ficar na ponta dos pés e depois abaixe lentamente.",
+    "Nome_Exercicio": "Elevação de Gemeos Sentado",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Gemeos",
+    "Descricao": "De pé, segure um haltere em cada mão ( pode se realizar sem halteres ) com os pés afastados na largura dos ombros. Levante os calcanhares até ficar na ponta dos pés e depois abaixe lentamente.",
+    "Nome_Exercicio": "Elevação de Gemeos com Halteres",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": true
+  },
+  {
+    "Musculo": "Gemeos",
+    "Descricao": "Deite-se no solo e apoie o peso do corpo com os braços e a ponta dos pés. Mantenha os braços e a ponta dos pés juntos. Levante o quadril de modo a formar um triângulo com o corpo. Fique na ponta dos pés e impulsione o corpo para cima. Voltar à posição inicial e repita o movimento",
+    "Nome_Exercicio": "Extensão de gêmeos com pirâmide",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": true
+  },
+  {
+    "Musculo": "Trapezio",
+    "Descricao": "De pé, com um haltere em cada mão e os braços ao lado do corpo, eleve os ombros até as orelhas e depois abaixe-os lentamente.",
+    "Nome_Exercicio": "Encolhimento de Ombros com Halteres",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Trapezio",
+    "Descricao": "De pé, segure uma barra com as mãos afastadas na largura dos ombros. Puxe a barra até a altura do peito e depois abaixe lentamente.",
+    "Nome_Exercicio": "Remada Alta com Barra",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Antebraço",
+    "Descricao": "Sentado, segure um haltere em cada mão com as palmas voltadas para cima. Flexione os pulsos para levantar os halteres e depois abaixe-os lentamente.",
+    "Nome_Exercicio": "Rosca de Punho com Halteres",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Antebraço",
+    "Descricao": "De pé, segure uma barra com as palmas voltadas para baixo. Flexione os pulsos para levantar a barra e depois abaixe lentamente.",
+    "Nome_Exercicio": "Rosca Inversa",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Antebraço",
+    "Descricao": "Sente-se em um banco com os antebraços apoiados nas coxas e segure um haltere em cada mão com as palmas voltadas para baixo. Flexione os pulsos para levantar os halteres e depois abaixe-os lentamente.",
+    "Nome_Exercicio": "Rosca de Punho Sentado com Barra",
+    "Series": "3 a 4",
+    "Repeticoes": "8 a 15",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Abdomen",
+    "Descricao": "Deite-se de costas com as pernas estendidas e os braços estendidos atrás da cabeça. Levante simultaneamente as pernas e os braços para tocar os pés. Retorne à posição inicial.",
+    "Nome_Exercicio": "V-Up",
+    "Series": "3 a 4",
+    "Repeticoes": "10 a 15",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": true
+  },
+  {
+    "Musculo": "Abdomen",
+    "Descricao": "Deite-se de costas com as pernas dobradas e os pés no chão. Coloque as mãos atrás da cabeça e levante o tronco em direção aos joelhos.",
+    "Nome_Exercicio": "Abdominal Crunch",
+    "Series": "3 a 4",
+    "Repeticoes": "15 a 20",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": true
+  },
 
+  {
+    "Musculo": "Abdomen",
+    "Descricao": "Deite-se de costas com as pernas estendidas e os braços estendidos atrás da cabeça. Levante simultaneamente as pernas e os braços para tocar os pés. Retorne à posição inicial.",
+    "Nome_Exercicio": "Prancha",
+    "Series": "3 a 4",
+    "Repeticoes": "1 minuto",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": true
+  },
+  {
+    "Musculo": "Abdomen",
+    "Descricao": "Deite-se com as costas apoiadas no solo, apoie as mãos abaixo dos glúteos e estique as pernas. Levante as pernas o máximo que conseguir. Abaixe as pernas sem tocar o solo e repita o movimento",
+    "Nome_Exercicio": "Abdominal com elevação das pernas",
+    "Series": "3 a 4",
+    "Repeticoes": "1 minuto",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": true
+  },
+  {
+    "Musculo": "Adutores",
+    "Descricao": "Deite-se de lado com as pernas estendidas. Levante a perna superior para cima e para baixo sem tocar a outra perna.",
+    "Nome_Exercicio": "Elevação Lateral de Perna",
+    "Series": "3 a 4",
+    "Repeticoes": "12 a 15",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Adutores",
+    "Descricao": "Fique em pé com os pés juntos. Dê um passo largo para o lado, dobrando o joelho da perna que se move enquanto a outra perna permanece reta. Retorne à posição inicial e repita do outro lado.",
+    "Nome_Exercicio": "Passada Lateral",
+    "Series": "3 a 4",
+    "Repeticoes": "10 a 12 de cada lado",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Adutores",
+    "Descricao": "Deite-se de lado com uma perna cruzada sobre a outra. Levante a perna de baixo, mantendo-a reta.",
+    "Nome_Exercicio": "Elevação de Perna Interna",
+    "Series": "3 a 4",
+    "Repeticoes": "12 a 15",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Adutores",
+    "Descricao": "Fique em pé com os pés afastados e os joelhos levemente flexionados. Flexione os joelhos e empurre os quadris para trás para abaixar o corpo, mantendo o peito erguido.",
+    "Nome_Exercicio": "Agachamento Sumô",
+    "Series": "3 a 4",
+    "Repeticoes": "10 a 15",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Adutores",
+    "Descricao": "Deite-se de costas com os joelhos dobrados e os pés no chão. Coloque uma bola ou travesseiro entre os joelhos e pressione-os juntos.",
+    "Nome_Exercicio": "Squeeze com Bola",
+    "Series": "3 a 4",
+    "Repeticoes": "15 a 20",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Adutores",
+    "Descricao": "Sente-se em uma máquina de adutor com as pernas afastadas. Aperte as pernas juntas contra a resistência da máquina.",
+    "Nome_Exercicio": "Máquina de Adutor",
+    "Series": "3 a 4",
+    "Repeticoes": "12 a 15",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Adutores",
+    "Descricao": "Deite-se de lado com as pernas estendidas. Eleve a perna superior e desenhe um círculo no ar, mantendo a perna reta.",
+    "Nome_Exercicio": "Círculos de Perna",
+    "Series": "3 a 4",
+    "Repeticoes": "10 a 12 de cada lado",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Adutores",
+    "Descricao": "Fique em pé com os pés juntos. Dê um passo lateral e agache-se, depois volte à posição inicial.",
+    "Nome_Exercicio": "Step Lateral com Agachamento",
+    "Series": "3 a 4",
+    "Repeticoes": "12 a 15 de cada lado",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Adutores",
+    "Descricao": "Deite-se de lado e levante as duas pernas juntas, mantendo-as retas.",
+    "Nome_Exercicio": "Elevação de Pernas Duplas",
+    "Series": "3 a 4",
+    "Repeticoes": "10 a 12 de cada lado",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Adutores",
+    "Descricao": "Deite-se de costas com as pernas estendidas para cima. Abra e feche as pernas lateralmente.",
+    "Nome_Exercicio": "Abertura e Fechamento de Pernas",
+    "Series": "3 a 4",
+    "Repeticoes": "15 a 20",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
 
-      {
-        "Musculo": "Costas",
-        "Descricao": "Segure uma barra com as mãos afastadas na largura dos ombros e com as palmas voltadas para baixo. Levante o corpo até que o queixo esteja acima da barra, mantendo as costas retas. Esse exercício trabalha principalmente os dorsais.",
-        "Nome_Exercicio": "Barra Fixa Pronada",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Dorsais",
-        "creator": "Admin"
-      },
-      {
-        "Musculo": "Costas",
-        "Descricao": "Sentado em uma máquina de puxada alta, segure a barra com as mãos afastadas. Puxe a barra até a parte superior do peito e depois volte à posição inicial.",
-        "Nome_Exercicio": "Puxada Alta",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Dorsais",
-        "creator": "Admin"
-      },
-      {
-        "Musculo": "Costas",
-        "Descricao": "De pé, com um haltere em cada mão, incline o tronco para frente. Puxe os halteres até os lados do seu tronco e depois abaixe-os novamente.",
-        "Nome_Exercicio": "Remada Curvada com Halteres",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Dorsais",
-        "creator": "Admin"
-      },
-      {
-        "Musculo": "Costas",
-        "Descricao": "De pé, segure uma barra com as mãos afastadas na largura dos ombros. Incline-se para frente e puxe a barra até a parte inferior do peito e depois abaixe lentamente.",
-        "Nome_Exercicio": "Remada Curvada com Barra",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Dorsais",
-        "creator": "Admin"
-      },
-      {
-        "Musculo": "Costas",
-        "Descricao": "Deite-se de bruços em um banco hiperextensor. Flexione o tronco para baixo e depois levante o corpo até alinhar com as pernas, focando a parte inferior das costas.",
-        "Nome_Exercicio": "Hiperextensão Lombar",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Lombar",
-        "creator": "Admin"
-      },
-      {
-        "Musculo": "Costas",
-        "Descricao": "De pé, segure uma barra com as mãos afastadas na largura dos ombros e com os joelhos levemente flexionados. Flexione os quadris para abaixar a barra até a altura da canela e depois levante-a novamente, mantendo as costas retas.",
-        "Nome_Exercicio": "Levantamento Terra",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Lombar",
-        "creator": "Admin"
-      },
-      {
-        "Musculo": "Costas",
-        "Descricao": "Deitado de barriga para baixo em um banco plano, segure um haltere em cada mão. Levante os halteres até os braços estarem alinhados com o tronco e depois abaixe lentamente.",
-        "Nome_Exercicio": "Remada Cavalinho",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Lombar",
-        "creator": "Admin"
-      },
-      {
-        "Musculo": "Costas",
-        "Descricao": "Sentado em uma máquina de remada, segure as alças com as mãos afastadas. Puxe as alças em direção ao tronco e depois volte à posição inicial.",
-        "Nome_Exercicio": "Remada Sentada na Máquina",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Médio",
-        "creator": "Admin"
-      },
-      {
-        "Musculo": "Costas",
-        "Descricao": "De pé, segure um haltere em cada mão com os braços estendidos à frente do corpo. Levante os halteres lateralmente até a altura dos ombros e depois abaixe-os lentamente.",
-        "Nome_Exercicio": "Elevação Lateral Curvada com Halteres",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Médio",
-        "creator": "Admin"
-      },
-      {
-        "Musculo": "Costas",
-        "Descricao": "De pé, segure uma barra com as mãos afastadas na largura dos ombros e puxe a barra até a parte inferior do peito e depois abaixe lentamente.",
-        "Nome_Exercicio": "Remada Curvada com Pegada Supinada",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Médio",
-        "creator": "Admin"
-      },
+  {
+    "Musculo": "Cardio",
+    "Descricao": "Corra em um ritmo constante em uma esteira ou ao ar livre por 30 minutos.",
+    "Nome_Exercicio": "Corrida",
+    "Series": "1",
+    "Repeticoes": "30 minutos",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": true
+  },
+  {
+    "Musculo": "Cardio",
+    "Descricao": "Salte alternando os pés para frente e para trás enquanto move os braços para cima e para baixo.",
+    "Nome_Exercicio": "Polichinelos",
+    "Series": "3 a 4",
+    "Repeticoes": "1 minuto",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": true
+  },
+  {
+    "Musculo": "Cardio",
+    "Descricao": "Suba e desça de um banco ou degrau rapidamente.",
+    "Nome_Exercicio": "Step-Up",
+    "Series": "3 a 4",
+    "Repeticoes": "1 minuto",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": true
+  },
+  {
+    "Musculo": "Cardio",
+    "Descricao": "Pule corda continuamente, mantendo um ritmo constante.",
+    "Nome_Exercicio": "Pular Corda",
+    "Series": "3 a 4",
+    "Repeticoes": "2 minutos",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": true
+  },
+  {
+    "Musculo": "Cardio",
+    "Descricao": "Faça burpees completos, começando de pé, agachando-se, jogando as pernas para trás em uma posição de prancha, fazendo uma flexão, voltando ao agachamento e pulando para cima.",
+    "Nome_Exercicio": "Burpees",
+    "Series": "3 a 4",
+    "Repeticoes": "15 a 20",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": true
+  },
 
-
-
-
-        {
-          "Musculo": "Bíceps",
-          "Descricao": "Fique em pé com os pés afastados na largura dos ombros e segure uma barra com as palmas das mãos voltadas para cima. Flexione os cotovelos, levantando a barra em direção aos ombros, mantendo os braços próximos ao corpo.",
-          "Nome_Exercicio": "Rosca Direta com Barra",
-          "Series": "3 a 4",
-          "Repeticoes": "8 a 12",
-          "Foco_Muscular": "Musculo Isolado",
-          "creator": "Admin"
-        },
-        {
-          "Musculo": "Bíceps",
-          "Descricao": "Sente-se em um banco inclinado com um halter em cada mão, deixando os braços estendidos ao lado do corpo e as palmas das mãos voltadas para cima. Flexione os cotovelos, levando os halteres em direção aos ombros, mantendo os braços próximos ao corpo.",
-          "Nome_Exercicio": "Rosca Alternada com Halteres",
-          "Series": "3 a 4",
-          "Repeticoes": "8 a 12",
-          "Foco_Muscular": "Musculo Isolado",
-          "creator": "Admin"
-        },
-        {
-          "Musculo": "Bíceps",
-          "Descricao": "Fique em pé com os pés afastados na largura dos ombros e segure um par de halteres com as palmas das mãos voltadas para cima. Flexione os cotovelos, levando os halteres em direção aos ombros, mantendo os braços próximos ao corpo.",
-          "Nome_Exercicio": "Rosca Direta com Halteres",
-          "Series": "3 a 4",
-          "Repeticoes": "8 a 12",
-          "Foco_Muscular": "Musculo Isolado",
-          "creator": "Admin"
-        },
-        {
-          "Musculo": "Bíceps",
-          "Descricao": "Sente-se em um banco inclinado com um halter em cada mão, deixando os braços estendidos ao lado do corpo e as palmas das mãos voltadas para baixo. Flexione os cotovelos, levando os halteres em direção aos ombros, mantendo os braços próximos ao corpo.",
-          "Nome_Exercicio": "Rosca Martelo com Halteres",
-          "Series": "3 a 4",
-          "Repeticoes": "8 a 12",
-          "Foco_Muscular": "Musculo Isolado",
-          "creator": "Admin"
-        },
-        {
-          "Musculo": "Bíceps",
-          "Descricao": "Deite-se em um banco inclinado com um halter em cada mão, deixando os braços estendidos em direção ao chão e as palmas das mãos voltadas para cima. Flexione os cotovelos, levando os halteres em direção aos ombros, mantendo os braços próximos ao corpo.",
-          "Nome_Exercicio": "Rosca Inclinada com Halteres",
-          "Series": "3 a 4",
-          "Repeticoes": "8 a 12",
-          "Foco_Muscular": "Musculo Isolado",
-          "creator": "Admin"
-        },
-        {
-          "Musculo": "Bíceps",
-          "Descricao": "Sente-se em um banco com um halter em uma das mãos, deixando o braço estendido ao lado do corpo e a palma da mão voltada para cima. Flexione o cotovelo, levando o halter em direção ao ombro, mantendo o braço próximo ao corpo.",
-          "Nome_Exercicio": "Rosca Concentrada com Halter",
-          "Series": "3 a 4",
-          "Repeticoes": "8 a 12",
-          "Foco_Muscular": "Musculo Isolado",
-          "creator": "Admin"
-        },
-        {
-          "Musculo": "Bíceps",
-          "Descricao": "Deite-se em um banco com os braços estendidos ao lado do corpo e segure uma barra com as palmas das mãos voltadas para cima. Flexione os cotovelos, levando a barra em direção ao peito, mantendo os braços próximos ao corpo.",
-          "Nome_Exercicio": "Rosca Scott com Barra",
-          "Series": "3 a 4",
-          "Repeticoes": "8 a 12",
-          "Foco_Muscular": "Musculo Isolado",
-          "creator": "Admin"
-        },
-        {
-          "Musculo": "Bíceps",
-          "Descricao": "Fique em pé com os pés afastados na largura dos ombros e segure uma barra com as palmas das mãos voltadas para cima, mantendo as mãos afastadas na largura dos ombros. Flexione os cotovelos, levando a barra em direção ao peito.",
-          "Nome_Exercicio": "Rosca 21 com Barra",
-          "Series": "3 a 4",
-          "Repeticoes": "7 repetições em 3 etapas",
-          "Foco_Muscular": "Musculo Isolado",
-          "creator": "Admin"
-        },
-        {
-          "Musculo": "Bíceps",
-          "Descricao": "Fique em pé com os pés afastados na largura dos ombros e segure uma barra com as palmas das mãos voltadas para baixo, mantendo as mãos afastadas na largura dos ombros. Flexione os cotovelos, levando a barra em direção ao peito.",
-          "Nome_Exercicio": "Rosca Martelo Inversa com Barra",
-          "Series": "3 a 4",
-          "Repeticoes": "8 a 12",
-          "Foco_Muscular": "Musculo Isolado",
-          "creator": "Admin"
-        },
-      {
-        "Musculo": "Triceps",
-        "Descricao": "Deite-se em um banco reto com uma barra EZ. Com os cotovelos fixos, abaixe a barra até a testa e depois estenda os braços para cima.",
-        "Nome_Exercicio": "Tríceps Francês com Barra EZ",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Musculo Isolado",
-        "creator": "Admin"
-      },
-      {
-        "Musculo": "Triceps",
-        "Descricao": "De pé, segure uma corda presa a uma polia alta. Puxe a corda para baixo até os braços estarem estendidos e depois volte à posição inicial.",
-        "Nome_Exercicio": "Tríceps na Polia com Corda",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Musculo Isolado",
-        "creator": "Admin"
-      },
-      {
-        "Musculo": "Triceps",
-        "Descricao": "Segure um haltere com ambas as mãos acima da cabeça. Abaixe o haltere atrás da cabeça, flexionando os cotovelos, e depois estenda os braços para cima.",
-        "Nome_Exercicio": "Tríceps Testa com Halteres",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Musculo Isolado",
-        "creator": "Admin"
-      },
-      {
-        "Musculo": "Triceps",
-        "Descricao": "De pé, com um haltere em cada mão, incline o tronco para frente. Estenda os braços para trás até estarem paralelos ao chão e depois retorne à posição inicial.",
-        "Nome_Exercicio": "Kickback com Halteres",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Musculo Isolado",
-        "creator": "Admin"
-      },
-      {
-        "Musculo": "Triceps",
-        "Descricao": "Sentado em um banco com as costas retas, segure uma barra com as mãos afastadas na largura dos ombros. Abaixe a barra até a testa, flexionando os cotovelos, e depois estenda os braços para cima.",
-        "Nome_Exercicio": "Extensão de Tríceps Sentado com Barra",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Musculo Isolado",
-        "creator": "Admin"
-      },
-
-
-        {
-          "Musculo": "Ombros",
-          "Descricao": "Fique em pé com os pés afastados na largura dos ombros e segure um par de halteres com os braços estendidos ao lado do corpo. Eleve os halteres até a altura dos ombros, mantendo os braços levemente flexionados.",
-          "Nome_Exercicio": "Elevação Lateral com Halteres",
-          "Series": "3 a 4",
-          "Repeticoes": "8 a 12",
-          "Foco_Muscular": "Musculo Isolado",
-          "creator": "Admin"
-        },
-        {
-          "Musculo": "Ombros",
-          "Descricao": "Fique em pé com os pés afastados na largura dos ombros e segure um par de halteres com os braços estendidos na frente do corpo. Eleve os halteres até a altura dos ombros, mantendo os braços levemente flexionados.",
-          "Nome_Exercicio": "Elevação Frontal com Halteres",
-          "Series": "3 a 4",
-          "Repeticoes": "8 a 12",
-          "Foco_Muscular": "Musculo Isolado",
-          "creator": "Admin"
-        },
-        {
-          "Musculo": "Ombros",
-          "Descricao": "Fique em pé com os pés afastados na largura dos ombros e segure uma barra com as mãos afastadas na largura dos ombros. Eleve a barra até a altura dos ombros, mantendo os braços levemente flexionados.",
-          "Nome_Exercicio": "Desenvolvimento Militar com Barra",
-          "Series": "3 a 4",
-          "Repeticoes": "8 a 12",
-          "Foco_Muscular": "Musculo Isolado",
-          "creator": "Admin"
-        },
-        {
-          "Musculo": "Ombros",
-          "Descricao": "Sente-se em um banco com encosto vertical e segure uma barra com as mãos afastadas na largura dos ombros. Eleve a barra até a altura dos ombros, mantendo os braços levemente flexionados.",
-          "Nome_Exercicio": "Desenvolvimento Militar com Barra Sentado",
-          "Series": "3 a 4",
-          "Repeticoes": "8 a 12",
-          "Foco_Muscular": "Musculo Isolado",
-          "creator": "Admin"
-        },
-
-
-        {
-          "Musculo": "Quadríceps",
-          "Descricao": "Fique em pé com os pés afastados na largura dos ombros. Agache-se até que os quadris fiquem abaixo dos joelhos, mantendo os joelhos alinhados com os dedos dos pés.",
-          "Nome_Exercicio": "Agachamento",
-          "Series": "3 a 4",
-          "Repeticoes": "10 a 12",
-          "Foco_Muscular": "Musculo Isolado",
-          "creator": "Admin"
-        },
-        {
-          "Musculo": "Quadríceps",
-          "Descricao": "Fique em pé com os pés afastados na largura dos ombros. Agache-se até que os quadris fiquem abaixo dos joelhos, mantendo os joelhos alinhados com os dedos dos pés.",
-          "Nome_Exercicio": "Búlgaro",
-          "Series": "3 a 4",
-          "Repeticoes": "10 a 12",
-          "Foco_Muscular": "Musculo Isolado",
-          "creator": "Admin"
-        },
-
-        {
-          "Musculo": "Quadríceps",
-          "Descricao": "Deite-se de costas com os joelhos dobrados e os pés no chão. Levante os quadris em direção ao teto, mantendo os ombros no chão.",
-          "Nome_Exercicio": "Leg Press",
-          "Series": "3 a 4",
-          "Repeticoes": "12 a 15",
-          "Foco_Muscular": "Musculo Isolado",
-          "creator": "Admin"
-        },
-
-        {
-          "Musculo": "Quadríceps",
-          "Descricao": "Sente-se em uma cadeira com os pés apoiados no chão. Levante-se lentamente até que as pernas estejam estendidas.",
-          "Nome_Exercicio": "Cadeira Extensora",
-          "Series": "3 a 4",
-          "Repeticoes": "12 a 15",
-          "Foco_Muscular": "Musculo Isolado",
-          "creator": "Admin"
-        },
-
-          {
-            "Musculo": "Posterior de Coxa",
-            "Descricao": "No aparelho específico para cadeira flexora, ajuste o apoio de acordo com sua altura. Sente-se e flexione as pernas contra a resistência do aparelho, controlando o movimento.",
-            "Nome_Exercicio": "Cadeira Flexora",
-            "Series": "3 a 4",
-            "Repeticoes": "10 a 12",
-            "Foco_Muscular": "Musculo Isolado",
-            "creator": "Admin"
-          },
-          {
-            "Musculo": "Posterior de Coxa",
-            "Descricao": "Fique em pé e segure um halter em cada mão, mantendo os braços estendidos ao lado do corpo. Dobre os joelhos e incline o tronco para a frente, mantendo as costas retas.",
-            "Nome_Exercicio": "Stiff com Halteres",
-            "Series": "3 a 4",
-            "Repeticoes": "10 a 12",
-            "Foco_Muscular": "Musculo Isolado",
-            "creator": "Admin"
-          },
-          {
-            "Musculo": "Posterior de Coxa",
-            "Descricao": "No aparelho de mesa flexora, ajuste o apoio de acordo com sua altura. Sente-se e flexione as pernas contra a resistência do aparelho, mantendo o tronco apoiado.",
-            "Nome_Exercicio": "Mesa Flexora",
-            "Series": "3 a 4",
-            "Repeticoes": "10 a 12",
-            "Foco_Muscular": "Musculo Isolado",
-            "creator": "Admin"
-          },
-          {
-            "Musculo": "Posterior de Coxa",
-            "Descricao": "Fique em pé e segure uma barra com peso, mantendo os braços estendidos na frente do corpo. Dobre os joelhos e incline o tronco para a frente, mantendo as costas retas.",
-            "Nome_Exercicio": "Stiff com Barra",
-            "Series": "3 a 4",
-            "Repeticoes": "10 a 12",
-            "Foco_Muscular": "Musculo Isolado",
-            "creator": "Admin"
-          },
-
-        
-      {
-        "Musculo": "Gemeos",
-        "Descricao": "De pé, com as mãos apoiadas em uma parede ou em um equipamento de ginástica, levante os calcanhares até ficar na ponta dos pés e depois abaixe lentamente.",
-        "Nome_Exercicio": "Elevação de Gemeos em Pé",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Musculo Isolado",
-        "creator": "Admin"
-      },
-      {
-        "Musculo": "Gemeos",
-        "Descricao": "Sentado em uma máquina de elevação de Gemeos, levante os calcanhares até ficar na ponta dos pés e depois abaixe lentamente.",
-        "Nome_Exercicio": "Elevação de Gemeos Sentado",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Musculo Isolado",
-        "creator": "Admin"
-      },
-      {
-        "Musculo": "Gemeos",
-        "Descricao": "De pé, segure um haltere em cada mão com os pés afastados na largura dos ombros. Levante os calcanhares até ficar na ponta dos pés e depois abaixe lentamente.",
-        "Nome_Exercicio": "Elevação de Gemeos com Halteres",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Musculo Isolado",
-        "creator": "Admin"
-      },
-
-
-
-
-
-      {
-        "Musculo": "Trapezio",
-        "Descricao": "De pé, com um haltere em cada mão e os braços ao lado do corpo, eleve os ombros até as orelhas e depois abaixe-os lentamente.",
-        "Nome_Exercicio": "Encolhimento de Ombros com Halteres",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Musculo Isolado",
-        "creator": "Admin"
-      },
-      {
-        "Musculo": "Trapezio",
-        "Descricao": "De pé, segure uma barra com as mãos afastadas na largura dos ombros. Puxe a barra até a altura do peito e depois abaixe lentamente.",
-        "Nome_Exercicio": "Remada Alta com Barra",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Musculo Isolado",
-        "creator": "Admin"
-      },
-
-
-
-
-      {
-        "Musculo": "Antebraço",
-        "Descricao": "Sentado, segure um haltere em cada mão com as palmas voltadas para cima. Flexione os pulsos para levantar os halteres e depois abaixe-os lentamente.",
-        "Nome_Exercicio": "Rosca de Punho com Halteres",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Musculo Isolado",
-        "creator": "Admin"
-      },
-      {
-        "Musculo": "Antebraço",
-        "Descricao": "De pé, segure uma barra com as palmas voltadas para baixo. Flexione os pulsos para levantar a barra e depois abaixe lentamente.",
-        "Nome_Exercicio": "Rosca Inversa",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Musculo Isolado",
-        "creator": "Admin"
-      },
-      {
-        "Musculo": "Antebraço",
-        "Descricao": "Sente-se em um banco com os antebraços apoiados nas coxas e segure um haltere em cada mão com as palmas voltadas para baixo. Flexione os pulsos para levantar os halteres e depois abaixe-os lentamente.",
-        "Nome_Exercicio": "Rosca de Punho Sentado com Barra",
-        "Series": "3 a 4",
-        "Repeticoes": "8 a 15",
-        "Foco_Muscular": "Musculo Isolado",
-        "creator": "Admin"
-      },
-
-
-
-
-
-        {
-          "Musculo": "Abdomen",
-          "Descricao": "Deite-se de costas com as pernas estendidas e os braços estendidos atrás da cabeça. Levante simultaneamente as pernas e os braços para tocar os pés. Retorne à posição inicial.",
-          "Nome_Exercicio": "V-Up",
-          "Series": "3 a 4",
-          "Repeticoes": "10 a 15",
-          "Foco_Muscular": "Musculo Isolado",
-          "creator": "Admin"
-        },
-        {
-          "Musculo": "Abdomen",
-          "Descricao": "Deite-se de costas com as pernas dobradas e os pés no chão. Coloque as mãos atrás da cabeça e levante o tronco em direção aos joelhos.",
-          "Nome_Exercicio": "Abdominal Crunch",
-          "Series": "3 a 4",
-          "Repeticoes": "15 a 20",
-          "Foco_Muscular": "Musculo Isolado",
-          "creator": "Admin"
-        },
-        
-        {
-          "Musculo": "Abdomen",
-          "Descricao": "Deite-se de costas com as pernas estendidas e os braços estendidos atrás da cabeça. Levante simultaneamente as pernas e os braços para tocar os pés. Retorne à posição inicial.",
-          "Nome_Exercicio": "Prancha",
-          "Series": "3 a 4",
-          "Repeticoes": "1 minuto",
-          "Foco_Muscular": "Musculo Isolado",
-          "creator": "Admin"
-        },
-
-
-
-        {
-          "Musculo": "Adutores",
-          "Descricao": "Deite-se de lado com as pernas estendidas. Levante a perna superior para cima e para baixo sem tocar a outra perna.",
-            "Nome_Exercicio": "Elevação Lateral de Perna",
-            "Series": "3 a 4",
-            "Repeticoes": "12 a 15",
-            "Foco_Muscular": "Musculo Isolado",
-            "creator": "Admin"
-          },
-          {
-            "Musculo": "Adutores",
-            "Descricao": "Fique em pé com os pés juntos. Dê um passo largo para o lado, dobrando o joelho da perna que se move enquanto a outra perna permanece reta. Retorne à posição inicial e repita do outro lado.",
-            "Nome_Exercicio": "Passada Lateral",
-            "Series": "3 a 4",
-            "Repeticoes": "10 a 12 de cada lado",
-            "Foco_Muscular": "Musculo Isolado",
-            "creator": "Admin"
-          },
-          {
-            "Musculo": "Adutores",
-            "Descricao": "Deite-se de lado com uma perna cruzada sobre a outra. Levante a perna de baixo, mantendo-a reta.",
-            "Nome_Exercicio": "Elevação de Perna Interna",
-            "Series": "3 a 4",
-            "Repeticoes": "12 a 15",
-            "Foco_Muscular": "Musculo Isolado",
-            "creator": "Admin"
-          },
-          {
-            "Musculo": "Adutores",
-            "Descricao": "Fique em pé com os pés afastados e os joelhos levemente flexionados. Flexione os joelhos e empurre os quadris para trás para abaixar o corpo, mantendo o peito erguido.",
-            "Nome_Exercicio": "Agachamento Sumô",
-            "Series": "3 a 4",
-            "Repeticoes": "10 a 15",
-            "Foco_Muscular": "Musculo Isolado",
-            "creator": "Admin"
-          },
-          {
-            "Musculo": "Adutores",
-            "Descricao": "Deite-se de costas com os joelhos dobrados e os pés no chão. Coloque uma bola ou travesseiro entre os joelhos e pressione-os juntos.",
-            "Nome_Exercicio": "Squeeze com Bola",
-            "Series": "3 a 4",
-            "Repeticoes": "15 a 20",
-            "Foco_Muscular": "Musculo Isolado",
-            "creator": "Admin"
-          },
-          {
-            "Musculo": "Adutores",
-            "Descricao": "Sente-se em uma máquina de adutor com as pernas afastadas. Aperte as pernas juntas contra a resistência da máquina.",
-            "Nome_Exercicio": "Máquina de Adutor",
-            "Series": "3 a 4",
-            "Repeticoes": "12 a 15",
-            "Foco_Muscular": "Musculo Isolado",
-            "creator": "Admin"
-          },
-          {
-            "Musculo": "Adutores",
-            "Descricao": "Deite-se de lado com as pernas estendidas. Eleve a perna superior e desenhe um círculo no ar, mantendo a perna reta.",
-            "Nome_Exercicio": "Círculos de Perna",
-            "Series": "3 a 4",
-            "Repeticoes": "10 a 12 de cada lado",
-            "Foco_Muscular": "Musculo Isolado",
-            "creator": "Admin"
-          },
-          {
-            "Musculo": "Adutores",
-            "Descricao": "Fique em pé com os pés juntos. Dê um passo lateral e agache-se, depois volte à posição inicial.",
-            "Nome_Exercicio": "Step Lateral com Agachamento",
-            "Series": "3 a 4",
-            "Repeticoes": "12 a 15 de cada lado",
-            "Foco_Muscular": "Musculo Isolado",
-            "creator": "Admin"
-          },
-          {
-            "Musculo": "Adutores",
-            "Descricao": "Deite-se de lado e levante as duas pernas juntas, mantendo-as retas.",
-            "Nome_Exercicio": "Elevação de Pernas Duplas",
-            "Series": "3 a 4",
-            "Repeticoes": "10 a 12 de cada lado",
-            "Foco_Muscular": "Musculo Isolado",
-            "creator": "Admin"
-          },
-          {
-            "Musculo": "Adutores",
-            "Descricao": "Deite-se de costas com as pernas estendidas para cima. Abra e feche as pernas lateralmente.",
-            "Nome_Exercicio": "Abertura e Fechamento de Pernas",
-            "Series": "3 a 4",
-            "Repeticoes": "15 a 20",
-            "Foco_Muscular": "Musculo Isolado",
-            "creator": "Admin"
-          },
-
-
-
-
-
-            {
-              "Musculo": "Cardio",
-              "Descricao": "Corra em um ritmo constante em uma esteira ou ao ar livre por 30 minutos.",
-              "Nome_Exercicio": "Corrida",
-              "Series": "1",
-              "Repeticoes": "30 minutos",
-              "Foco_Muscular": "Musculo Isolado",
-              "creator": "Admin"
-            },
-            {
-              "Musculo": "Cardio",
-              "Descricao": "Salte alternando os pés para frente e para trás enquanto move os braços para cima e para baixo.",
-              "Nome_Exercicio": "Polichinelos",
-              "Series": "3 a 4",
-              "Repeticoes": "1 minuto",
-              "Foco_Muscular": "Musculo Isolado",
-              "creator": "Admin"
-            },
-            {
-              "Musculo": "Cardio",
-              "Descricao": "Suba e desça de um banco ou degrau rapidamente.",
-              "Nome_Exercicio": "Step-Up",
-              "Series": "3 a 4",
-              "Repeticoes": "1 minuto",
-              "Foco_Muscular": "Musculo Isolado",
-              "creator": "Admin"
-            },
-            {
-              "Musculo": "Cardio",
-              "Descricao": "Pule corda continuamente, mantendo um ritmo constante.",
-              "Nome_Exercicio": "Pular Corda",
-              "Series": "3 a 4",
-              "Repeticoes": "2 minutos",
-              "Foco_Muscular": "Musculo Isolado",
-              "creator": "Admin"
-            },
-            {
-              "Musculo": "Cardio",
-              "Descricao": "Faça burpees completos, começando de pé, agachando-se, jogando as pernas para trás em uma posição de prancha, fazendo uma flexão, voltando ao agachamento e pulando para cima.",
-              "Nome_Exercicio": "Burpees",
-              "Series": "3 a 4",
-              "Repeticoes": "15 a 20",
-              "Foco_Muscular": "Musculo Isolado",
-              "creator": "Admin"
-            },
-
-
-
-
-
-              {
-                "Musculo": "Abdutores",
-                "Descricao": "Fique em pé com as pernas afastadas na largura dos quadris. Incline o corpo para um lado, estendendo o braço do mesmo lado para baixo e mantendo o outro braço estendido para cima.",
-                "Nome_Exercicio": "Alongamento lateral",
-                "Series": "2 a 3",
-                "Repeticoes": "30 segundos de cada lado",
-                "Foco_Muscular": "Musculo Isolado",
-                "creator": "Admin"
-              },
-              {
-                "Musculo": "Abdutores",
-                "Descricao": "Deite-se de lado com as pernas estendidas. Levante a perna superior para cima e para baixo sem tocar a outra perna.",
-                "Nome_Exercicio": "Elevação Lateral de Perna",
-                "Series": "3 a 4",
-                "Repeticoes": "12 a 15",
-                "Foco_Muscular": "Musculo Isolado",
-                "creator": "Admin"
-              },
-              {
-                "Musculo": "Abdutores",
-                "Descricao": "Fique em pé com os pés afastados além da largura dos ombros. Agache-se e, em seguida, dê um passo largo para o lado, retornando à posição inicial.",
-                "Nome_Exercicio": "Agachamento Lateral",
-                "Series": "3 a 4",
-                "Repeticoes": "10 a 12 de cada lado",
-                "Foco_Muscular": "Musculo Isolado",
-                "creator": "Admin"
-              },
-              {
-                "Musculo": "Abdutores",
-                "Descricao": "Deite-se de lado com a perna inferior reta e a perna superior dobrada. Levante a perna inferior para cima e para baixo.",
-                "Nome_Exercicio": "Elevação de Perna de Lado",
-                "Series": "3 a 4",
-                "Repeticoes": "15 a 20",
-                "Foco_Muscular": "Musculo Isolado",
-                "creator": "Admin"
-              },
-              {
-                "Musculo": "Abdutores",
-                "Descricao": "Fique em pé com os pés afastados além da largura dos ombros. Mantenha os joelhos ligeiramente flexionados e levante uma perna para o lado o máximo que puder.",
-                "Nome_Exercicio": "Abdução em pé",
-                "Series": "3 a 4",
-                "Repeticoes": "12 a 15 de cada lado",
-                "Foco_Muscular": "Musculo Isolado",
-                "creator": "Admin"
-              },
-              {
-                "Musculo": "Abdutores",
-                "Descricao": "Sente-se em uma máquina de abdução com as pernas afastadas. Afaste as pernas contra a resistência da máquina.",
-                "Nome_Exercicio": "Máquina de Abdução",
-                "Series": "3 a 4",
-                "Repeticoes": "12 a 15",
-                "Foco_Muscular": "Musculo Isolado",
-                "creator": "Admin"
-              },
-              {
-                "Musculo": "Abdutores",
-                "Descricao": "Deite-se de lado com a perna superior estendida para frente e a perna inferior dobrada. Levante a perna superior para cima e para baixo.",
-                "Nome_Exercicio": "Elevação de Perna Frontal",
-                "Series": "3 a 4",
-                "Repeticoes": "10 a 12 de cada lado",
-                "Foco_Muscular": "Musculo Isolado",
-                "creator": "Admin"
-              },
-              {
-                "Musculo": "Abdutores",
-                "Descricao": "Fique em pé com os pés juntos. Dê um passo lateral e abaixe o corpo, mantendo a perna estendida.",
-                "Nome_Exercicio": "Step Lateral",
-                "Series": "3 a 4",
-                "Repeticoes": "10 a 12 de cada lado",
-                "Foco_Muscular": "Musculo Isolado",
-                "creator": "Admin"
-              },
-              {
-                "Musculo": "Abdutores",
-                "Descricao": "Sente-se em uma cadeira com as costas retas e as pernas juntas. Abra as pernas o máximo que puder e depois feche-as.",
-                "Nome_Exercicio": "Abdução de Pernas Sentada",
-                "Series": "3 a 4",
-                "Repeticoes": "15 a 20",
-                "Foco_Muscular": "Musculo Isolado",
-                "creator": "Admin"
-              },
-              {
-                "Musculo": "Abdutores",
-                "Descricao": "Fique em pé com as pernas afastadas além da largura dos ombros. Agache-se e, em seguida, levante uma perna para o lado enquanto mantém a outra perna estendida.",
-                "Nome_Exercicio": "Agachamento com Abdução",
-                "Series": "3 a 4",
-                "Repeticoes": "12 a 15 de cada lado",
-                "Foco_Muscular": "Musculo Isolado",
-                "creator": "Admin"
-              }
+  {
+    "Musculo": "Abdutores",
+    "Descricao": "Fique em pé com as pernas afastadas na largura dos quadris. Incline o corpo para um lado, estendendo o braço do mesmo lado para baixo e mantendo o outro braço estendido para cima.",
+    "Nome_Exercicio": "Alongamento lateral",
+    "Series": "2 a 3",
+    "Repeticoes": "30 segundos de cada lado",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Abdutores",
+    "Descricao": "Deite-se de lado com as pernas estendidas. Levante a perna superior para cima e para baixo sem tocar a outra perna.",
+    "Nome_Exercicio": "Elevação Lateral de Perna",
+    "Series": "3 a 4",
+    "Repeticoes": "12 a 15",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Abdutores",
+    "Descricao": "Fique em pé com os pés afastados além da largura dos ombros. Agache-se e, em seguida, dê um passo largo para o lado, retornando à posição inicial.",
+    "Nome_Exercicio": "Agachamento Lateral",
+    "Series": "3 a 4",
+    "Repeticoes": "10 a 12 de cada lado",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Abdutores",
+    "Descricao": "Deite-se de lado com a perna inferior reta e a perna superior dobrada. Levante a perna inferior para cima e para baixo.",
+    "Nome_Exercicio": "Elevação de Perna de Lado",
+    "Series": "3 a 4",
+    "Repeticoes": "15 a 20",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Abdutores",
+    "Descricao": "Fique em pé com os pés afastados além da largura dos ombros. Mantenha os joelhos ligeiramente flexionados e levante uma perna para o lado o máximo que puder.",
+    "Nome_Exercicio": "Abdução em pé",
+    "Series": "3 a 4",
+    "Repeticoes": "12 a 15 de cada lado",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Abdutores",
+    "Descricao": "Sente-se em uma máquina de abdução com as pernas afastadas. Afaste as pernas contra a resistência da máquina.",
+    "Nome_Exercicio": "Máquina de Abdução",
+    "Series": "3 a 4",
+    "Repeticoes": "12 a 15",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Abdutores",
+    "Descricao": "Deite-se de lado com a perna superior estendida para frente e a perna inferior dobrada. Levante a perna superior para cima e para baixo.",
+    "Nome_Exercicio": "Elevação de Perna Frontal",
+    "Series": "3 a 4",
+    "Repeticoes": "10 a 12 de cada lado",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Abdutores",
+    "Descricao": "Fique em pé com os pés juntos. Dê um passo lateral e abaixe o corpo, mantendo a perna estendida.",
+    "Nome_Exercicio": "Step Lateral",
+    "Series": "3 a 4",
+    "Repeticoes": "10 a 12 de cada lado",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Abdutores",
+    "Descricao": "Sente-se em uma cadeira com as costas retas e as pernas juntas. Abra as pernas o máximo que puder e depois feche-as.",
+    "Nome_Exercicio": "Abdução de Pernas Sentada",
+    "Series": "3 a 4",
+    "Repeticoes": "15 a 20",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  },
+  {
+    "Musculo": "Abdutores",
+    "Descricao": "Fique em pé com as pernas afastadas além da largura dos ombros. Agache-se e, em seguida, levante uma perna para o lado enquanto mantém a outra perna estendida.",
+    "Nome_Exercicio": "Agachamento com Abdução",
+    "Series": "3 a 4",
+    "Repeticoes": "12 a 15 de cada lado",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": false
+  }
 ]

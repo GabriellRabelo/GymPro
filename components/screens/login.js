@@ -1,5 +1,5 @@
 import { useState , useEffect , memo } from 'react';
-import { StyleSheet, Text, View , Image,TextInput , TouchableOpacity,Keyboard } from 'react-native';
+import { StyleSheet, Text, View , Image,TextInput , TouchableOpacity,Keyboard, LogBox } from 'react-native';
 import {useFonts} from "expo-font";
 import {signInWithEmailAndPassword, onAuthStateChanged} from "@firebase/auth";
 import "firebase/firestore";
@@ -8,17 +8,18 @@ import { useUser } from './usercontext.js';
 
 
 const Login =({navigation}) => {
+    LogBox.ignoreAllLogs();
 
-      const [TecladoVisivel,setTecladoVisivel] = useState(false);
+    const [TecladoVisivel,setTecladoVisivel] = useState(false);
 
-      useEffect(() => {
-        const KeyBoardShowListener = Keyboard.addListener("keyboardDidShow" , () =>{
-            setTecladoVisivel(true);
-        });
-        const KeyBoardHideListener = Keyboard.addListener("keyboardDidHide" , () =>{
-            setTecladoVisivel(false);
-        })
-      });
+    useEffect(() => {
+    const KeyBoardShowListener = Keyboard.addListener("keyboardDidShow" , () =>{
+        setTecladoVisivel(true);
+    });
+    const KeyBoardHideListener = Keyboard.addListener("keyboardDidHide" , () =>{
+         setTecladoVisivel(false);
+    })
+    });
       
     const [Email , SetarEmail] = useState("");
     const [Senha , SetarSenha] = useState("");

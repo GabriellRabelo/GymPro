@@ -1,5 +1,9 @@
 {
   "expo": {
+    "scheme": "com.GymPro",
+    "extra": {
+      "redirectUrl": "com.GymPro://oauthredirect"
+    },
     "name": "GymPro",
     "slug": "GymPro",
     "version": "1.0.0",

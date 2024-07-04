@@ -18,17 +18,12 @@ import { CreateTables, InsertDataExercicios } from './services/HandleDataBase.js
 import Favoritos from './components/screens/favoritos.js';
 import Dieta from './components/screens/dieta.js';
 import BuscarAlimentos from './components/screens/buscaralimentos.js';
+import ExerciciosCasa from "./components/screens/exercicios_casa.js"
+import Exercicio_Selecionado_Casa from "./components/screens/exercicio_selecionado_casa.js"
+import Dados_Exercicios from "./components/screens/detalhestexercicio.js"
 
 
 export default function App() {
-
-  /*useEffect(() => {
-    const initializeDatabase = async () => {
-      await CreateTables();
-      await InsertDataExercicios();
-    };
-    initializeDatabase();
-  }, []);*/
 
   const Stack = createStackNavigator();
   const Tab = createBottomTabNavigator();
@@ -48,7 +43,10 @@ export default function App() {
           <Stack.Screen options={{headerShown:false}} name='Cadastro' component={Cadastro}/>
           <Stack.Screen options={{headerShown:false}} name='Perguntas' component={Perguntas}/>
           <Stack.Screen options={{headerShown:false}} name='Exercicio' component={Exercicio_Selecionado}/>
+          <Stack.Screen options={{headerShown:false}} name='Exercicio_Casa' component={Exercicio_Selecionado_Casa}/>
           <Stack.Screen options={{headerShown:false}} name='Dieta' component={Dieta}/>
+          <Stack.Screen options={{headerShown:false}} name='Dados_Exercicios' component={Dados_Exercicios}/>
+          <Stack.Screen options={{headerShown:false}} name='ExerciciosCasa' component={ExerciciosCasa}/>
           <Stack.Screen options={{headerShown:false}} name='Favoritos' component={Favoritos}/>
           <Stack.Screen options={{headerShown:false}} name='BuscarAlimentos' component={BuscarAlimentos}/>
           <Stack.Screen options={{headerShown:false}} name="Home">
