@@ -1,99 +1,121 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, FlatList, Platform, Linking } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, FlatList, Modal } from 'react-native';
 import axios from 'axios';
-import qs from 'qs';
+import { getAuth } from 'firebase/auth';
+import { getFirestore, doc, setDoc, arrayUnion } from 'firebase/firestore';
+import moment from "moment"
 
-const BuscarAlimentos = ({ navigation }) => {
+const BuscarAlimentos = ({ navigation, route }) => {
     const [query, setQuery] = useState('');
     const [results, setResults] = useState([]);
-    const [error, setError] = useState(null);
-    const [accessToken, setAccessToken] = useState(null);
+    const [error, setError] = useState('');
+    const ApplicationID = "2789eaf4";
+    const ApplicationKey = "3f62b14c007ff041778df5d37c7b0a58";
+    const [modalVisible, setModalVisible] = useState(false);
+    const [selectedItem, setSelectedItem] = useState(null);
+    const dia = route.params.Dia;
 
-    const clientId = '483e0c1710f949f2b706ad016067cc0c';
-    const clientSecret = '4bef190cd8fa460ea58459a1b91beaa5';
+    const traducao = async (texto, idiomaOrigem, idiomaDestino) => {
+        const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${idiomaOrigem}&tl=${idiomaDestino}&dt=t&q=${encodeURI(texto)}`;
+        try {
+            const response = await axios.get(url);
+            const data = response.data;
 
-    useEffect(() => {
-        const fetchAccessToken = async () => {
-            try {
-                const response = await axios.post(
-                    'https://oauth.fatsecret.com/connect/token',
-                    qs.stringify({
-                        grant_type: 'client_credentials',
-                        scope: 'basic'
-                    }),
-                    {
-                        auth: {
-                            username: clientId,
-                            password: clientSecret
-                        },
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded'
-                        }
-                    }
-                );
-                setAccessToken(response.data.access_token);
-            } catch (error) {
-                console.error('Authorization Error:', error);
-                setError('Erro ao obter token de acesso. Tente novamente.');
-            }
-        };
-        fetchAccessToken();
-    }, []);
+            const textoTraduzido = data[0][0][0];
+            return textoTraduzido;
+        } catch (error) {
+            console.error("Erro ao traduzir o texto:", error);
+            return null;
+        }
+    };
 
     const fetchFoodData = async () => {
-        if (!accessToken) {
-            setError('Token de acesso não disponível.');
-            return;
-        }
-
         try {
-            const response = await axios.get('https://platform.fatsecret.com/rest/server.api', {
+            console.log("Consultando tradução para:", query);
+            const queryEn = await traducao(query, 'pt', 'en');
+            console.log("Tradução:", queryEn);
+            if (!queryEn) {
+                setError('Erro ao traduzir o texto. Tente novamente.');
+                return;
+            }
+    
+            const edamamResponse = await axios.get('https://api.edamam.com/api/food-database/v2/parser', {
                 params: {
-                    method: 'foods.search',
-                    search_expression: query,
-                    format: 'json'
-                },
-                headers: {
-                    Authorization: `Bearer ${accessToken}`
+                    app_id: ApplicationID,
+                    app_key: ApplicationKey,
+                    ingr: queryEn
                 }
             });
-
-            const foods = response.data.foods.food;
-            const foodDetails = await Promise.all(foods.map(async food => {
-                const detailsResponse = await axios.get('https://platform.fatsecret.com/rest/server.api', {
-                    params: {
-                        method: 'food.get',
-                        food_id: food.food_id,
-                        format: 'json'
-                    },
-                    headers: {
-                        Authorization: `Bearer ${accessToken}`
-                    }
-                });
-                return detailsResponse.data.food;
+    
+            console.log("Resposta da API Edamam:", edamamResponse.data);
+            if (edamamResponse.data.hints.length === 0) {
+                setError('Nenhum resultado encontrado. Tente outra pesquisa.');
+                return;
+            }
+    
+            const parsedResults = await Promise.all(edamamResponse.data.hints.map(async hint => {
+                const foodNamePt = await traducao(hint.food.label, 'en', 'pt');
+    
+                return {
+                    foodName: foodNamePt,
+                    calories: hint.food.nutrients.ENERC_KCAL ? hint.food.nutrients.ENERC_KCAL.toFixed(1) : "N/A",
+                    proteins: hint.food.nutrients.PROCNT ? hint.food.nutrients.PROCNT.toFixed(1) : "N/A",
+                    carbs: hint.food.nutrients.CHOCDF ? hint.food.nutrients.CHOCDF.toFixed(1) : "N/A",
+                    fats: hint.food.nutrients.FAT ? hint.food.nutrients.FAT.toFixed(1) : "N/A",
+                };
             }));
-
-            setResults(foodDetails);
-        } catch (error) {
-            console.error('Fetch Error:', error);
+    
+            setResults(parsedResults);
+            setError('');
+        } catch (err) {
+            console.error("Erro ao buscar dados:", err);
             setError('Erro ao buscar dados. Tente novamente.');
         }
     };
+    
 
-    const openRedirectUrl = () => {
-        if (Platform.OS === 'android' && typeof Linking !== 'undefined') {
-            Linking.openURL('com.GymPro://oauthredirect');
-        } else {
-            console.warn('Linking.openURL not supported or undefined on this platform');
+    const handleModalandSave = (item) => {
+        setSelectedItem(item);
+        setModalVisible(true);
+    };
+
+    const saveToFirebase = async (item, refeicao, selectedDate) => {
+        try {
+            const auth = getAuth();
+            const user = auth.currentUser;
+            if (user) {
+                const userId = user.uid;
+                const db = getFirestore();
+    
+                // Formate a data selecionada no mesmo formato utilizado no Firestore
+                const formattedDate = moment(dia).format('YYYY-MM-DD');
+    
+                const docRef = doc(db, 'Refeicoes', userId);
+    
+                await setDoc(docRef, {
+                        [formattedDate]: {
+                        [refeicao]: arrayUnion({ ...item })
+                    }
+                }, { merge: true });
+    
+                alert('Adicionado com sucesso!');
+                // Limpar estado local após salvar
+                setResults([]);
+                setQuery('');
+                setModalVisible(false);
+            }
+        } catch (error) {
+            console.error('Erro ao adicionar alimento:', error);
         }
     };
 
+
     return (
         <View style={styles.container}>
-            <Text style={{ textAlign: "center", marginTop: "15%", fontSize: 30 }}>Pesquise Alimentos</Text>
+            <Text style={{ textAlign: "center", marginTop: "23%", fontSize: 30 }}>Pesquise Alimentos</Text>
             <Text style={{ textAlign: "center", marginTop: "2%" }}>Pesquise por alimentos ou pratos para os adicionar a sua dieta!</Text>
-            <TouchableOpacity style={{ position: "absolute", width: 30, height: 20, marginTop: "12%", marginLeft: "5%" }} onPress={() => navigation.navigate("Home")}>
+            <TouchableOpacity style={{ position: "absolute", width: 30, height: 20, marginTop: "12%", marginLeft: "5%" }} onPress={() => navigation.navigate("Dieta")}>
                 <Image style={styles.backimg} source={require("../icons/back_arrow.png")}></Image>
             </TouchableOpacity>
 
@@ -105,27 +127,58 @@ const BuscarAlimentos = ({ navigation }) => {
                 onSubmitEditing={fetchFoodData}
             />
 
-            <TouchableOpacity style={{marginTop:20,borderWidth:1,padding:10,borderRadius:15}} onPress={openRedirectUrl}>
-                <Text>Abrir aplicativo com redirectUrl</Text>
+            <TouchableOpacity style={{ marginTop: 20, borderWidth: 1, padding: 10, borderRadius: 15, alignSelf:"center",marginBottom:10 }} onPress={fetchFoodData}>
+                <Text>Buscar alimento</Text>
             </TouchableOpacity>
 
-            {error && <Text style={styles.error}>{error}</Text>}
+            {error ? <Text style={styles.error}>{error}</Text> : null}
 
             <FlatList
                 data={results}
-                keyExtractor={(item) => item.food_id.toString()}
+                style={{ width: "100%" }}
+                keyExtractor={(item, index) => index.toString()}
                 renderItem={({ item }) => (
                     <View style={styles.resultItem}>
-                        <Text style={styles.foodName}>{item.food_name}</Text>
-                        <Text>Calorias: {item.servings.serving[0].calories}</Text>
-                        <Text>Proteínas: {item.servings.serving[0].protein}g</Text>
-                        <Text>Carboidratos: {item.servings.serving[0].carbohydrate}g</Text>
-                        <Text>Gorduras: {item.servings.serving[0].fat}g</Text>
+                        <Text style={styles.foodName}>{item.foodName}</Text>
+                        <Text><Text style={styles.resulttext}>Quantidade: </Text>Por 100 gramas ou por unidade</Text>
+                        <Text style={{ marginTop: 5, fontSize: 15 }}><Text style={styles.resulttext}>Calorias: </Text>{item.calories}</Text>
+                        <Text style={{ marginTop: 5, fontSize: 15 }}><Text style={styles.resulttext}>Proteínas: </Text>{item.proteins} g</Text>
+                        <Text style={{ marginTop: 5, fontSize: 15 }}><Text style={styles.resulttext}>Carboidratos: </Text>{item.carbs} g</Text>
+                        <Text style={{ marginTop: 5, fontSize: 15 }}><Text style={styles.resulttext}>Gorduras: </Text>{item.fats} g</Text>
+                        <TouchableOpacity style={styles.saveButton} onPress={() => handleModalandSave(item)}>
+                            <Text>Salvar</Text>
+                        </TouchableOpacity>
                     </View>
                 )}
             />
+
             
-            <StatusBar style="auto" />
+            <Modal animationType="slide" transparent={true} visible={modalVisible} onRequestClose={() => setModalVisible(false)}>
+                <View style={styles.modalView}>
+
+                    <Text style={styles.modalText}>Em qual refeição deseja adicionar esse alimento ?</Text>
+
+                    <TouchableOpacity style={styles.div} onPress={() => saveToFirebase(selectedItem, "Pequeno Almoço")}>
+                        <Text style={styles.modalTxt}>Pequeno Almoço</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.div} onPress={() => saveToFirebase(selectedItem, "Almoço")}>
+                         <Text style={styles.modalTxt}>Almoço</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.div} onPress={() => saveToFirebase(selectedItem, "Lanche")}>
+                        <Text style={styles.modalTxt}>Lanche</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.div} onPress={() => saveToFirebase(selectedItem, "Jantar")}>
+                        <Text style={styles.modalTxt}>Jantar</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.botoes} onPress={() => setModalVisible(false)}>
+                        <Text style={{ fontFamily: "Zing.rust" }}>Fechar</Text>
+                    </TouchableOpacity>
+                </View>
+            </Modal>
         </View>
     );
 };
@@ -134,7 +187,56 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-        alignItems: 'center',
+    },
+    div:{
+        alignSelf:"center",
+        width:"90%",
+        borderWidth:1,
+        borderRadius:15,
+        padding:20,
+        marginBottom:20
+    },
+    modalText: {
+        marginBottom: 15,
+        textAlign: 'center',
+        fontSize: 20,
+        fontFamily: "Zing.rust"
+    },
+    modalTxt: {
+        textAlign: 'center',
+        fontSize: 20,
+        fontFamily: "Zing.rust"
+    },
+    modalView: {
+        height: "95%",
+        margin: 20,
+        backgroundColor: 'white',
+        borderRadius: 20,
+        padding: 35,
+        shadowColor: '#000',
+        shadowOffset: {
+          width: 0,
+          height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
+        borderWidth: 1
+    },
+    botoes: {
+        padding: "5%",
+        borderWidth: 1,
+        borderRadius: 20,
+        marginTop: "5%",
+        alignSelf: "center"
+    },
+    input: {
+        height: 40,
+        borderColor: 'gray',
+        borderWidth: 1,
+        marginBottom: 20,
+        paddingHorizontal: 10,
+        borderRadius: 10,
     },
     backimg: {
         width: 50,
@@ -154,14 +256,30 @@ const styles = StyleSheet.create({
     },
     resultItem: {
         borderWidth: 1,
-        borderColor: '#ddd',
-        borderRadius: 5,
+        borderRadius: 15,
         padding: 10,
         marginVertical: 5,
-        width: '90%',
+        width: '70%',
+        alignItems: 'center',
+        alignSelf: "center"
+    },
+    resulttext: {
+        fontFamily: "Zing.rust",
+        fontSize: 15,
+        marginBottom: 10
     },
     foodName: {
-        fontWeight: 'bold',
+        fontFamily: "Zing.rust",
+        fontSize: 20,
+        marginBottom: 10
+    },
+    saveButton: {
+        marginTop: 10,
+        padding: 10,
+        borderWidth: 1,
+        borderRadius: 15,
+        width: "50%",
+        alignItems: "center"
     },
 });
 

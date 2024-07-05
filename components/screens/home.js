@@ -13,18 +13,16 @@ const Home = ({navigation}) => {
     return (
         <View style={styles.content}>
             <View style={styles.top}>
-                <Image style={styles.imguser} source={require("../icons/profile-user.png")} />
-                <Text style={styles.text}>Olá, {NomeUtilizador}</Text>
+                <Text style={styles.text}>GymPro</Text>
             </View>
 
             <View style={styles.center}>
-                <Text style={{marginTop:"6%",marginLeft:"5%",fontSize:25}}>Ainda não sei!</Text>
-                <Text style={{marginTop:"1%",marginLeft:"5%",fontSize:15}}>Texto atoa que ainda tenho que pensar</Text>
-                <TouchableOpacity onPress={() => alert("clicado")} style={styles.treino}>
+                <TouchableOpacity onPress={() => navigation.navigate("Exercicios")} style={styles.treino}>
                     <ImageBackground style={styles.backgroundimg} source={require("../imgs/div_semfundo.png")}>
                         <View>
-                            <Text style={{marginTop:"7%",marginLeft:"7%",fontSize:23}}>Treino de Peito</Text>
-                            <Text style={{marginLeft:"8%",fontSize:20}}>Hipertrofia</Text>
+                            <Text style={{marginTop:"7%",marginLeft:"7%",fontSize:23}}>Exercícios</Text>
+                            <Text style={{marginLeft:"7%",fontSize:20}}>Veja nossos</Text>
+                            <Text style={{marginLeft:"7%",fontSize:20}}>Exercícios</Text>
                         </View>
                     </ImageBackground>
                 </TouchableOpacity>
@@ -32,7 +30,7 @@ const Home = ({navigation}) => {
                     <ImageBackground style={styles.backgroundimg} source={require("../imgs/div_semfundo_favoritos.png")}>
                         <View>
                             <Text style={{marginTop:"7%",marginLeft:"5%",fontSize:23}}>Favoritos</Text>
-                            <Text style={{marginLeft:"4%",fontSize:20}}>Veja seus{"\n"}Exercicios favoritos</Text>
+                            <Text style={{marginLeft:"4%",fontSize:20}}>Veja seus{"\n"}Exercícios favoritos</Text>
                         </View>
                     </ImageBackground>
                 </TouchableOpacity>
@@ -59,16 +57,15 @@ const styles = StyleSheet.create({
         marginRight:10
     },
     top: {
-        flexDirection: 'row-reverse', // Alinha itens em uma linha
         alignItems: 'center', // Alinha os itens verticalmente
-        justifyContent: 'space-between', // Distribui os itens horizontalmente
         width: "100%",
         padding: 10,
-        paddingTop:40
+        paddingTop:40,
+        height:"12%"
     },
     text: {
-        marginLeft: 10,
-        fontSize:30
+        fontFamily:"Zing.rust",
+        fontSize:40
     },
     center:{
         height:"40%",
@@ -78,7 +75,7 @@ const styles = StyleSheet.create({
     treino:{
         height:"50%",
         width:"85%",
-        marginTop:"6%",
+        marginTop:"10%",
         alignSelf:"center",
         borderRadius:15,
         overflow: "hidden", // Para garantir que as bordas não sejam afetadas pela imagem de fundo

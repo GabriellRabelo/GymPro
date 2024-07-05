@@ -77,7 +77,6 @@ const Progresso = ({navigation}) => {
     };
 
     const [exercicios, setExercicios] = useState(ExerciciosData);
-    const [modalVisible, setModalVisible] = useState(false);
     const [selectedExercicio, setSelectedExercicio] = useState(null);
     const [initialWeight, setInitialWeight] = useState("");
     const [newWeight, setNewWeight] = useState("");
@@ -114,62 +113,6 @@ const Progresso = ({navigation}) => {
                     })}
                 </View>
             </ScrollView>
-
-            <Modal animationType="slide" transparent={true} visible={modalVisible} onRequestClose={() => setModalVisible(false)}>
-                <View style={styles.modalView}>
-                    <ScrollView contentContainerStyle={{height:"100%", width:"100%"}}>
-                        {selectedExercicio && (
-                            <>
-                                <Text style={styles.modalText}>{selectedExercicio.Nome_Exercicio}</Text>
-                                <Image style={styles.modalImage} source={getImageSource(selectedExercicio.Nome_Exercicio)} />
-                                <TextInput
-                                    style={styles.input}
-                                    placeholder="Peso inicial"
-                                    keyboardType="numeric"
-                                    value={initialWeight}
-                                    onChangeText={setInitialWeight}
-                                />
-                                <TextInput
-                                    style={styles.input}
-                                    placeholder="Novo peso"
-                                    keyboardType="numeric"
-                                    value={newWeight}
-                                    onChangeText={setNewWeight}
-                                />
-                                <TouchableOpacity style={styles.botoes}>
-                                    <Text style={{ fontFamily: "Zing.rust" }}>Salvar</Text>
-                                </TouchableOpacity>
-                                {weightData.length > 0 && (
-                                    <LineChart
-                                        data={data}
-                                        width={Dimensions.get('window').width - 90}
-                                        height={230}
-                                        yAxisLabel=""
-                                        chartConfig={{
-                                            backgroundColor: '#e26a00',
-                                            backgroundGradientFrom: '#fb8c00',
-                                            backgroundGradientTo: '#ffa726',
-                                            decimalPlaces: 2,
-                                            color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                                            style: {
-                                                borderRadius: 16
-                                            }
-                                        }}
-                                        style={{
-                                            marginVertical: 8,
-                                            borderRadius: 16
-                                        }}
-                                    />
-                                )}
-                            </>
-                        )}
-
-                        <TouchableOpacity style={styles.botoes} onPress={() => setModalVisible(false)}>
-                            <Text style={{ fontFamily: "Zing.rust" }}>Fechar</Text>
-                        </TouchableOpacity>
-                    </ScrollView>
-                </View>
-            </Modal>
         </View>
     );
 };

@@ -370,7 +370,7 @@ const Calendario = () => {
                     value.toDateString() === item.date.toDateString();
                   return (
                     <TouchableWithoutFeedback key={dateIndex} onPress={() => setValue(item.date)}>
-                      <View style={[styles.item, isActive && { backgroundColor: '#111', borderColor: '#111', }]}>
+                      <View style={[styles.item, isActive && { backgroundColor: '#111', borderColor: '#111' }]}>
                         <Text style={[styles.itemWeekday, isActive && { color: '#fff' }]}>
                           {item.weekday}
                         </Text>
@@ -394,6 +394,7 @@ const Calendario = () => {
           <TouchableOpacity onPress={() => handleOpeninfoModal()} style={{marginLeft:"75%",marginTop:"-11%",marginBottom:"3%",width:"10%"}}>
             <Image style={{width:30,height:30}} source={require("../icons/info.png")}></Image>
           </TouchableOpacity>
+
           <View style={styles.placeholder}>
             <View style={styles.placeholderInset}>
               <Text style={{fontFamily: "Zing.rust",fontSize:20,marginBottom:"5%"}}>Seu treino para este dia:</Text>
@@ -579,7 +580,7 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontWeight: '600',
     color: '#999999',
-    marginBottom: 12,
+    marginBottom: 18,
   },
   footer: {
     marginTop: 'auto',
@@ -626,7 +627,7 @@ const styles = StyleSheet.create({
   },
   placeholderInset: {
     borderWidth: 4,
-    borderColor: '#e5e7eb',
+    borderColor: 'rgba(0,0,0,0.3)',
     borderStyle: 'dashed',
     borderRadius: 9,
     flexGrow: 1,

@@ -773,6 +773,16 @@
     "Creator": "Admin",
     "RealizaremCasa": false
   },
+  {
+    "Musculo": "Oblíquos",
+    "Descricao": "De lado coloca o cotovelo apoiado no colchão, alinhado com o ombro, com as pernas esticadas, apoia um pé em frente ao outro para estabilizar e mantém a bacia elevada mantendo também as costas e o pescoço alinhado. Há sempre a opção de apoiar o joelho da perna que está em baixo alinhando-o com o joelho de cima mantendo a mesma posição.",
+    "Nome_Exercicio": "Pranha Lateral",
+    "Series": "3 a 4",
+    "Repeticoes": "15 a 20",
+    "Foco_Muscular": "Musculo Isolado",
+    "Creator": "Admin",
+    "RealizaremCasa": true
+  },
 
   {
     "Musculo": "Cardio",
