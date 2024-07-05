@@ -97,20 +97,9 @@ const Login =({navigation}) => {
                         <Text style={{...styles.fonttexto,textAlign:"center", color:"white",marginTop:"1%"}}>Login</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.botoes}>
-                        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                        <Image style={{ width: "8%", height: 20, marginRight: "1%" , marginLeft:"20%" }} source={require("../imgs/Google.png")} resizeMode='contain' />
-                        <Text style={{ ...styles.fonttexto,marginLeft:"5%", color: "white" }}>Login com o Google</Text>
-                        </View>
-                    </TouchableOpacity>
-
                     <Text style={{...styles.fonttexto,textAlign:"center",marginBottom:"2%"}}>Não tem uma conta?</Text>
                     <TouchableOpacity style={{...styles.botoes,width:"30%",marginBottom:"2%"}} onPress={() => navigation.replace("Cadastro")}>
                         <Text style={{...styles.fonttexto,textAlign:"center",textDecorationLine:"underline",color:"white",marginTop:"1%"}}>Crie uma</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity>
-                        <Text style={{...styles.fonttexto,textAlign:"center",textDecorationLine:"underline"}}>Esqueci minha senha</Text>
                     </TouchableOpacity>
 
                 </View>

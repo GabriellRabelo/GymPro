@@ -151,21 +151,25 @@ const Treinos = () => {
                     const data = docSnap.data();
                     const treinoExercicios = data[musculo] || [];
     
-                    if (!treinoExercicios.includes(exercicio)) {
+                    const exercicioIndex = treinoExercicios.findIndex(e => e.Nome_Exercicio === exercicio.Nome_Exercicio);
+    
+                    if (exercicioIndex === -1) {
                         alert('Este exercício não está no treino!');
                         return;
                     }
+    
+                    // Remover o exercício do array
+                    treinoExercicios.splice(exercicioIndex, 1);
+    
+                    // Atualizar o Firestore com o novo array de exercícios
+                    await updateDoc(docRef, {
+                        [musculo]: treinoExercicios
+                    });
+    
+                    // Exibir o alerta de sucesso e atualizar a lista de exercícios no estado
+                    alert('Exercício removido do treino com sucesso!');
+                    setExercicios(treinoExercicios);
                 }
-    
-                await updateDoc(docRef, {
-                    [musculo]: arrayRemove(exercicio)
-                }, { merge: true });
-    
-                // Exibir o alerta apenas quando um exercício é removido
-                alert('Exercício removido do treino com sucesso!');
-                // Atualizar a lista de exercícios após a remoção
-                const updatedExercicios = treinoExercicios.filter(e => e !== exercicio);
-                setExercicios(updatedExercicios);
             }
         } catch (error) {
             console.error('Erro ao remover treino:', error);
@@ -201,6 +205,8 @@ const Treinos = () => {
                             <Text style={{marginTop:5}}><Text style={styles.txts}>Repetições: </Text>{exercicio.Repeticoes}</Text>
                             <Text style={{marginTop:5}}><Text style={styles.txts}>Descrição: </Text>{exercicio.Descricao}</Text>
                         </TouchableOpacity>
+
+                        
 
                         <Modal animationType='slide' transparent={true} visible={modalExercicioIndex === index} onRequestClose={CloseModal}>
                             <View style={styles.modalView}>
